@@ -1,0 +1,81 @@
+plugins {
+	id "java"
+	id "application"
+	id "edu.wpi.first.GradleRIO" version "2019.4.1"
+}
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+// Define my targets (RoboRIO) and artifacts (deployable files)
+// This is added by GradleRIO's backing project EmbeddedTools.
+deploy {
+	targets {
+		roboRIO("roborio") {
+			team = frc.getTeamOrDefault(25)
+		}
+	}
+	artifacts {
+		frcJavaArtifact('frcJava') {
+			targets << "roborio"
+			// Debug can be overridden by command line, for use with VSCode
+			debug = frc.getDebugOrDefault(false)
+		}
+		// Built in artifact to deploy arbitrary files to the roboRIO.
+		fileTreeArtifact('frcStaticFileDeploy') {
+			// The directory below is the local directory to deploy
+			files = fileTree(dir: 'src/main/deploy')
+			// Deploy to RoboRIO target, into /home/lvuser/deploy
+			targets << "roborio"
+			directory = '/home/lvuser/deploy'
+		}
+	}
+}
+
+// Set this to true to enable desktop support.
+def includeDesktopSupport = false
+
+// Maven central needed for JUnit
+repositories {
+	jcenter()
+	maven {
+		url 'http://devsite.ctr-electronics.com/maven/release/'
+	}
+	maven {
+		url 'http://www.revrobotics.com/content/sw/max/sdk/maven/'
+	}
+	mavenLocal()
+}
+
+dependencies {
+	// https://www.kauailabs.com/dist/frc/2019/navx_frc.json
+	implementation "com.kauailabs.navx.frc:navx-java:latest.release"
+
+	// http://devsite.ctr-electronics.com/maven/release/com/ctre/phoenix/Phoenix-latest.json
+	// implementation "com.ctre.phoenix:api-java:latest.release"
+	// implementation "com.ctre.phoenix:wpiapi-java:latest.release"
+	// implementation "com.ctre.phoenix:cci:latest.release"
+	// implementation "com.ctre.phoenix:canutils:latest.release"
+	// implementation "com.ctre.phoenix:platform-stub:latest.release"
+
+	// http://www.revrobotics.com/content/sw/max/sdk/REVRobotics.json
+	implementation "com.revrobotics.frc:SparkMax-java:latest.release"
+	implementation "com.revrobotics.frc:SparkMax-driver:latest.release"
+
+	implementation "com.ctre.phoenix:phoenix:latest.release"
+
+
+	implementation wpi.deps.wpilib()
+	implementation wpi.deps.vendor.java()
+	nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
+	nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
+}
+
+// Fat jar and Manifest
+jar {
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+application {
+	mainClassName = "com.raiderrobotix._2020.Robot"
+}
