@@ -19,30 +19,30 @@ public class DriveBase extends Subsystem implements PIDOutput {
 
 	public static final DriveBase drives = new DriveBase();
 
-	private final int LEFT_FRONT_DRIVE_CAN_ID = 2;
-	private final int LEFT_BACK_DRIVE_CAN_ID = 1;
-	private final int RIGHT_FRONT_DRIVE_CAN_ID = 3;
-	private final int RIGHT_BACK_DRIVE_CAN_ID = 4;
+	private static final int LEFT_FRONT_DRIVE_CAN_ID = 2;
+	private static final int LEFT_BACK_DRIVE_CAN_ID = 1;
+	private static final int RIGHT_FRONT_DRIVE_CAN_ID = 3;
+	private static final int RIGHT_BACK_DRIVE_CAN_ID = 4;
 
-	private final CANSparkMax leftFrontSpark = new CANSparkMax(LEFT_FRONT_DRIVE_CAN_ID, MotorType.kBrushless);
-	private final CANSparkMax leftBackSpark = new CANSparkMax(LEFT_BACK_DRIVE_CAN_ID, MotorType.kBrushless);
-	private final CANSparkMax rightFrontSpark = new CANSparkMax(RIGHT_FRONT_DRIVE_CAN_ID, MotorType.kBrushless);
-	private final CANSparkMax rightBackSpark = new CANSparkMax(RIGHT_BACK_DRIVE_CAN_ID, MotorType.kBrushless);
+	private static final CANSparkMax leftFrontSpark = new CANSparkMax(LEFT_FRONT_DRIVE_CAN_ID, MotorType.kBrushless);
+	private static final CANSparkMax leftBackSpark = new CANSparkMax(LEFT_BACK_DRIVE_CAN_ID, MotorType.kBrushless);
+	private static final CANSparkMax rightFrontSpark = new CANSparkMax(RIGHT_FRONT_DRIVE_CAN_ID, MotorType.kBrushless);
+	private static final CANSparkMax rightBackSpark = new CANSparkMax(RIGHT_BACK_DRIVE_CAN_ID, MotorType.kBrushless);
 
-	private final double TIRE_CIRCUMFERENCE = 28.375; // TODO
+	private static final double TIRE_CIRCUMFERENCE = 28.375; // TODO
 
-	private final double GEAR_RATIO = 0.047619; // 0.0714286; // TODO
-	private final double INCHES_PER_REVOLUTION = GEAR_RATIO * TIRE_CIRCUMFERENCE;
+	private static final double GEAR_RATIO = 0.047619; // 0.0714286; // TODO
+	private static final double INCHES_PER_REVOLUTION = GEAR_RATIO * TIRE_CIRCUMFERENCE;
 
-	private final boolean RIGHT_DRIVE_MOTORS_INVERTED = true; // TODO
-	private final boolean LEFT_DRIVE_MOTORS_INVERTED = false; // TODO
+	private static final boolean RIGHT_DRIVE_MOTORS_INVERTED = true; // TODO
+	private static final boolean LEFT_DRIVE_MOTORS_INVERTED = false; // TODO
 
-	private final CANEncoder leftEncoder = leftFrontSpark.getEncoder();
-	private final CANEncoder rightEncoder = rightFrontSpark.getEncoder();
+	private static final CANEncoder leftEncoder = leftFrontSpark.getEncoder();
+	private static final CANEncoder rightEncoder = rightFrontSpark.getEncoder();
 
-	private final AnalogInput ultrasonic = new AnalogInput(0);
+	private static final AnalogInput ultrasonic = new AnalogInput(0);
 
-	private final AHRS navX = new AHRS(Port.kUSB1);
+	private static final AHRS navX = new AHRS(Port.kUSB1);
 
 	private DriveBase() {
 		leftFrontSpark.setInverted(LEFT_DRIVE_MOTORS_INVERTED);

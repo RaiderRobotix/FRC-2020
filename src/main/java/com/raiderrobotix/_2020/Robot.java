@@ -9,8 +9,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends TimedRobot {
 
-	private Command autonomousCommand;
-	private final SendableChooser<Command> chooser = new SendableChooser<>();
+	private static Command autonomousCommand;
+	private static final SendableChooser<Command> chooser = new SendableChooser<>();
 
 	private Robot() {
 		SmartDashboard.putData(Scheduler.getInstance());
