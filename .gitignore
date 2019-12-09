@@ -156,5 +156,11 @@ gradle-app.setting
 .settings/
 bin/
 
-
 # End of https://www.gitignore.io/api/c++,java,linux,macos,gradle,windows,visualstudiocode
+
+FRC2020.iml
+FRC2020.ipr
+FRC2020.iws
+FRC2020.main.iml
+FRC2020.test.iml
+.kotlin-for-frc/kotlin-frc-preferences.json
