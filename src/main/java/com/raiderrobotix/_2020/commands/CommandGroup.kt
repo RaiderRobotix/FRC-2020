@@ -1,17 +1,30 @@
 package com.raiderrobotix._2020.commands
 
-import edu.wpi.first.wpilibj.command.CommandGroup
-
 /**
  * @author Hybras
  */
-abstract class CommandGroup() : CommandGroup() {
+@DslMarker
+annotation class CommandGrouping
 
-    protected operator fun Command.unaryPlus() {
-        addSequential(this)
-    }
+typealias commandClause = CommandGroup.() -> Unit
+typealias wpiCommand = edu.wpi.first.wpilibj.command.Command
+typealias wpiCommandGroup = edu.wpi.first.wpilibj.command.CommandGroup
 
- 	protected operator fun Command.not(){
-        addParallel(this)
-    }
+
+@CommandGrouping
+sealed class CommandGroup(commands:commandClause) : wpiCommandGroup() {
+	internal abstract operator fun Command.unaryPlus()
+	
+	init {
+		commands()
+	}
+	
+}
+
+open class sequential(commands: commandClause) : CommandGroup(commands) {
+	override fun Command.unaryPlus () = addSequential(this)
+}
+
+open class parallel(commands: commandClause) : CommandGroup(commands) {
+	override fun Command.unaryPlus () = addParallel(this)
 }

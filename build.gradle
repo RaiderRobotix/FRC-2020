@@ -71,12 +71,11 @@ dependencies {
 	// implementation "com.ctre.phoenix:canutils:latest.release"
 	// implementation "com.ctre.phoenix:platform-stub:latest.release"
 
+	implementation "com.ctre.phoenix:phoenix:latest.release"
+
 	// http://www.revrobotics.com/content/sw/max/sdk/REVRobotics.json
 	implementation "com.revrobotics.frc:SparkMax-java:latest.release"
 	implementation "com.revrobotics.frc:SparkMax-driver:latest.release"
-
-	implementation "com.ctre.phoenix:phoenix:latest.release"
-
 
 	implementation wpi.deps.wpilib()
 	implementation wpi.deps.vendor.java()
