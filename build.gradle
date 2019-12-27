@@ -34,16 +34,16 @@ deploy {
 }
 
 // Set this to true to enable desktop support.
-def includeDesktopSupport = false
+def includeDesktopSupport = true
 
 // Maven central needed for JUnit
 repositories {
 	jcenter()
 	maven {
-		url "http://devsite.ctr-electronics.com/maven/release/"
+		url "https://devsite.ctr-electronics.com/maven/release/"
 	}
 	maven {
-		url "http://www.revrobotics.com/content/sw/max/sdk/maven/"
+		url "https://www.revrobotics.com/content/sw/max/sdk/maven/"
 	}
 	mavenLocal()
 }
@@ -62,8 +62,7 @@ dependencies {
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit"
 
 	// https://www.kauailabs.com/dist/frc/2019/navx_frc.json
-	implementation "com.kauailabs.navx.frc:navx-java:latest.release"
-
+	implementation "com.kauailabs.navx.frc:navx-java:3.1.377"
 	// http://devsite.ctr-electronics.com/maven/release/com/ctre/phoenix/Phoenix-latest.json
 	// implementation "com.ctre.phoenix:api-java:latest.release"
 	// implementation "com.ctre.phoenix:wpiapi-java:latest.release"
