@@ -27,6 +27,6 @@ class Turn(private val angle: Double, private val speed: Double) : Command() {
 		DriveBase.speed = 0.0
 	}
 	
-	override fun isFinished(): Boolean  = abs(DriveBase.gyroAngle - angle) < TURN_TOLERANCE
+	override fun isFinished(): Boolean = abs(DriveBase.gyroAngle - angle) < TURN_TOLERANCE
 	
 }

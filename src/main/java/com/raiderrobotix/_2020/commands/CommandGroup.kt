@@ -12,7 +12,7 @@ typealias wpiCommandGroup = edu.wpi.first.wpilibj.command.CommandGroup
 
 
 @CommandGrouping
-sealed class CommandGroup(commands:commandClause) : wpiCommandGroup() {
+sealed class CommandGroup(commands: commandClause) : wpiCommandGroup() {
 	internal abstract operator fun Command.unaryPlus()
 	
 	init {
@@ -22,9 +22,9 @@ sealed class CommandGroup(commands:commandClause) : wpiCommandGroup() {
 }
 
 open class sequential(commands: commandClause) : CommandGroup(commands) {
-	override fun Command.unaryPlus () = addSequential(this)
+	override fun Command.unaryPlus() = addSequential(this)
 }
 
 open class parallel(commands: commandClause) : CommandGroup(commands) {
-	override fun Command.unaryPlus () = addParallel(this)
+	override fun Command.unaryPlus() = addParallel(this)
 }

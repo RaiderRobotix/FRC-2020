@@ -88,7 +88,7 @@ object DriveBase : Subsystem(), PIDOutput {
 		builder.setSafeState { speed = 0.0 }
 		builder.addDoubleProperty("leftDistance", ::leftDistance, null)
 		builder.addDoubleProperty("rightDistance", ::rightDistance, null)
-		val firmwareSupplier = { arrayOf<String>("Left Front " + leftFrontSpark.firmwareString, "Left Back " + leftBackSpark.getFirmwareString(), "Right Front" + rightFrontSpark.getFirmwareString(), "Right Back " + rightBackSpark.getFirmwareString()) }
+		val firmwareSupplier = { arrayOf<String>("Left Front " + leftFrontSpark.firmwareString, "Left Back " + leftBackSpark.firmwareString, "Right Front" + rightFrontSpark.firmwareString, "Right Back " + rightBackSpark.firmwareString) }
 		builder.addStringArrayProperty("firmware", firmwareSupplier, null)
 		builder.addDoubleProperty("Gyro", ::gyroAngle, null)
 	}

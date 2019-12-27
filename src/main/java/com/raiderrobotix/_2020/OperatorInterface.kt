@@ -24,7 +24,7 @@ object OperatorInterface : SendableBase() {
 	private const val OPERATOR_JOYSTICK_PORT = 2
 	private const val JOYSTICK_DEADBAND = 0.15
 	
-	operator fun Joystick.get(index: Int): JoystickButton = JoystickButton(this,index)
+	operator fun Joystick.get(index: Int): JoystickButton = JoystickButton(this, index)
 	
 	operator fun JoystickButton.invoke(): Boolean = this.get()
 	
