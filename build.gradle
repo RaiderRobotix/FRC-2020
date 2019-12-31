@@ -87,6 +87,12 @@ jar {
 	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
 
+compileKotlin {
+	kotlinOptions {
+		jvmTarget = "11"
+	}
+}
+
 application {
 	mainClassName = "com.raiderrobotix._2020.Robot"
 }
