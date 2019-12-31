@@ -4,8 +4,8 @@ import edu.wpi.first.cameraserver.CameraServer
 
 object Vision {
 	
-	private val cameraServer = CameraServer.getInstance()
-	private val camera = cameraServer.startAutomaticCapture("FrontCam", 0)
+	private val cameraServer = CameraServer.getInstance()!!
+	private val camera = cameraServer.startAutomaticCapture("FrontCam", 0)!!
 	
 	private const val img_height = 180
 	private const val img_width = 320
