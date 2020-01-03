@@ -1,9 +1,8 @@
 plugins {
-	// id "java"
 	id "idea"
 	id "eclipse"
 	id "application"
-	id "edu.wpi.first.GradleRIO" version "2019.4.1"
+	id "edu.wpi.first.GradleRIO" version "2020.1.1"
 	id "org.jetbrains.kotlin.jvm" version "1.3.41"
 }
 
@@ -13,7 +12,7 @@ plugins {
 deploy {
 	targets {
 		roboRIO("roborio") {
-			team = frc.getTeamOrDefault(25)
+			team = frc.getTeamNumber()
 		}
 	}
 	artifacts {
@@ -45,6 +44,9 @@ repositories {
 	maven {
 		url "https://www.revrobotics.com/content/sw/max/sdk/maven/"
 	}
+	maven { 
+		url 'https://jitpack.io'
+	}
 	mavenLocal()
 }
 
@@ -62,24 +64,28 @@ dependencies {
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit"
 
 	// https://www.kauailabs.com/dist/frc/2019/navx_frc.json
-	implementation "com.kauailabs.navx.frc:navx-java:3.1.377"
+	implementation "com.kauailabs.navx.frc:navx-java:3.+"
 	// http://devsite.ctr-electronics.com/maven/release/com/ctre/phoenix/Phoenix-latest.json
 	// implementation "com.ctre.phoenix:api-java:latest.release"
 	// implementation "com.ctre.phoenix:wpiapi-java:latest.release"
 	// implementation "com.ctre.phoenix:cci:latest.release"
 	// implementation "com.ctre.phoenix:canutils:latest.release"
-	// implementation "com.ctre.phoenix:platform-stub:latest.release"
 
 	implementation "com.ctre.phoenix:phoenix:latest.release"
 
-	// http://www.revrobotics.com/content/sw/max/sdk/REVRobotics.json
-	implementation "com.revrobotics.frc:SparkMax-java:latest.release"
-	implementation "com.revrobotics.frc:SparkMax-driver:latest.release"
+	implementation 'com.github.hybras:SparkMax:1.4.1'
 
+	// WPI dependencies
 	implementation wpi.deps.wpilib()
-	implementation wpi.deps.vendor.java()
-	nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
-	nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
+    nativeZip wpi.deps.wpilibJni(wpi.platforms.roborio)
+    nativeDesktopZip wpi.deps.wpilibJni(wpi.platforms.desktop)
+
+    implementation wpi.deps.vendor.java()
+    nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
+    nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
+
+    simulation wpi.deps.sim.gui(wpi.platforms.desktop, false)
+	
 }
 
 // Fat jar and Manifest
