@@ -3,6 +3,7 @@ package com.raiderrobotix._2020
 import com.raiderrobotix._2020.commands.Command
 import com.raiderrobotix._2020.commands.DoNothing
 import com.raiderrobotix._2020.commands.Teleop
+import com.raiderrobotix._2020.util.Vision
 import edu.wpi.first.wpilibj.RobotBase
 import edu.wpi.first.wpilibj.TimedRobot
 import edu.wpi.first.wpilibj.command.Scheduler
@@ -15,6 +16,7 @@ object Robot : TimedRobot() {
 	
 	init {
 		chooser.setDefaultOption("Do Nothing", DoNothing())
+		Vision
 	}
 	
 	private val teleop = Teleop()
