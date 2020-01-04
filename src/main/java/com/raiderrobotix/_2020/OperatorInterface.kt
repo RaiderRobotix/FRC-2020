@@ -50,9 +50,7 @@ object OperatorInterface : SendableBase() {
 		}
 	
 	val operatorY: Double
-		get() {
-			return operatorStick.y
-		}
+		get() = operatorStick.y
 	
 	val operatorTrigger: Boolean
 		get() = operatorStick.trigger
