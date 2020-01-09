@@ -70,8 +70,7 @@ dependencies {
 	implementation "org.ghrobotics.FalconLibrary:vendorNAVX:2020.1.2"
 	implementation "org.ghrobotics.FalconLibrary:vendorREV:2020.1.2"
 	
-	implementation "com.ctre.phoenix:phoenix:latest.release"
-
+	implementation "com.github.hybras:CTRE-Phoenix:Tag"
 	implementation "com.github.hybras:SparkMax:1.4.1"
 
 	implementation "edu.wpi.first.wpilibNewCommands:wpilibNewCommands-java:2020.1.1"
