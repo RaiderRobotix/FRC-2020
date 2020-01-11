@@ -31,8 +31,6 @@ deploy {
 	}
 }
 
-// Set this to true to enable desktop support.
-def includeDesktopSupport = true
 
 // Maven central needed for JUnit
 repositories {
@@ -62,16 +60,12 @@ dependencies {
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit"
 
 	// https://www.kauailabs.com/dist/frc/2019/navx_frc.json
-	implementation "com.kauailabs.navx.frc:navx-java:3.+"
-	
-	implementation "org.ghrobotics.FalconLibrary:core:2020.1.2"
-	implementation "org.ghrobotics.FalconLibrary:wpi:2020.1.2"
-	implementation "org.ghrobotics.FalconLibrary:vendorCTRE:2020.1.2"
-	implementation "org.ghrobotics.FalconLibrary:vendorNAVX:2020.1.2"
-	implementation "org.ghrobotics.FalconLibrary:vendorREV:2020.1.2"
-	
-	implementation "com.github.hybras:CTRE-Phoenix:Tag"
+//	implementation "com.kauailabs.navx.frc:navx-java:3.1.400"
+
+	implementation "org.ghrobotics:FalconLibrary:2020.1.2"
+	implementation "com.github.hybras:CTRE-Phoenix:5.14.1"
 	implementation "com.github.hybras:SparkMax:1.4.1"
+	implementation "com.github.TeamMeanMachine:meanlib:frc2019-SNAPSHOT"
 
 	implementation "edu.wpi.first.wpilibNewCommands:wpilibNewCommands-java:2020.1.1"
 
