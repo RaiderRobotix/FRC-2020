@@ -84,6 +84,12 @@ dependencies {
 
 // Fat jar and Manifest
 jar {
+	manifest {
+		attributes (
+			'Main-Class': 'com.raiderrobotix._2020.Robot'
+		)
+		
+	}
 	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
 
