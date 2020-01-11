@@ -36,8 +36,7 @@ object LimeLight : Sendable {
 	 */
 	val targetFound: Boolean get() = Table.tv.getDouble(0.0) == 0.0
 	
-	val processing: Boolean
-		get() = Table.camMode.getDouble(0.0) == 0.0
+	val processing: Boolean get() = Table.camMode.getDouble(0.0) == 0.0
 	
 	enum class LedMode(internal val value: Int) {
 		default(0), off(1), blink(2), on(3)

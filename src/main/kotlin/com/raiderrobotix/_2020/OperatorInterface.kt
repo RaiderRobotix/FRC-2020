@@ -1,13 +1,12 @@
 package com.raiderrobotix._2020
 
 import edu.wpi.first.wpilibj.Joystick
-import edu.wpi.first.wpilibj.SendableBase
-import edu.wpi.first.wpilibj.buttons.JoystickButton
+import edu.wpi.first.wpilibj.Sendable
 import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import kotlin.math.abs
 
-object OperatorInterface : SendableBase() {
+object OperatorInterface : Sendable {
 	
 	init {
 		SmartDashboard.putData(this)
@@ -23,11 +22,6 @@ object OperatorInterface : SendableBase() {
 	private const val RIGHT_JOYSTICK_PORT = 1
 	private const val OPERATOR_JOYSTICK_PORT = 2
 	private const val JOYSTICK_DEADBAND = 0.15
-	
-	operator fun Joystick.get(index: Int): JoystickButton = JoystickButton(this, index)
-	
-	operator fun JoystickButton.invoke(): Boolean = this.get()
-	
 	
 	// Joysticks
 	val leftStick = Joystick(LEFT_JOYSTICK_PORT)
