@@ -1,12 +1,12 @@
 package com.raiderrobotix._2020;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.SendableBase;
+import edu.wpi.first.wpilibj.Sendable;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class OperatorInterface extends SendableBase {
+public class OperatorInterface implements Sendable {
 
 	public static final OperatorInterface input = new OperatorInterface();
 
