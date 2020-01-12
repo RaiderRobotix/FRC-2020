@@ -79,6 +79,7 @@ object DriveBase : Subsystem(name="Drives") {
 	
 	override fun reset() {
 //		navX.reset()
+		speed = 0.0
 		leftEncoder.position = 0.0
 		rightEncoder.position = 0.0
 	}

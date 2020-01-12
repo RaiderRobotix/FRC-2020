@@ -82,14 +82,11 @@ dependencies {
 	
 }
 
+def MAIN_CLASS = "com.raiderrobotix._2020.Robot"
+
 // Fat jar and Manifest
 jar {
-	manifest {
-		attributes (
-			'Main-Class': 'com.raiderrobotix._2020.Robot'
-		)
-		
-	}
+	manifest edu.wpi.first.gradlerio.GradleRIOPlugin.javaManifest(MAIN_CLASS)
 	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
 
@@ -100,5 +97,5 @@ compileKotlin {
 }
 
 application {
-	mainClassName = "com.raiderrobotix._2020.Robot"
+	mainClassName = MAIN_CLASS
 }

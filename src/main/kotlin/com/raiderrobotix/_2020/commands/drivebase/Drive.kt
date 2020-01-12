@@ -6,6 +6,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.team2471.frc.lib.coroutines.MeanlibDispatcher
 import org.team2471.frc.lib.coroutines.delay
+import org.team2471.frc.lib.framework.use
 import kotlin.math.abs
 
 class Drive(private val distance: Double, private val speed: Double): Action {
@@ -16,8 +17,7 @@ class Drive(private val distance: Double, private val speed: Double): Action {
 		const val DISTANCE_TOLERANCE = 1.0// TODO
 	}
 	
-	override suspend operator fun invoke() = GlobalScope.launch(MeanlibDispatcher) {
-		DriveBase.reset()
+	override suspend operator fun invoke()  = use(DriveBase) {
 		while (abs(DriveBase.averageDistance - distance) >= DISTANCE_TOLERANCE) {
 			var leftSpeed = speed
 			var rightSpeed = speed
@@ -38,7 +38,5 @@ class Drive(private val distance: Double, private val speed: Double): Action {
 			DriveBase.tankDrive(leftSpeed, rightSpeed)
 			delay(0.06)
 		}
-		DriveBase.speed = 0.0
 	}
-	
 }
