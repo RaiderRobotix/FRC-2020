@@ -1,5 +1,6 @@
 {
 	"java.configuration.updateBuildConfiguration": "automatic",
+	"java.home": "/Users/arity/wpilib/2020/jdk",
 	"files.exclude": {
 		"**/.git": true,
 		"**/.svn": true,
