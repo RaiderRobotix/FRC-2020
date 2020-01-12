@@ -9,13 +9,12 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.SerialPort.Port;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class DriveBase extends Subsystem implements PIDOutput {
+public class DriveBase extends Subsystem {
 
 	public static final DriveBase drives = new DriveBase();
 
@@ -53,8 +52,6 @@ public class DriveBase extends Subsystem implements PIDOutput {
 
 		leftEncoder.setPositionConversionFactor(INCHES_PER_REVOLUTION);
 		rightEncoder.setPositionConversionFactor(INCHES_PER_REVOLUTION);
-
-		navX.setSubsystem("DriveBase");
 
 		SmartDashboard.putData(this);
 	}
@@ -112,16 +109,11 @@ public class DriveBase extends Subsystem implements PIDOutput {
 		final Supplier<String[]> firmwareSupplier = () -> new String[] {
 				"Left Front " + leftFrontSpark.getFirmwareString(), "Left Back " + leftBackSpark.getFirmwareString(),
 				"Right Front" + rightFrontSpark.getFirmwareString(),
-				"Right Back " + this.rightBackSpark.getFirmwareString() };
+				"Right Back " + rightBackSpark.getFirmwareString() };
 
 		builder.addStringArrayProperty("firmware", firmwareSupplier, null);
 		builder.addDoubleProperty("Gyro", this::getGyroAngle, null);
 
-	}
-
-	@Override
-	public void pidWrite(double output) {
-		setSpeed(output);
 	}
 
 }
