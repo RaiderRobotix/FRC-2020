@@ -1,5 +1,7 @@
 package com.raiderrobotix._2020;
 
+import com.raiderrobotix._2020.commands.Teleop;
+
 import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -11,6 +13,7 @@ public class Robot extends TimedRobot {
 
 	private static Command autonomousCommand;
 	private static final SendableChooser<Command> chooser = new SendableChooser<>();
+	private final Teleop tele = new Teleop();
 
 	private Robot() {
 		SmartDashboard.putData(Scheduler.getInstance());
@@ -51,6 +54,7 @@ public class Robot extends TimedRobot {
 		if (autonomousCommand != null) {
 			autonomousCommand.cancel();
 		}
+		tele.start();
 	}
 
 	@Override
