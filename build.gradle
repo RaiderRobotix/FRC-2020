@@ -1,7 +1,7 @@
 plugins {
 	id "java"
 	id "application"
-	id "edu.wpi.first.GradleRIO" version "2019.4.1"
+	id "edu.wpi.first.GradleRIO" version "2020.1.2"
 }
 
 sourceCompatibility = JavaVersion.VERSION_11
@@ -38,42 +38,29 @@ def includeDesktopSupport = false
 // Maven central needed for JUnit
 repositories {
 	jcenter()
-	maven {
-		url 'http://devsite.ctr-electronics.com/maven/release/'
-	}
-	maven {
-		url 'http://www.revrobotics.com/content/sw/max/sdk/maven/'
-	}
-	mavenLocal()
 }
 
 dependencies {
-	// https://www.kauailabs.com/dist/frc/2019/navx_frc.json
-	implementation "com.kauailabs.navx.frc:navx-java:latest.release"
-
-	// http://devsite.ctr-electronics.com/maven/release/com/ctre/phoenix/Phoenix-latest.json
-	// implementation "com.ctre.phoenix:api-java:latest.release"
-	// implementation "com.ctre.phoenix:wpiapi-java:latest.release"
-	// implementation "com.ctre.phoenix:cci:latest.release"
-	// implementation "com.ctre.phoenix:canutils:latest.release"
-	// implementation "com.ctre.phoenix:platform-stub:latest.release"
-
-	// http://www.revrobotics.com/content/sw/max/sdk/REVRobotics.json
-	implementation "com.revrobotics.frc:SparkMax-java:latest.release"
-	implementation "com.revrobotics.frc:SparkMax-driver:latest.release"
-
-	implementation "com.ctre.phoenix:phoenix:latest.release"
+    implementation wpi.deps.wpilib()
+    nativeZip wpi.deps.wpilibJni(wpi.platforms.roborio)
+    nativeDesktopZip wpi.deps.wpilibJni(wpi.platforms.desktop)
 
 
-	implementation wpi.deps.wpilib()
-	implementation wpi.deps.vendor.java()
-	nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
-	nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
+    implementation wpi.deps.vendor.java()
+    nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
+    nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
+
+	simulation wpi.deps.sim.gui(wpi.platforms.desktop, false)
 }
 
 // Fat jar and Manifest
 jar {
-	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+	from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+	manifest {
+		attributes(
+			"Main-Class": "com.raiderrobotix._2020.Robot"
+		)
+	}
 }
 
 application {
