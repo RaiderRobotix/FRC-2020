@@ -35,12 +35,12 @@ public class OperatorInterface implements Sendable {
 		SmartDashboard.putData(this);
 	}
 
-	public static double getLeftY() {
+	public double getLeftY() {
 		double ret = leftStick.getY();
 		return Math.abs(ret) > JOYSTICK_DEADBAND ? ret : 0.0;
 	}
 
-	public static double getRightY() {
+	public double getRightY() {
 		double ret = rightStick.getY();
 		return Math.abs(ret) > JOYSTICK_DEADBAND ? ret : 0.0;
 	}
@@ -48,30 +48,30 @@ public class OperatorInterface implements Sendable {
 	/**
 	 * Down on Joystick is positive, up is negative
 	 */
-	public static double getOperatorY() {
+	public double getOperatorY() {
 		return operatorStick.getY();
 	}
 
-	public static boolean getLeftButton(int button) {
+	public boolean getLeftButton(int button) {
 		return leftStick.getRawButton(button);
 	}
 
-	public static boolean getRightButton(int button) {
+	public boolean getRightButton(int button) {
 		return rightStick.getRawButton(button);
 	}
 
-	public static boolean getOperatorButton(int button) {
+	public boolean getOperatorButton(int button) {
 		return operatorStick.getRawButton(button);
 	}
 
-	public static boolean getOperatorTrigger() {
+	public boolean getOperatorTrigger() {
 		return operatorStick.getTrigger();
 	}
 
 	@Override
 	public void initSendable(SendableBuilder builder) {
-		builder.addDoubleProperty("lY", OperatorInterface::getLeftY, null);
-		builder.addDoubleProperty("rY", OperatorInterface::getRightY, null);
-		builder.addDoubleProperty("oY", OperatorInterface::getOperatorY, null);
+		builder.addDoubleProperty("lY", this::getLeftY, null);
+		builder.addDoubleProperty("rY", this::getRightY, null);
+		builder.addDoubleProperty("oY", this::getOperatorY, null);
 	}
 }
