@@ -14,6 +14,7 @@ object LimeLight : Sendable {
 		val tv = table.getEntry("tv")!!
 		val camMode = table.getEntry("camMode")!!
 		val ledMode = table.getEntry("ledMode")!!
+		val pipeLine = table.getEntry("pipeline")!!
 	}
 	
 	/**
@@ -36,7 +37,11 @@ object LimeLight : Sendable {
 	 */
 	val targetFound: Boolean get() = Table.tv.getDouble(0.0) == 0.0
 	
-	val processing: Boolean get() = Table.camMode.getDouble(0.0) == 0.0
+	var processing: Boolean
+		get() = Table.camMode.getDouble(0.0) == 0.0
+		set(it) {
+			Table.camMode.setDouble(if (it) 0.0 else 1.0)
+		}
 	
 	enum class LedMode(internal val value: Int) {
 		default(0), off(1), blink(2), on(3)
@@ -46,6 +51,12 @@ object LimeLight : Sendable {
 		get() = LedMode.values()[Table.ledMode.getDouble(0.0).toInt()]
 		set(mode) {
 			Table.ledMode.setDouble(mode.value.toDouble())
+		}
+	
+	var pipeLine: Int
+		get() = Table.pipeLine.getNumber(0).toInt()
+		set(it) {
+			Table.pipeLine.setNumber(it)
 		}
 	
 	override fun initSendable(builder: SendableBuilder) {
