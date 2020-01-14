@@ -4,8 +4,6 @@ package com.raiderrobotix._2020.subsystems
 import com.raiderrobotix._2020.commands.Teleop
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel.MotorType
-import edu.wpi.first.wpilibj.SpeedControllerGroup
-import edu.wpi.first.wpilibj.drive.DifferentialDrive
 import org.team2471.frc.lib.framework.Subsystem
 
 object DriveBase : Subsystem(name="Drives") {
@@ -19,11 +17,6 @@ object DriveBase : Subsystem(name="Drives") {
 	private val leftBackSpark = CANSparkMax(LEFT_BACK_DRIVE_CAN_ID, MotorType.kBrushless)
 	private val rightFrontSpark = CANSparkMax(RIGHT_FRONT_DRIVE_CAN_ID, MotorType.kBrushless)
 	private val rightBackSpark = CANSparkMax(RIGHT_BACK_DRIVE_CAN_ID, MotorType.kBrushless)
-	
-	private val leftSparks = SpeedControllerGroup(leftFrontSpark, leftBackSpark)
-	private val rightSparks = SpeedControllerGroup(rightFrontSpark, rightBackSpark)
-	
-	private val drives = DifferentialDrive(leftSparks, rightSparks)
 	
 	private const val TIRE_CIRCUMFERENCE = 28.375 // TODO
 	private const val GEAR_RATIO = 0.047619 // 0.0714286; // TODO
@@ -50,7 +43,8 @@ object DriveBase : Subsystem(name="Drives") {
 	override suspend fun default() {
 		Teleop()
 	}
-	val averageDistance: Double
+	
+	val averageDistance: Double // Rename to distance
 		get() = (leftDistance + rightDistance) / 2.0
 	
 	private val leftDistance: Double
@@ -59,7 +53,7 @@ object DriveBase : Subsystem(name="Drives") {
 	private val rightDistance: Double
 		get() = rightEncoder.position
 	
-//	val ultrasonicDistance: Double
+	//	val ultrasonicDistance: Double
 //		get() = ultrasonic.voltage
 //
 	val gyroAngle: Double
@@ -72,7 +66,8 @@ object DriveBase : Subsystem(name="Drives") {
 		}
 	
 	fun tankDrive(leftSpeed: Double, rightSpeed: Double) {
-		drives.tankDrive(leftSpeed,rightSpeed)
+		leftFrontSpark.set(leftSpeed)
+		rightFrontSpark.set(rightSpeed)
 	}
 	
 	override fun reset() {
