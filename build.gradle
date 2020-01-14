@@ -54,7 +54,7 @@ dependencies {
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit"
 
 	// https://www.kauailabs.com/dist/frc/2019/navx_frc.json
-	implementation "com.kauailabs.navx.frc:navx-java:3.1.400"
+//	implementation "com.kauailabs.navx.frc:navx-java:3.1.400"
 
 	implementation "org.ghrobotics:FalconLibrary:2020.1.2"
 	implementation "com.github.hybras:CTRE-Phoenix:5.17.3"
