@@ -16,8 +16,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriveBase extends Subsystem {
 
-	public static final DriveBase drives = new DriveBase();
-
 	private static final int LEFT_FRONT_DRIVE_CAN_ID = 2;
 	private static final int LEFT_BACK_DRIVE_CAN_ID = 1;
 	private static final int RIGHT_FRONT_DRIVE_CAN_ID = 3;
@@ -42,6 +40,8 @@ public class DriveBase extends Subsystem {
 	private static final AnalogInput ultrasonic = new AnalogInput(0);
 
 	private static final AHRS navX = new AHRS(Port.kUSB1);
+
+	public static final DriveBase drives = new DriveBase();
 
 	private DriveBase() {
 		leftFrontSpark.setInverted(LEFT_DRIVE_MOTORS_INVERTED);
