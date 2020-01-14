@@ -4,8 +4,6 @@ package com.raiderrobotix._2020.subsystems
 import com.raiderrobotix._2020.commands.Teleop
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel.MotorType
-import edu.wpi.first.wpilibj.AnalogInput
-import edu.wpi.first.wpilibj.SerialPort.Port
 import edu.wpi.first.wpilibj.SpeedControllerGroup
 import edu.wpi.first.wpilibj.drive.DifferentialDrive
 import org.team2471.frc.lib.framework.Subsystem
