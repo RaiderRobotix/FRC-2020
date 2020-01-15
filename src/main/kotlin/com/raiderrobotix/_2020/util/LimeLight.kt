@@ -1,63 +1,58 @@
 package com.raiderrobotix._2020.util
 
-import edu.wpi.first.networktables.NetworkTableInstance
 import edu.wpi.first.wpilibj.Sendable
 import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder
+import org.ghrobotics.lib.wrappers.networktables.FalconNetworkTable
+import org.ghrobotics.lib.wrappers.networktables.delegate
+import org.ghrobotics.lib.wrappers.networktables.get
 
 object LimeLight : Sendable {
 	
-	private object Table {
-		private val table = NetworkTableInstance.getDefault().getTable("limelight")!!
-		val tx = table.getEntry("tx")!!
-		val ty = table.getEntry("ty")!!
-		val ta = table.getEntry("ta")!!
-		val tv = table.getEntry("tv")!!
-		val camMode = table.getEntry("camMode")!!
-		val ledMode = table.getEntry("ledMode")!!
-		val pipeLine = table.getEntry("pipeline")!!
-	}
+	private val table = FalconNetworkTable.instance.getTable("limelight")!!
 	
 	/**
 	 * @return Horizontal Offset From Crosshair To Target
 	 */
-	val x: Double get() = Table.tx.getDouble(0.0)
+	val x by table["tx"].delegate(defaultValue = 0.0)
 	
 	/**
 	 * @return Vertical Offset From Crosshair To Target
 	 */
-	val y: Double get() = Table.ty.getDouble(0.0)
+	val y by table["ty"].delegate(defaultValue = 0.0)
 	
 	/**
 	 * @return Target Area (0% of image to 100% of image)
 	 */
-	val targetArea: Double get() = Table.ta.getDouble(0.0)
+	val targetArea by table["ta"].delegate(defaultValue = 0.0)
+	
+	private val tv by table["tv"].delegate(defaultValue = 0.0)
 	
 	/**
 	 * @return Whether the limelight has any valid targets
 	 */
-	val targetFound: Boolean get() = Table.tv.getDouble(0.0) == 0.0
+	val targetFound get() = tv == 0.0
 	
-	var processing: Boolean
-		get() = Table.camMode.getDouble(0.0) == 0.0
+	private var camMode by table["camMode"].delegate(defaultValue = 0.0)
+	
+	var processing
+		get() = camMode == 0.0
 		set(it) {
-			Table.camMode.setDouble(if (it) 0.0 else 1.0)
+			camMode = if (it) 0.0 else 1.0
 		}
 	
 	enum class LedMode(internal val value: Int) {
 		default(0), off(1), blink(2), on(3)
 	}
 	
-	var ledMode: LedMode
-		get() = LedMode.values()[Table.ledMode.getDouble(0.0).toInt()]
+	private var ledModeDouble by table["ledMode"].delegate(defaultValue = 0.0)
+	
+	var ledMode
+		get() = LedMode.values()[ledModeDouble.toInt()]
 		set(mode) {
-			Table.ledMode.setDouble(mode.value.toDouble())
+			ledModeDouble = mode.value.toDouble()
 		}
 	
-	var pipeLine: Int
-		get() = Table.pipeLine.getNumber(0).toInt()
-		set(it) {
-			Table.pipeLine.setNumber(it)
-		}
+	var pipeLine by table["pipeline"].delegate(defaultValue = 0.0)
 	
 	override fun initSendable(builder: SendableBuilder) {
 		builder.addBooleanProperty("Targeting", ::targetFound, null)
