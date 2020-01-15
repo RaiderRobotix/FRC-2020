@@ -1,38 +1,45 @@
 package com.raiderrobotix._2020.util
 
+import edu.wpi.first.networktables.NetworkTableEntry
 import edu.wpi.first.wpilibj.Sendable
 import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder
+import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry
 import org.ghrobotics.lib.wrappers.networktables.FalconNetworkTable
+import org.ghrobotics.lib.wrappers.networktables.NetworkTableEntryDelegate
 import org.ghrobotics.lib.wrappers.networktables.delegate
 import org.ghrobotics.lib.wrappers.networktables.get
 
 object LimeLight : Sendable {
+	
+	init {
+		SendableRegistry.add(this, "LimeLight")
+	}
 	
 	private val table = FalconNetworkTable.instance.getTable("limelight")!!
 	
 	/**
 	 * @return Horizontal Offset From Crosshair To Target
 	 */
-	val x by table["tx"].delegate(defaultValue = 0.0)
+	val x by table["tx"](default = 0.0)
 	
 	/**
 	 * @return Vertical Offset From Crosshair To Target
 	 */
-	val y by table["ty"].delegate(defaultValue = 0.0)
+	val y by table["ty"](default = 0.0)
 	
 	/**
 	 * @return Target Area (0% of image to 100% of image)
 	 */
-	val targetArea by table["ta"].delegate(defaultValue = 0.0)
+	val targetArea by table["ta"](default = 0.0)
 	
-	private val tv by table["tv"].delegate(defaultValue = 0.0)
+	private val tv by table["tv"](default = 0.0)
 	
 	/**
 	 * @return Whether the limelight has any valid targets
 	 */
 	val targetFound get() = tv == 0.0
 	
-	private var camMode by table["camMode"].delegate(defaultValue = 0.0)
+	private var camMode by table["camMode"](default = 0.0)
 	
 	var processing
 		get() = camMode == 0.0
@@ -44,7 +51,7 @@ object LimeLight : Sendable {
 		default(0), off(1), blink(2), on(3)
 	}
 	
-	private var ledModeDouble by table["ledMode"].delegate(defaultValue = 0.0)
+	private var ledModeDouble by table["ledMode"](default = 0.0)
 	
 	var ledMode
 		get() = LedMode.values()[ledModeDouble.toInt()]
@@ -52,7 +59,7 @@ object LimeLight : Sendable {
 			ledModeDouble = mode.value.toDouble()
 		}
 	
-	var pipeLine by table["pipeline"].delegate(defaultValue = 0.0)
+	var pipeLine by table["pipeline"](default = 0.0)
 	
 	override fun initSendable(builder: SendableBuilder) {
 		builder.addBooleanProperty("Targeting", ::targetFound, null)
@@ -68,3 +75,11 @@ object LimeLight : Sendable {
 	override fun getSubsystem(): String = name
 	
 }
+
+@Suppress("unchecked")
+inline operator fun <reified T> NetworkTableEntry.invoke(default: T): NetworkTableEntryDelegate<T> = when (T::class) {
+	String::class -> delegate(defaultValue = default as String)
+	Double::class -> delegate(defaultValue = default as Double)
+	Boolean::class -> delegate(defaultValue = default as Boolean)
+	else -> throw IllegalArgumentException("Illegal Generic")
+} as NetworkTableEntryDelegate<T>
