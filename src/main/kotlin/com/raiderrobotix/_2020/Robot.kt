@@ -1,7 +1,8 @@
 package com.raiderrobotix._2020
 
 import com.raiderrobotix._2020.commands.Teleop
-import com.raiderrobotix._2020.util.Ultra
+import com.raiderrobotix._2020.util.updateDistance
+import com.raiderrobotix._2020.util.LimeLight
 import kotlinx.coroutines.GlobalScope
 import org.team2471.frc.lib.coroutines.meanlibLaunch
 import org.team2471.frc.lib.framework.RobotProgram
@@ -12,7 +13,7 @@ object Robot : RobotProgram {
 	
 	init {
 		// Vision
-		Ultra
+		// LimeLight
 	}
 	
 	@JvmStatic
@@ -26,10 +27,9 @@ object Robot : RobotProgram {
 		Teleop()
 	}
 	
-	override fun comms() {
-		GlobalScope.meanlibLaunch {
-			Ultra.updateDistance()
-		}
+	override suspend fun disable() {
+		println("disabled")
+		updateDistance()
 	}
 	
 }
