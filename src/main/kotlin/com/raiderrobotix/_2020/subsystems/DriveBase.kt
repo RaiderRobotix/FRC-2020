@@ -1,6 +1,5 @@
 package com.raiderrobotix._2020.subsystems
 
-//import com.kauailabs.navx.frc.AHRS
 import com.raiderrobotix._2020.commands.Teleop
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel.MotorType
@@ -26,8 +25,6 @@ object DriveBase : Subsystem(name="Drives") {
 	
 	private val leftEncoder = leftFrontSpark.encoder
 	private val rightEncoder = rightFrontSpark.encoder
-//	private val ultrasonic = AnalogInput(0)
-//	private val navX = AHRS(Port.kUSB1)
 	
 	init {
 		leftFrontSpark.inverted = LEFT_DRIVE_MOTORS_INVERTED
