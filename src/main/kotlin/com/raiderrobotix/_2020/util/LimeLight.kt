@@ -15,7 +15,7 @@ object LimeLight : Sendable {
 		SendableRegistry.add(this, "LimeLight")
 	}
 	
-	private val table = FalconNetworkTable.instance.getTable("limelight")!!
+	private val table = FalconNetworkTable.getTable("limelight")
 	
 	/**
 	 * @return Horizontal Offset From Crosshair To Target
