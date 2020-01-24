@@ -56,11 +56,12 @@ object DriveBase : Subsystem(name="Drives") {
 	val gyroAngle: Double
 		get() = 0.0 //navX.angle
 	
-	var speed: Double = 0.0
+	var speed: Double
 		set(it) {
 			tankDrive(it, it)
-			field = it
 		}
+		get() = (leftFrontSpark.get() + rightFrontSpark.get())
+	
 	
 	fun tankDrive(leftSpeed: Double, rightSpeed: Double) {
 		leftFrontSpark.set(leftSpeed)
