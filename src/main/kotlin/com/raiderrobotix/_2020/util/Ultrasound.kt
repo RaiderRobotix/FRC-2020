@@ -8,6 +8,5 @@ val ultrasound = AnalogInput(0)
 
 suspend fun updateDistance() = periodic(0.05) {
     SmartDashboard.putNumber("Ultrasound", ultrasound.voltage)
-    // println("Ultrasound: ${ultrasound.voltage / 9.77}")
 }
 
