@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5129ce9e-d926-4003-aa03-5491c79a15e9" name="Default Changelist" comment="">
+    <list default="true" id="5129ce9e-d926-4003-aa03-5491c79a15e9" name="Default Changelist" comment="Func">
+      <change beforePath="$PROJECT_DIR$/.idea/FRC2020.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRC2020.eml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +59,12 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="FRC2020" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="FRC2020" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="other" type="c8890929:TasksNode$1" />
               </path>
             </expand>
@@ -62,6 +73,16 @@
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="FRC2020" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -79,8 +100,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
+    <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
-  <component name="RunManager" selected="Gradle.FRC2020 [externalSimulate]">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="echo hi" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Gradle.FRC2020 [run]">
     <configuration name="FRC2020 [externalSimulate]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -93,6 +120,25 @@
         <option name="taskNames">
           <list>
             <option value="externalSimulate" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="FRC2020 [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -138,8 +184,23 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="com.raiderrobotix._2020.Robot" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <module name="FRC2020.main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.raiderrobotix._2020.Robot" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.FRC2020 [run]" />
+        <item itemvalue="Kotlin.com.raiderrobotix._2020.Robot" />
         <item itemvalue="Gradle.FRC2020 [externalSimulate]" />
         <item itemvalue="Gradle.FRC2020 [startScripts]" />
         <item itemvalue="Gradle.FRC2020 [simulateJava]" />
@@ -173,33 +234,61 @@
       <option name="presentableId" value="Default" />
       <updated>1578940488613</updated>
     </task>
+    <task id="LOCAL-00001" summary="Detect section of color wheel using distance">
+      <created>1580339603786</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1580339603787</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="Detect section of color wheel using distance" />
+    <option name="LAST_COMMIT_MESSAGE" value="Detect section of color wheel using distance" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="220" y="46" key="#Updates" timestamp="1578940553625">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="220" y="46" key="#Updates/0.23.1440.877@0.23.1440.877" timestamp="1578940553625" />
+    <state x="440" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1580339736844">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="440" y="119" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877@0.23.1440.877" timestamp="1580339736844" />
+    <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1580326262197">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.877@0.23.1440.877" timestamp="1580326262197" />
     <state x="395" y="157" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579889725152">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="395" y="157" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1579889725152" />
-    <state width="1384" height="216" key="GridCell.Tab.0.bottom" timestamp="1578946900213">
+    <state x="214" y="23" key="CommitChangelistDialog2" timestamp="1580339602410">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1384" height="216" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1578946900213" />
-    <state width="1384" height="216" key="GridCell.Tab.0.center" timestamp="1578946900212">
+    <state x="214" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1580339602410" />
+    <state width="1384" height="216" key="GridCell.Tab.0.bottom" timestamp="1580172747336">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1384" height="216" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1578946900212" />
-    <state width="1384" height="216" key="GridCell.Tab.0.left" timestamp="1578946900211">
+    <state width="1384" height="216" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1580172747336" />
+    <state width="1384" height="216" key="GridCell.Tab.0.center" timestamp="1580172747335">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1384" height="216" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1578946900211" />
-    <state width="1384" height="216" key="GridCell.Tab.0.right" timestamp="1578946900212">
+    <state width="1384" height="216" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1580172747335" />
+    <state width="1384" height="216" key="GridCell.Tab.0.left" timestamp="1580172747334">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1384" height="216" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1578946900212" />
+    <state width="1384" height="216" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1580172747334" />
+    <state width="1384" height="216" key="GridCell.Tab.0.right" timestamp="1580172747335">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1384" height="216" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1580172747335" />
     <state x="288" y="100" key="MergeDialog" timestamp="1579889608110">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -216,5 +305,9 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="265" y="255" key="com.intellij.ide.util.TipDialog/0.23.1440.877@0.23.1440.877" timestamp="1578940517978" />
+    <state x="301" y="207" key="run.anything.popup" timestamp="1580138742995">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="301" y="207" key="run.anything.popup/0.23.1440.877@0.23.1440.877" timestamp="1580138742995" />
   </component>
 </project>
