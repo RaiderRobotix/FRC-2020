@@ -1,0 +1,68 @@
+Colors from edu.wpi.first.wpilibj.util.Color
+
+Red
+	Red,
+	DarkRed,
+	FirstRed,
+	Firebrick,
+	IndianRed,
+	OrangeRed,
+	MediumVioletRed,
+	PaleVioletRed
+
+Blue
+	FirstBlue,
+	AliceBlue,
+	Azure,
+	Blue,
+	BlueViolet,
+	CadetBlue,
+	CornflowerBlue,
+	DarkBlue,
+	DarkSlateBlue,
+	DarkViolet,
+	DeepSkyBlue,
+	DodgerBlue,
+	LightBlue,
+	LightSkyBlue,
+	LightSteelBlue,
+	MediumBlue,
+	MediumSlateBlue,
+	MidnightBlue,
+	Navy,
+	PowderBlue,
+	RoyalBlue,
+	SkyBlue,
+	SlateBlue,
+	SteelBlue
+
+Green
+	YellowGreen,
+	SpringGreen,
+	SeaGreen,
+	PaleGreen,
+	MediumSeaGreen,
+	MediumSpringGreen,
+	LimeGreen,
+	LightGreen,
+	LawnGreen,
+	GreenYellow,
+	Green,
+	ForestGreen,
+	DarkSeaGreen,
+	DarkOliveGreen,
+	DarkGreen,
+	Green
+
+Yellow
+	LightGoldenrodYellow,
+	LightYellow,
+	Teal,
+	Turquoise,
+	Yellow,
+	MediumTurquoise,
+	LightSeaGreen,
+	DarkTurquoise,
+	DarkCyan,
+	Cyan,
+	Aqua
