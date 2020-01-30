@@ -57,8 +57,6 @@ dependencies {
 	implementation "org.ghrobotics:FalconLibrary:2020.2.2"
 	implementation "com.github.TeamMeanMachine:meanlib:frc2019-SNAPSHOT"
 
-	implementation "edu.wpi.first.wpilibNewCommands:wpilibNewCommands-java:2020.2.1"
-
 	// WPI dependencies
 	implementation wpi.deps.wpilib()
     nativeZip wpi.deps.wpilibJni(wpi.platforms.roborio)
