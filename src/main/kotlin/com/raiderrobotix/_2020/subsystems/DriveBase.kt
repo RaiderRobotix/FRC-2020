@@ -7,10 +7,10 @@ import org.team2471.frc.lib.framework.Subsystem
 
 object DriveBase : Subsystem(name="Drives") {
 	
-	private const val LEFT_FRONT_DRIVE_CAN_ID = 2
-	private const val LEFT_BACK_DRIVE_CAN_ID = 1
-	private const val RIGHT_FRONT_DRIVE_CAN_ID = 3
-	private const val RIGHT_BACK_DRIVE_CAN_ID = 4
+	private const val LEFT_FRONT_DRIVE_CAN_ID = 1
+	private const val LEFT_BACK_DRIVE_CAN_ID = 2
+	private const val RIGHT_FRONT_DRIVE_CAN_ID = 4
+	private const val RIGHT_BACK_DRIVE_CAN_ID = 3
 	
 	private val leftFrontSpark = CANSparkMax(LEFT_FRONT_DRIVE_CAN_ID, MotorType.kBrushless)
 	private val leftBackSpark = CANSparkMax(LEFT_BACK_DRIVE_CAN_ID, MotorType.kBrushless)
