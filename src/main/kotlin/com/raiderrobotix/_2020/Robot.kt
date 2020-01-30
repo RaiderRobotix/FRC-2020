@@ -1,6 +1,6 @@
 package com.raiderrobotix._2020
 
-import com.raiderrobotix._2020.commands.Teleop
+import com.raiderrobotix._2020.commands.operatorControl
 import com.raiderrobotix._2020.util.printColor
 import com.raiderrobotix._2020.util.updateDistance
 import org.team2471.frc.lib.framework.RobotProgram
@@ -16,7 +16,7 @@ object Robot : RobotProgram {
 	}
 	
 	override suspend fun teleop() {
-		Teleop()
+		operatorControl()
 	}
 	
 	override suspend fun disable() {

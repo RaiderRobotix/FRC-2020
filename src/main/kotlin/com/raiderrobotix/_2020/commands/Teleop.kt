@@ -5,8 +5,11 @@ import com.raiderrobotix._2020.subsystems.DriveBase
 import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.use
 
-suspend fun teleop() = use(DriveBase) {
+suspend fun operatorControl() = use(DriveBase) {
 	periodic {
-		DriveBase.tankDrive(-OperatorInterface.leftY, -OperatorInterface.rightY)
+		DriveBase.tankDrive(
+			leftSpeed = -OperatorInterface.leftY,
+			rightSpeed = -OperatorInterface.rightY
+		)
 	}
 }
