@@ -54,7 +54,7 @@ dependencies {
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit"
 
 
-	implementation "org.ghrobotics:FalconLibrary:2020.1.2"
+	implementation "org.ghrobotics:FalconLibrary:2020.2.2"
 	implementation "com.github.TeamMeanMachine:meanlib:frc2019-SNAPSHOT"
 
 	implementation "edu.wpi.first.wpilibNewCommands:wpilibNewCommands-java:2020.1.1"
