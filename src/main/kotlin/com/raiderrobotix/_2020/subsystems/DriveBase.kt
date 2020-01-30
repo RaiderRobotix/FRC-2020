@@ -1,6 +1,6 @@
 package com.raiderrobotix._2020.subsystems
 
-import com.raiderrobotix._2020.commands.Teleop
+import com.raiderrobotix._2020.commands.teleop
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel.MotorType
 import org.team2471.frc.lib.framework.Subsystem
@@ -38,7 +38,7 @@ object DriveBase : Subsystem(name="Drives") {
 	}
 	
 	override suspend fun default() {
-		Teleop()
+		teleop()
 	}
 	
 	val averageDistance: Double // Rename to distance
