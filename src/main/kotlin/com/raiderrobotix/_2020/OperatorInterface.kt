@@ -34,7 +34,7 @@ object OperatorInterface : Sendable {
 	init {
 		operatorStick.mapControls {
 			button(3) {
-				changeOff {
+				changeOn {
 					Shooter.speed = 0.5
 				}
 				changeOff {
