@@ -1,5 +1,6 @@
 package com.raiderrobotix._2020
 
+import com.raiderrobotix._2020.subsystems.Intake
 import com.raiderrobotix._2020.subsystems.Shooter
 import edu.wpi.first.wpilibj.Joystick
 import edu.wpi.first.wpilibj.Sendable
@@ -22,7 +23,7 @@ object OperatorInterface : Sendable {
 	
 	private const val LEFT_JOYSTICK_PORT = 0
 	private const val RIGHT_JOYSTICK_PORT = 1
-	private const val OPERATOR_JOYSTICK_PORT = 2
+	private const val OPERATOR_JOYSTICK_PORT = 3
 	private const val JOYSTICK_DEADBAND = 0.15
 	
 	// Joysticks
@@ -33,15 +34,25 @@ object OperatorInterface : Sendable {
 	
 	init {
 		operatorStick.mapControls {
-			button(3) {
+			button(1) {
 				changeOn {
-					Shooter.speed = 0.5
+					Shooter.speed = 0.2
 				}
 				changeOff {
 					Shooter.speed = 0.0
 				}
 			}
+			button(2) {
+				changeOn {
+					Intake.speed = 0.2
+				}
+				changeOff {
+					Intake.speed = 0.0
+				}
+			}
+			
 		}
+		
 	}
 	
 	/**
