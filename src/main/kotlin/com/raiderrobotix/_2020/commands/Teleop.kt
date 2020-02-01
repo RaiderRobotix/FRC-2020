@@ -6,7 +6,9 @@ import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.use
 
 suspend fun operatorControl() = use(DriveBase) {
+	println("teleop")
 	periodic {
+		println("teleop periodic")
 		DriveBase.tankDrive(
 			leftSpeed = -OperatorInterface.leftY,
 			rightSpeed = -OperatorInterface.rightY
