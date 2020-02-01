@@ -23,6 +23,7 @@ object Robot : RobotProgram {
 	}
 	
 	override suspend fun teleop() {
+		println("teleop")
 		operatorControl()
 		GlobalScope.meanlibLaunch {
 			while(true) {
