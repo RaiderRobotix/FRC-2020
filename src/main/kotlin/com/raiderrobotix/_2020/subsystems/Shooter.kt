@@ -4,16 +4,12 @@ import edu.wpi.first.wpilibj.Spark
 import org.team2471.frc.lib.framework.Subsystem
 
 object Shooter : Subsystem("Shooter") {
-	private const val topChannel = 0 // TODO
-	private const val bottomChannel = 1 // TODO
+	private const val topChannel = 1
+	private const val bottomChannel = 0
 	
 	private val top = Spark(topChannel)
 	private val bottom = Spark(bottomChannel)
-	
-	init {
-		// bottom.inverted = true
-	}
-	
+		
 	var speed: Double
 		set(it) {
 			top.set(it)
