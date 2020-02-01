@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5129ce9e-d926-4003-aa03-5491c79a15e9" name="Default Changelist" comment="Func">
-      <change beforePath="$PROJECT_DIR$/.idea/FRC2020.iml" beforeDir="false" />
+    <list default="true" id="5129ce9e-d926-4003-aa03-5491c79a15e9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FRC2020.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/Robot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/Robot.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/commands/Teleop.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/commands/Teleop.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/subsystems/DriveBase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/subsystems/DriveBase.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +85,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MacroExpansionManager">
@@ -105,9 +106,11 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="echo hi" />
+      <command value="gradle simulateJava" />
+      <command value="gradle simulateExternalJava" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.FRC2020 [run]">
+  <component name="RunManager" selected="Gradle.FRC2020 [simulateExternalJava]">
     <configuration name="FRC2020 [externalSimulate]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -146,21 +149,21 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="FRC2020 [simulateJava]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FRC2020 [simulateExternalJava]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="simulateJava" />
+            <option value="simulateExternalJava" />
           </list>
         </option>
-        <option name="vmOptions" />
+        <option name="vmOptions" value="" />
       </ExternalSystemSettings>
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
@@ -199,11 +202,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.FRC2020 [simulateExternalJava]" />
         <item itemvalue="Gradle.FRC2020 [run]" />
         <item itemvalue="Kotlin.com.raiderrobotix._2020.Robot" />
         <item itemvalue="Gradle.FRC2020 [externalSimulate]" />
         <item itemvalue="Gradle.FRC2020 [startScripts]" />
-        <item itemvalue="Gradle.FRC2020 [simulateJava]" />
       </list>
     </recent_temporary>
   </component>
@@ -241,13 +244,45 @@
       <option name="project" value="LOCAL" />
       <updated>1580339603787</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add Turn Wheel to Color Action">
+      <created>1580340205755</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1580340205755</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Refactor commands from classes to functions">
+      <created>1580350629240</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1580350629240</updated>
+    </task>
+    <task id="LOCAL-00004" summary="IDE Files">
+      <created>1580350649285</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1580350649285</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Remove Action.kt interface">
+      <created>1580420712379</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1580420712379</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="Detect section of color wheel using distance" />
-    <option name="LAST_COMMIT_MESSAGE" value="Detect section of color wheel using distance" />
+    <MESSAGE value="Add Turn Wheel to Color Action" />
+    <MESSAGE value="Refactor commands from classes to functions" />
+    <MESSAGE value="IDE Files" />
+    <MESSAGE value="Remove Action.kt interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove Action.kt interface" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -269,26 +304,26 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="395" y="157" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1579889725152" />
-    <state x="214" y="23" key="CommitChangelistDialog2" timestamp="1580339602410">
+    <state x="214" y="23" key="CommitChangelistDialog2" timestamp="1580424263212">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="214" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1580339602410" />
-    <state width="1384" height="216" key="GridCell.Tab.0.bottom" timestamp="1580172747336">
+    <state x="214" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1580424263212" />
+    <state width="1384" height="216" key="GridCell.Tab.0.bottom" timestamp="1580424163348">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1384" height="216" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1580172747336" />
-    <state width="1384" height="216" key="GridCell.Tab.0.center" timestamp="1580172747335">
+    <state width="1384" height="216" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1580424163348" />
+    <state width="1384" height="216" key="GridCell.Tab.0.center" timestamp="1580424163346">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1384" height="216" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1580172747335" />
-    <state width="1384" height="216" key="GridCell.Tab.0.left" timestamp="1580172747334">
+    <state width="1384" height="216" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1580424163346" />
+    <state width="1384" height="216" key="GridCell.Tab.0.left" timestamp="1580424163345">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1384" height="216" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1580172747334" />
-    <state width="1384" height="216" key="GridCell.Tab.0.right" timestamp="1580172747335">
+    <state width="1384" height="216" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1580424163345" />
+    <state width="1384" height="216" key="GridCell.Tab.0.right" timestamp="1580424163347">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1384" height="216" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1580172747335" />
+    <state width="1384" height="216" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1580424163347" />
     <state x="288" y="100" key="MergeDialog" timestamp="1579889608110">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -297,17 +332,17 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="349" y="115" width="1081" height="692" key="MultipleFileMergeDialog/0.23.1440.877@0.23.1440.877" timestamp="1579889609483" />
-    <state x="220" y="138" key="Vcs.Push.Dialog.v2" timestamp="1579889773787">
+    <state x="220" y="138" key="Vcs.Push.Dialog.v2" timestamp="1580424314610">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="220" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1579889773787" />
+    <state x="220" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1580424314610" />
     <state x="265" y="255" key="com.intellij.ide.util.TipDialog" timestamp="1578940517978">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="265" y="255" key="com.intellij.ide.util.TipDialog/0.23.1440.877@0.23.1440.877" timestamp="1578940517978" />
-    <state x="301" y="207" key="run.anything.popup" timestamp="1580138742995">
+    <state x="301" y="207" width="838" height="1032" key="run.anything.popup" timestamp="1580422384365">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="301" y="207" key="run.anything.popup/0.23.1440.877@0.23.1440.877" timestamp="1580138742995" />
+    <state x="301" y="207" width="838" height="1032" key="run.anything.popup/0.23.1440.877@0.23.1440.877" timestamp="1580422384365" />
   </component>
 </project>

@@ -11,7 +11,7 @@ object Shooter : Subsystem("Shooter") {
 	private val bottom = Spark(bottomChannel)
 	
 	init {
-		bottom.inverted = true
+		// bottom.inverted = true
 	}
 	
 	var speed: Double
