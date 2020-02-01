@@ -19,7 +19,6 @@ object Robot : RobotProgram {
 	}
 	
 	override suspend fun teleop() {
-		operatorControl()
 		while (true) {
 			DriveBase.tankDrive(
 				leftSpeed = -OperatorInterface.leftY,
