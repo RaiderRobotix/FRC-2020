@@ -14,7 +14,7 @@ val sensor = ColorSensorV3(I2C.Port.kOnboard)
 suspend fun printColor() = GlobalScope.meanlibLaunch {
 	periodic {
 		val color = sensor.color
-		SmartDashboard.putString("Color", "(%.4f, %.4f, %.4f)".format(color.red, color.green, color.blue))
+		SmartDashboard.putString("Color", WheelColor.color.name)
 	}
 }
 
@@ -28,7 +28,7 @@ enum class WheelColor(val color: Color) {
 		val color: WheelColor
 			get() {
 				val color = sensor.color
-				return values().toList().minBy {
+				return values().minBy {
 					hypot(hypot((color.green - it.color.green), (color.red - it.color.red)), (color.blue - it.color.blue))
 				}!!
 			}
