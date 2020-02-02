@@ -1,5 +1,6 @@
 package com.raiderrobotix._2020
 
+import com.raiderrobotix._2020.subsystems.DriveBase
 import com.raiderrobotix._2020.subsystems.Intake
 import com.raiderrobotix._2020.subsystems.Shooter
 import edu.wpi.first.wpilibj.Joystick
@@ -60,10 +61,10 @@ object OperatorInterface : Sendable {
 			}
 			button(12) {
 				changeOn {
-					Intake.mouthSpeed = 0.5
+					Intake.outer.speed = 0.5
 				}
 				changeOff {
-					Intake.mouthSpeed = 0.0
+					Intake.outer.speed = 0.0
 				}
 			}
 		}
@@ -91,5 +92,37 @@ object OperatorInterface : Sendable {
 		get() = operatorStick.trigger
 	
 	operator fun Joystick.get(button: Int) = this.getRawButton(button)
+	
+	fun manualControl() {
+		DriveBase.tankDrive(
+			leftSpeed = -leftY,
+			rightSpeed = -rightY
+		)
+		
+		Shooter.speed = if (operatorTrigger)
+			1.0
+		else
+			0.0
+		
+		
+		
+		Intake.outer.speed = when {
+			operatorStick[11] -> 0.8
+			operatorStick[12] -> -0.7
+			else -> 0.0
+		}
+		
+		Intake.lower.speed = when {
+			operatorStick[10] -> 1.0
+			operatorStick[9] -> -0.6
+			else -> 0.0
+		}
+		
+		Intake.upper.speed = when {
+			operatorStick[7] -> 1.0
+			operatorStick[8] -> -0.6
+			else -> 0.0
+		}
+	}
 	
 }
