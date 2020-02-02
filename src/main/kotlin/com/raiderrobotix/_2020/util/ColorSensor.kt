@@ -4,13 +4,18 @@ import com.revrobotics.ColorSensorV3
 import edu.wpi.first.wpilibj.I2C
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import edu.wpi.first.wpilibj.util.Color
+import kotlinx.coroutines.GlobalScope
+import org.team2471.frc.lib.coroutines.meanlibLaunch
 import org.team2471.frc.lib.coroutines.periodic
 import kotlin.math.hypot
 
 val sensor = ColorSensorV3(I2C.Port.kOnboard)
 
-suspend fun printColor() = periodic {
-	SmartDashboard.putString("Color", sensor.color.toString())
+suspend fun printColor() = GlobalScope.meanlibLaunch {
+	periodic {
+		val color = sensor.color
+		SmartDashboard.putString("Color", "(%.4f, %.4f, %.4f)".format(color.red, color.green, color.blue))
+	}
 }
 
 enum class WheelColor(val color: Color) {
