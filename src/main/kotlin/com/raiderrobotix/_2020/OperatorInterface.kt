@@ -1,5 +1,6 @@
 package com.raiderrobotix._2020
 
+import com.raiderrobotix._2020.subsystems.Intake
 import com.raiderrobotix._2020.subsystems.Shooter
 import edu.wpi.first.wpilibj.Joystick
 import edu.wpi.first.wpilibj.Sendable
@@ -33,12 +34,36 @@ object OperatorInterface : Sendable {
 	
 	init {
 		operatorStick.mapControls {
-			button(3) {
+			button(1) {
 				changeOn {
-					Shooter.speed = 0.5
+					Shooter.speed = 1.0
 				}
 				changeOff {
 					Shooter.speed = 0.0
+				}
+			}
+			button(2) {
+				changeOn {
+					Intake.speed = 1.0
+				}
+				changeOff {
+					Intake.speed = 0.0
+				}
+			}
+			button(3) {
+				changeOn {
+					Intake.speed = -0.6
+				}
+				changeOff {
+					Intake.speed = 0.0
+				}
+			}
+			button(13) {
+				changeOn {
+					Intake.mouthSpeed = 0.5
+				}
+				changeOff {
+					Intake.mouthSpeed = 0.0
 				}
 			}
 		}
@@ -64,5 +89,7 @@ object OperatorInterface : Sendable {
 	
 	val operatorTrigger: Boolean
 		get() = operatorStick.trigger
+	
+	operator fun Joystick.get(button: Int) = this.getRawButton(button)
 	
 }
