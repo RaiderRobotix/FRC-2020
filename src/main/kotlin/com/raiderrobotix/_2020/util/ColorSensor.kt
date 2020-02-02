@@ -13,7 +13,6 @@ val sensor = ColorSensorV3(I2C.Port.kOnboard)
 
 suspend fun printColor() = GlobalScope.meanlibLaunch {
 	periodic {
-		val color = sensor.color
 		SmartDashboard.putString("Color", WheelColor.color.name)
 	}
 }
