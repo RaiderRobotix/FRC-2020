@@ -4,6 +4,7 @@ import com.raiderrobotix._2020.commands.operatorControl
 
 import com.raiderrobotix._2020.subsystems.DriveBase
 import com.raiderrobotix._2020.subsystems.Shooter
+import com.raiderrobotix._2020.subsystems.Intake
 import com.raiderrobotix._2020.util.printColor
 import com.raiderrobotix._2020.util.updateDistance
 import org.team2471.frc.lib.framework.RobotProgram
@@ -27,9 +28,16 @@ object Robot : RobotProgram {
 			)
 			if (OperatorInterface.operatorTrigger) {
 				Shooter.speed = 1.0
-			}
-			else {
+			} else {
 				Shooter.speed = 0.0
+			}
+			if (OperatorInterface.operatorStick.getRawButton(2)) {
+				Intake.speed = 0.5
+			// } else if (OperatorInterface.operatorStick.getRawButton(3)) {
+			// 	Intake.speed = -0.2
+			// }
+			else {
+				Intake.speed = 0.0
 			}
 			delay(0.02)
 		}
