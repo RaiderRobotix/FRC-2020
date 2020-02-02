@@ -58,7 +58,7 @@ object OperatorInterface : Sendable {
 					Intake.speed = 0.0
 				}
 			}
-			button(13) {
+			button(12) {
 				changeOn {
 					Intake.mouthSpeed = 0.5
 				}
