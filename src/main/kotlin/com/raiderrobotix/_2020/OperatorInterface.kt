@@ -7,7 +7,11 @@ import edu.wpi.first.wpilibj.Joystick
 import edu.wpi.first.wpilibj.Sendable
 import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.GlobalScope
 import org.ghrobotics.lib.wrappers.hid.mapControls
+import org.team2471.frc.lib.coroutines.meanlibLaunch
+import org.team2471.frc.lib.framework.use
 import kotlin.math.abs
 
 object OperatorInterface : Sendable {
@@ -29,42 +33,64 @@ object OperatorInterface : Sendable {
 	
 	// Joysticks
 	
-	val leftStick = Joystick(LEFT_JOYSTICK_PORT)
-	val rightStick = Joystick(RIGHT_JOYSTICK_PORT)
-	val operatorStick = Joystick(OPERATOR_JOYSTICK_PORT)
+	private val left = Joystick(LEFT_JOYSTICK_PORT)
+	private val right = Joystick(RIGHT_JOYSTICK_PORT)
+	private val operator = Joystick(OPERATOR_JOYSTICK_PORT)
+	
+	/**
+	 * An alias to meanLibLaunch
+	 */
+	private fun launch(block: suspend CoroutineScope.() -> Unit) = GlobalScope.meanlibLaunch(block = block)
 	
 	init {
-		operatorStick.mapControls {
+		operator.mapControls {
 			button(1) {
 				changeOn {
-					Shooter.speed = 1.0
+					launch {
+						use(Shooter) { Shooter.speed = 1.0 }
+					}
 				}
 				changeOff {
-					Shooter.speed = 0.0
+					launch {
+						use(Shooter) { Shooter.speed = 0.0 }
+					}
 				}
 			}
 			button(2) {
 				changeOn {
-					Intake.speed = 1.0
+					launch {
+						use(Intake) {
+							Intake.speed = 1.0
+							Intake.outer.speed = 1.0
+						}
+					}
 				}
 				changeOff {
-					Intake.speed = 0.0
+					launch {
+						use(Intake) {
+							Intake.speed = 0.0
+							Intake.outer.speed = 0.0
+						}
+					}
 				}
 			}
 			button(3) {
 				changeOn {
-					Intake.speed = -0.6
+					launch {
+						use(Intake) {
+							Intake.speed = -0.5
+							Intake.outer.speed = -0.7
+						}
+					}
+					
 				}
 				changeOff {
-					Intake.speed = 0.0
-				}
-			}
-			button(12) {
-				changeOn {
-					Intake.outer.speed = 0.5
-				}
-				changeOff {
-					Intake.outer.speed = 0.0
+					launch {
+						use(Intake) {
+							Intake.speed = 0.0
+							Intake.outer.speed = 0.0
+						}
+					}
 				}
 			}
 		}
@@ -75,21 +101,21 @@ object OperatorInterface : Sendable {
 	 */
 	val leftY: Double
 		get() {
-			val ret = leftStick.y
+			val ret = left.y
 			return if (abs(ret) > JOYSTICK_DEADBAND) ret else 0.0
 		}
 	
 	val rightY: Double
 		get() {
-			val ret = rightStick.y
+			val ret = right.y
 			return if (abs(ret) > JOYSTICK_DEADBAND) ret else 0.0
 		}
 	
 	val operatorY: Double
-		get() = operatorStick.y
+		get() = operator.y
 	
 	val operatorTrigger: Boolean
-		get() = operatorStick.trigger
+		get() = operator.trigger
 	
 	operator fun Joystick.get(button: Int) = this.getRawButton(button)
 	
@@ -107,20 +133,20 @@ object OperatorInterface : Sendable {
 		
 		
 		Intake.outer.speed = when {
-			operatorStick[11] -> 0.8
-			operatorStick[12] -> -0.7
+			operator[11] -> 0.8
+			operator[12] -> -0.7
 			else -> 0.0
 		}
 		
 		Intake.lower.speed = when {
-			operatorStick[10] -> 1.0
-			operatorStick[9] -> -0.6
+			operator[10] -> 1.0
+			operator[9] -> -0.6
 			else -> 0.0
 		}
 		
 		Intake.upper.speed = when {
-			operatorStick[7] -> 1.0
-			operatorStick[8] -> -0.6
+			operator[7] -> 1.0
+			operator[8] -> -0.6
 			else -> 0.0
 		}
 	}
