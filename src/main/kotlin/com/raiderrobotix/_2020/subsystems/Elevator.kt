@@ -5,11 +5,10 @@ import com.revrobotics.CANSparkMaxLowLevel
 import org.team2471.frc.lib.framework.Subsystem
 
 object Elevator : Subsystem("Elevator") {
-	val leftid = 0
-	val rightid = 0
-	val left = CANSparkMax(leftid, CANSparkMaxLowLevel.MotorType.kBrushless)
+	val leftid = 5
+	val rightid = 6
 	
-	
+	val left = CANSparkMax(leftid, CANSparkMaxLowLevel.MotorType.kBrushless)	
 	val right = CANSparkMax(rightid, CANSparkMaxLowLevel.MotorType.kBrushless)
 	
 	init {
