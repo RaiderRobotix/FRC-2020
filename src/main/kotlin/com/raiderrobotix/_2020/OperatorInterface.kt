@@ -3,6 +3,7 @@ package com.raiderrobotix._2020
 import com.raiderrobotix._2020.subsystems.DriveBase
 import com.raiderrobotix._2020.subsystems.Intake
 import com.raiderrobotix._2020.subsystems.Shooter
+import com.raiderrobotix._2020.subsystems.Elevator
 import edu.wpi.first.wpilibj.Joystick
 import edu.wpi.first.wpilibj.Sendable
 import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder
@@ -147,6 +148,12 @@ object OperatorInterface : Sendable {
 		Intake.upper.speed = when {
 			operator[7] -> 1.0
 			operator[8] -> -0.6
+			else -> 0.0
+		}
+
+		Elevator.speed = when {
+			operator[4] -> 0.6
+			operator[6] -> -0.6
 			else -> 0.0
 		}
 	}
