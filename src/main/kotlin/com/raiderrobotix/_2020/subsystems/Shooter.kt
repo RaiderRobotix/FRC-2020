@@ -10,8 +10,6 @@ object Shooter : Subsystem("Shooter") {
 	private val top = Spark(topChannel)
 	private val bottom = Spark(bottomChannel)
 	
-	init {
-	}
 	
 	var speed: Double
 		set(it) {
@@ -19,5 +17,9 @@ object Shooter : Subsystem("Shooter") {
 			bottom.set(it)
 		}
 		get() = (top.get() + bottom.get()) / 2
+	
+	override fun reset() {
+		speed = 0.0
+	}
 	
 }

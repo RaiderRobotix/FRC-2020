@@ -23,4 +23,9 @@ object Intake : Subsystem("Shooter") {
 		}
 		get() = (upper.get() + lower.get()) / 2
 	
+	override fun reset() {
+		speed = 0.0
+		outer.speed = 0.0
+	}
+	
 }
