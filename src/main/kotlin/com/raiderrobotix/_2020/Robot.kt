@@ -2,6 +2,7 @@ package com.raiderrobotix._2020
 
 import com.raiderrobotix._2020.OperatorInterface.manualControl
 import com.raiderrobotix._2020.commands.operatorControl
+import com.raiderrobotix._2020.commands.testPrint
 import com.raiderrobotix._2020.util.updateDistance
 import org.team2471.frc.lib.coroutines.delay
 import org.team2471.frc.lib.framework.RobotProgram
@@ -21,7 +22,7 @@ object Robot : RobotProgram {
 	}
 	
 	override suspend fun teleop() {
-		operatorControl()
+		testPrint()
 		while (true) {
 			manualControl()
 			delay(0.02)
