@@ -14,6 +14,7 @@ fun testPrint() = GlobalScope.meanlibLaunch {
                 println("rY: ${OperatorInterface.leftY}")
             }
             else {
+                println("stoppinf")
                 stop()
             }
         }
