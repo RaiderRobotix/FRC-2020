@@ -1,5 +1,6 @@
 package com.raiderrobotix._2020.subsystems
 
+import com.raiderrobotix._2020.OperatorInterface
 import com.raiderrobotix._2020.commands.operatorControl
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel.MotorType
@@ -37,10 +38,6 @@ object DriveBase : Subsystem(name="Drives") {
 //		SmartDashboard.putData(this)
 	}
 	
-	override suspend fun default() {
-		operatorControl()
-	}
-	
 	val averageDistance: Double // Rename to distance
 		get() = (leftDistance + rightDistance) / 2.0
 	
@@ -66,6 +63,13 @@ object DriveBase : Subsystem(name="Drives") {
 	fun tankDrive(leftSpeed: Double, rightSpeed: Double) {
 		leftFrontSpark.set(leftSpeed)
 		rightFrontSpark.set(rightSpeed)
+	}
+
+	override suspend fun default() {
+		tankDrive(
+				leftSpeed = -OperatorInterface.leftY,
+				rightSpeed = -OperatorInterface.rightY
+		)
 	}
 	
 	override fun reset() {
