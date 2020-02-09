@@ -23,10 +23,10 @@ object Robot : RobotProgram {
 	
 	override suspend fun teleop() {
 		testPrint()
-		while (true) {
-			manualControl()
-			delay(0.02)
-		}
+//		while (true) {
+//			manualControl()
+//			delay(0.02)
+//		}
 	}
 	
 	override suspend fun disable() {

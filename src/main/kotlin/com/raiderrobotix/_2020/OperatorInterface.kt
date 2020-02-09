@@ -129,10 +129,10 @@ object OperatorInterface : Sendable {
 	operator fun Joystick.get(button: Int) = this.getRawButton(button)
 	
 	fun manualControl() {
-		DriveBase.tankDrive(
-			leftSpeed = -leftY,
-			rightSpeed = -rightY
-		)
+//		DriveBase.tankDrive(
+//			leftSpeed = -leftY,
+//			rightSpeed = -rightY
+//		)
 		
 //		Shooter.speed = if (operatorTrigger)
 //			1.0
