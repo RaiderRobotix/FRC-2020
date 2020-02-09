@@ -4,6 +4,7 @@ import com.raiderrobotix._2020.subsystems.DriveBase
 import com.raiderrobotix._2020.subsystems.Intake
 import com.raiderrobotix._2020.subsystems.Shooter
 import com.raiderrobotix._2020.subsystems.Elevator
+import com.raiderrobotix._2020.subsystems.Trolley
 import edu.wpi.first.wpilibj.Joystick
 import edu.wpi.first.wpilibj.Sendable
 import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder
@@ -28,8 +29,8 @@ object OperatorInterface : Sendable {
 	}
 	
 	private const val LEFT_JOYSTICK_PORT = 0
-	private const val RIGHT_JOYSTICK_PORT = 1
-	private const val OPERATOR_JOYSTICK_PORT = 2
+	private const val RIGHT_JOYSTICK_PORT = 2
+	private const val OPERATOR_JOYSTICK_PORT = 1
 	private const val JOYSTICK_DEADBAND = 0.15
 	
 	// Joysticks
@@ -131,29 +132,33 @@ object OperatorInterface : Sendable {
 		else
 			0.0
 		
-		
-		
 		Intake.outer.speed = when {
 			operator[11] -> 0.8
-			operator[12] -> -0.7
+			operator[3] -> -0.7
 			else -> 0.0
 		}
 		
 		Intake.lower.speed = when {
-			operator[10] -> 1.0
-			operator[9] -> -0.6
+			operator[4] -> 1.0
+			operator[12] -> -0.6
 			else -> 0.0
 		}
 		
 		Intake.upper.speed = when {
-			operator[7] -> 1.0
-			operator[8] -> -0.6
+			operator[12] -> 1.0
+			operator[4] -> -0.6
 			else -> 0.0
 		}
 
 		Elevator.speed = when {
-			operator[4] -> 0.6
-			operator[6] -> -0.6
+			operator[9] -> 0.6
+			operator[10] -> -0.6
+			else -> 0.0
+		}
+
+		Trolley.speed = when {
+			operator[7] -> 0.6
+			operator[8] -> -0.6
 			else -> 0.0
 		}
 	}
