@@ -9,9 +9,8 @@ import org.team2471.frc.lib.coroutines.periodic
 fun testPrint() = GlobalScope.meanlibLaunch {
         periodic(period = 0.25) {
             if (this@meanlibLaunch.isActive) {
-                print("periodic")
-                print("lY: ${OperatorInterface.rightY}")
-                print("rY: ${OperatorInterface.leftY}")
+                println("lY: ${OperatorInterface.rightY}")
+                println("rY: ${OperatorInterface.leftY}")
             }
             else {
                 stop()
