@@ -133,41 +133,41 @@ object OperatorInterface : Sendable {
 //			leftSpeed = -leftY,
 //			rightSpeed = -rightY
 //		)
-		
-//		Shooter.speed = if (operatorTrigger)
-//			1.0
-//		else
-//			0.0
-//
-//		Intake.outer.speed = when {
-//			operator[11] -> 0.8
-//			operator[3] -> -0.7
-//			else -> 0.0
-//		}
-//
-//		Intake.lower.speed = when {
-//			operator[4] -> 1.0
-//			operator[12] -> -0.6
-//			else -> 0.0
-//		}
-//
-//		Intake.upper.speed = when {
-//			operator[12] -> 1.0
-//			operator[4] -> -0.6
-//			else -> 0.0
-//		}
-//
-//		Elevator.speed = when {
-//			operator[9] -> 0.6
-//			operator[10] -> -0.6
-//			else -> 0.0
-//		}
-//
-//		Trolley.speed = when {
-//			operator[7] -> 0.6
-//			operator[8] -> -0.6
-//			else -> 0.0
-//		}
+
+		Shooter.speed = if (operatorTrigger)
+			1.0
+		else
+			0.0
+
+		Intake.outer.speed = when {
+			operator[11] -> 0.8
+			operator[3] -> -0.7
+			else -> 0.0
+		}
+
+		Intake.lower.speed = when {
+			operator[4] -> 1.0
+			operator[12] -> -0.6
+			else -> 0.0
+		}
+
+		Intake.upper.speed = when {
+			operator[12] -> 1.0
+			operator[4] -> -0.6
+			else -> 0.0
+		}
+
+		Elevator.speed = when {
+			operator[9] -> 0.6
+			operator[10] -> -0.6
+			else -> 0.0
+		}
+
+		Trolley.speed = when {
+			operator[7] -> 0.6
+			operator[8] -> -0.6
+			else -> 0.0
+		}
 	}
 	
 }
