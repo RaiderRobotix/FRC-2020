@@ -42,7 +42,7 @@ object OperatorInterface : Sendable {
 	private val left = Joystick(LEFT_JOYSTICK_PORT)
 	private val right = Joystick(RIGHT_JOYSTICK_PORT)
 	private val operator = Joystick(OPERATOR_JOYSTICK_PORT)
-	
+
 
 	init {
 		({ operator[1] }).whenTrue { Shooter.speed = 1.0 }
@@ -77,10 +77,7 @@ object OperatorInterface : Sendable {
 		}
 	
 	val rightY: Double
-		get() {
-			val ret = right.y
-			return if (abs(ret) > JOYSTICK_DEADBAND) ret else 0.0
-		}
+		get() = right.y.takeIf { abs(it)  > JOYSTICK_DEADBAND } ?: 0.0
 	
 	val operatorY: Double
 		get() = operator.y
