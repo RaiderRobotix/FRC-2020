@@ -38,26 +38,30 @@ object OperatorInterface : Sendable {
 
 
 	init {
+		//Shooter
 		({ operator[1] }).whenTrue { Shooter.speed = 1.0 }
 		({ !operator[1] }).whenTrue { Shooter.reset() }
-		({ operator[2] }).whenTrue {
+
+		//Intake
+		({ operator[3] && !operator[2] }).whenTrue {
 			Intake.speed = 1.0
 			Intake.outer.speed = 0.6
 		}
-		({ !operator[2] }).whenTrue { Intake.reset() }
-		({ operator[3] }).whenTrue {
+		({ operator[3] && operator[2] }).whenTrue {
 			Intake.speed = -0.5
 			Intake.outer.speed = -0.7
 		}
 		({ !operator[3] }).whenTrue { Intake.reset() }
-		({ operator[9] }).whenTrue { Elevator.speed = 0.6 }
+
+		//Elevator
+		({ operator[9] && !operator[2] }).whenTrue { Elevator.speed = 0.6 }
+		({ operator[9]  && operator[2] }).whenTrue { Elevator.speed = -0.6 }
 		({ !operator[9] }).whenTrue { Elevator.reset() }
-		({ operator[10] }).whenTrue { Elevator.speed = -0.6 }
-		({ !operator[10] }).whenTrue { Elevator.reset() }
-		({ operator[7] }).whenTrue { Trolley.speed = 0.6 }
+
+		//Trolley
+		({ operator[7] && !operator[2] }).whenTrue { Trolley.speed = 0.6 }
+		({ operator[7] && operator[2] }).whenTrue { Trolley.speed = -0.6 }
 		({ !operator[7] }).whenTrue { Trolley.reset() }
-		({ operator[8] }).whenTrue { Trolley.speed = -0.6 }
-		({ !operator[8] }).whenTrue { Trolley.reset() }
 	}
 	
 	/**
