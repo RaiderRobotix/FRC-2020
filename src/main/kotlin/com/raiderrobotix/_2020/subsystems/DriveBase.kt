@@ -5,6 +5,8 @@ import com.raiderrobotix._2020.commands.operatorControl
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel.MotorType
 import org.team2471.frc.lib.framework.Subsystem
+import org.team2471.frc.lib.coroutines.periodic
+
 
 object DriveBase : Subsystem(name="Drives") {
 	
@@ -66,10 +68,12 @@ object DriveBase : Subsystem(name="Drives") {
 	}
 
 	override suspend fun default() {
-		tankDrive(
-				leftSpeed = -OperatorInterface.leftY,
-				rightSpeed = -OperatorInterface.rightY
-		)
+			periodic {
+				tankDrive(
+					leftSpeed = -OperatorInterface.leftY,
+					rightSpeed = -OperatorInterface.rightY
+				)
+			}
 	}
 	
 	override fun reset() {
