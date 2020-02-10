@@ -43,70 +43,28 @@ object OperatorInterface : Sendable {
 	private val right = Joystick(RIGHT_JOYSTICK_PORT)
 	private val operator = Joystick(OPERATOR_JOYSTICK_PORT)
 	
-	/**
-	 * An alias to meanLibLaunch
-	 */
-	private fun launch(block: suspend CoroutineScope.() -> Unit) = GlobalScope.meanlibLaunch(block = block)
-	
+
 	init {
-		operator.mapControls {
-			button(2) {
-				changeOn {
-					Intake.speed = 1.0
-					Intake.outer.speed = 0.6
-				}
-				changeOff {
-					Intake.speed = 0.0
-					Intake.outer.speed = 0.0
-				}
-			}.build()
-			button(3) {
-				changeOn {
-					Intake.speed = -0.5
-					Intake.outer.speed = -0.7
-				}
-				changeOff {
-					Intake.speed = 0.0
-					Intake.outer.speed = 0.0
-				}
-			}.build()
-		}
-		({ operator[1] }).whenTrue {
-			Shooter.speed = 1.0
-		}
+		({ operator[1] }).whenTrue { Shooter.speed = 1.0 }
 		({ !operator[1] }).whenTrue { Shooter.reset() }
-//		({ operator[2]}).whenTrue {
-//			Intake.speed = 1.0
-//			Intake.outer.speed = 0.6
-//		}
-//		({ operator[3]}).whenTrue {
-//			Intake.speed = -0.5
-//			Intake.outer.speed = -0.7
-//		}
-		({ operator[9] }).whenTrue {
-			Elevator.speed = 0.6
+		({ operator[2] }).whenTrue {
+			Intake.speed = 1.0
+			Intake.outer.speed = 0.6
 		}
-		({ !operator[9] }).whenTrue {
-			Elevator.reset()
+		({ !operator[2] }).whenTrue { Intake.reset() }
+		({ operator[3] }).whenTrue {
+			Intake.speed = -0.5
+			Intake.outer.speed = -0.7
 		}
-		({ operator[10] }).whenTrue {
-			Elevator.speed = -0.6
-		}
-		({ !operator[10] }).whenTrue {
-			Elevator.reset()
-		}
-		({ operator[7] }).whenTrue {
-			Trolley.speed = 0.6
-		}
-		({ !operator[7] }).whenTrue {
-			Trolley.reset()
-		}
-		({ operator[8] }).whenTrue {
-			Trolley.speed = -0.6
-		}
-		({ !operator[8] }).whenTrue {
-			Trolley.reset()
-		}
+		({ !operator[3] }).whenTrue { Intake.reset() }
+		({ operator[9] }).whenTrue { Elevator.speed = 0.6 }
+		({ !operator[9] }).whenTrue { Elevator.reset() }
+		({ operator[10] }).whenTrue { Elevator.speed = -0.6 }
+		({ !operator[10] }).whenTrue { Elevator.reset() }
+		({ operator[7] }).whenTrue { Trolley.speed = 0.6 }
+		({ !operator[7] }).whenTrue { Trolley.reset() }
+		({ operator[8] }).whenTrue { Trolley.speed = -0.6 }
+		({ !operator[8] }).whenTrue { Trolley.reset() }
 	}
 	
 	/**
@@ -133,47 +91,5 @@ object OperatorInterface : Sendable {
 	operator fun Joystick.get(button: Int) = this.getRawButton(button)
 
 	operator fun <T : GenericHID> FalconHID<T>.get(button: Int) = this.getRawButton(button)
-	
-	fun manualControl() {
-//		DriveBase.tankDrive(
-//			leftSpeed = -leftY,
-//			rightSpeed = -rightY
-//		)
-
-		Shooter.speed = if (operatorTrigger)
-			1.0
-		else
-			0.0
-
-		// Intake.outer.speed = when {
-		// 	operator[11] -> 0.8
-		// 	operator[3] -> -0.7
-		// 	else -> 0.0
-		// }
-
-		// Intake.lower.speed = when {
-		// 	operator[4] -> 1.0
-		// 	operator[12] -> -0.6
-		// 	else -> 0.0
-		// }
-
-		// Intake.upper.speed = when {
-		// 	operator[12] -> 1.0
-		// 	operator[4] -> -0.6
-		// 	else -> 0.0
-		// }
-
-		// Elevator.speed = when {
-		// 	operator[9] -> 0.6
-		// 	operator[10] -> -0.6
-		// 	else -> 0.0
-		// }
-
-		// Trolley.speed = when {
-		// 	operator[7] -> 0.6
-		// 	operator[8] -> -0.6
-		// 	else -> 0.0
-		// }
-	}
 	
 }
