@@ -1,6 +1,5 @@
 package com.raiderrobotix._2020
 
-import com.raiderrobotix._2020.subsystems.DriveBase
 import com.raiderrobotix._2020.subsystems.Intake
 import com.raiderrobotix._2020.subsystems.Shooter
 import com.raiderrobotix._2020.subsystems.Elevator
@@ -10,13 +9,7 @@ import edu.wpi.first.wpilibj.Joystick
 import edu.wpi.first.wpilibj.Sendable
 import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
-import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.GlobalScope
 import org.ghrobotics.lib.wrappers.hid.FalconHID
-import org.ghrobotics.lib.wrappers.hid.mapControls
-import org.team2471.frc.lib.coroutines.meanlibLaunch
-import org.team2471.frc.lib.framework.use
 import org.team2471.frc.lib.input.whenTrue
 import kotlin.math.abs
 

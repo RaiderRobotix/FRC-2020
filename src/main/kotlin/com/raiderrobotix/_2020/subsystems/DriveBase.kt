@@ -1,11 +1,10 @@
 package com.raiderrobotix._2020.subsystems
 
 import com.raiderrobotix._2020.OperatorInterface
-import com.raiderrobotix._2020.commands.operatorControl
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel.MotorType
-import org.team2471.frc.lib.framework.Subsystem
 import org.team2471.frc.lib.coroutines.periodic
+import org.team2471.frc.lib.framework.Subsystem
 
 
 object DriveBase : Subsystem(name="Drives") {
