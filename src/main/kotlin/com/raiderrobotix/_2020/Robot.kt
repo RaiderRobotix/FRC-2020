@@ -1,6 +1,5 @@
 package com.raiderrobotix._2020
 
-import com.raiderrobotix._2020.OperatorInterface.manualControl
 import com.raiderrobotix._2020.subsystems.DriveBase
 import com.raiderrobotix._2020.util.updateDistance
 import org.team2471.frc.lib.framework.RobotProgram
