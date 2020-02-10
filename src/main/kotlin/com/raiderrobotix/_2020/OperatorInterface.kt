@@ -5,6 +5,7 @@ import com.raiderrobotix._2020.subsystems.Intake
 import com.raiderrobotix._2020.subsystems.Shooter
 import com.raiderrobotix._2020.subsystems.Elevator
 import com.raiderrobotix._2020.subsystems.Trolley
+import edu.wpi.first.wpilibj.GenericHID
 import edu.wpi.first.wpilibj.Joystick
 import edu.wpi.first.wpilibj.Sendable
 import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder
@@ -12,8 +13,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope
+import org.ghrobotics.lib.wrappers.hid.FalconHID
 import org.ghrobotics.lib.wrappers.hid.mapControls
 import org.team2471.frc.lib.coroutines.meanlibLaunch
+import org.team2471.frc.lib.framework.use
 import org.team2471.frc.lib.input.whenTrue
 import kotlin.math.abs
 
@@ -56,7 +59,7 @@ object OperatorInterface : Sendable {
 					Intake.speed = 0.0
 					Intake.outer.speed = 0.0
 				}
-			}
+			}.build()
 			button(3) {
 				changeOn {
 					Intake.speed = -0.5
@@ -66,11 +69,12 @@ object OperatorInterface : Sendable {
 					Intake.speed = 0.0
 					Intake.outer.speed = 0.0
 				}
-			}
+			}.build()
 		}
-		({operator[1]}).whenTrue {
+		({ operator[1] }).whenTrue {
 			Shooter.speed = 1.0
 		}
+		({ !operator[1] }).whenTrue { Shooter.reset() }
 //		({ operator[2]}).whenTrue {
 //			Intake.speed = 1.0
 //			Intake.outer.speed = 0.6
@@ -79,18 +83,29 @@ object OperatorInterface : Sendable {
 //			Intake.speed = -0.5
 //			Intake.outer.speed = -0.7
 //		}
-		({ operator[9]}).whenTrue {
+		({ operator[9] }).whenTrue {
 			Elevator.speed = 0.6
 		}
-		({operator[10]}).whenTrue {
+		({ !operator[9] }).whenTrue {
+			Elevator.reset()
+		}
+		({ operator[10] }).whenTrue {
 			Elevator.speed = -0.6
 		}
-
-		({ operator[7]}).whenTrue {
+		({ !operator[10] }).whenTrue {
+			Elevator.reset()
+		}
+		({ operator[7] }).whenTrue {
 			Trolley.speed = 0.6
 		}
-		({ operator[8]}).whenTrue {
+		({ !operator[7] }).whenTrue {
+			Trolley.reset()
+		}
+		({ operator[8] }).whenTrue {
 			Trolley.speed = -0.6
+		}
+		({ !operator[8] }).whenTrue {
+			Trolley.reset()
 		}
 	}
 	
@@ -116,6 +131,8 @@ object OperatorInterface : Sendable {
 		get() = operator.trigger
 	
 	operator fun Joystick.get(button: Int) = this.getRawButton(button)
+
+	operator fun <T : GenericHID> FalconHID<T>.get(button: Int) = this.getRawButton(button)
 	
 	fun manualControl() {
 //		DriveBase.tankDrive(
