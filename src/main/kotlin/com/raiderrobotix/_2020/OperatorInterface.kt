@@ -14,9 +14,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope
 import org.ghrobotics.lib.wrappers.hid.mapControls
 import org.team2471.frc.lib.coroutines.meanlibLaunch
-import org.team2471.frc.lib.framework.use
-import org.team2471.frc.lib.input.toggleWhenTrue
-import org.team2471.frc.lib.input.whileTrue
+import org.team2471.frc.lib.input.whenTrue
 import kotlin.math.abs
 
 object OperatorInterface : Sendable {
@@ -48,60 +46,51 @@ object OperatorInterface : Sendable {
 	private fun launch(block: suspend CoroutineScope.() -> Unit) = GlobalScope.meanlibLaunch(block = block)
 	
 	init {
-		({ operator[1]}).whileTrue {
-			try {
-				Shooter.speed = 1.0
-			} catch (c: CancellationException) {
-				Shooter.speed = 0.0
+		operator.mapControls {
+			button(2) {
+				changeOn {
+					Intake.speed = 1.0
+					Intake.outer.speed = 0.6
+				}
+				changeOff {
+					Intake.speed = 0.0
+					Intake.outer.speed = 0.0
+				}
+			}
+			button(3) {
+				changeOn {
+					Intake.speed = -0.5
+					Intake.outer.speed = -0.7
+				}
+				changeOff {
+					Intake.speed = 0.0
+					Intake.outer.speed = 0.0
+				}
 			}
 		}
-		({ operator[2]}).whileTrue {
-			try {
-				Intake.speed = 1.0
-				Intake.outer.speed = 0.6
-			} catch (c: CancellationException) {
-				Intake.speed = 0.0
-				Intake.outer.speed = 0.0
-			}
+		({operator[1]}).whenTrue {
+			Shooter.speed = 1.0
+		}
+//		({ operator[2]}).whenTrue {
+//			Intake.speed = 1.0
+//			Intake.outer.speed = 0.6
+//		}
+//		({ operator[3]}).whenTrue {
+//			Intake.speed = -0.5
+//			Intake.outer.speed = -0.7
+//		}
+		({ operator[9]}).whenTrue {
+			Elevator.speed = 0.6
+		}
+		({operator[10]}).whenTrue {
+			Elevator.speed = -0.6
+		}
 
+		({ operator[7]}).whenTrue {
+			Trolley.speed = 0.6
 		}
-		({ operator[3]}).whileTrue {
-			try {
-				Intake.speed = -0.5
-				Intake.outer.speed = -0.7
-			} catch (c: CancellationException) {
-				Intake.speed = 0.0
-				Intake.outer.speed = 0.0
-			}
-		}
-		({ operator[9]}).whileTrue {
-			try {
-				Elevator.speed = 0.6
-			} catch (c: CancellationException) {
-				Elevator.speed = 0.0
-			}
-		}
-		({operator[10]}).whileTrue {
-			try {
-				Elevator.speed = -0.6
-			} catch (c: CancellationException) {
-				Elevator.speed = 0.0
-			}
-	}
-
-		({ operator[7]}).whileTrue {
-			try {
-				Trolley.speed = 0.6
-			} catch (c: CancellationException) {
-				Trolley.speed = 0.0
-			}
-		}
-		({ operator[8]}).whileTrue {
-			try {
-				Trolley.speed = -0.6
-			} catch (c: CancellationException) {
-				Trolley.speed = 0.0
-			}
+		({ operator[8]}).whenTrue {
+			Trolley.speed = -0.6
 		}
 	}
 	
