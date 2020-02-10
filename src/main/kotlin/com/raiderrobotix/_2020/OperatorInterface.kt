@@ -55,7 +55,7 @@ object OperatorInterface : Sendable {
 				Shooter.speed = 0.0
 			}
 		}
-		({ operator[2]}).toggleWhenTrue {
+		({ operator[2]}).whileTrue {
 			try {
 				Intake.speed = 1.0
 				Intake.outer.speed = 0.6
