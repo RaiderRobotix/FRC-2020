@@ -25,13 +25,10 @@ object Robot : RobotProgram {
 	
 	override suspend fun teleop() {
 		DriveBase.enable()
-		testPrint()
-		periodic {
-			manualControl()
-		}
 	}
 	
 	override suspend fun disable() {
+		DriveBase.disable()
 		println("disabled")
 		updateDistance()
 	}
