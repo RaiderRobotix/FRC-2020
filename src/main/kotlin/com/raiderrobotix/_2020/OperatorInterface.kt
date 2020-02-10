@@ -43,15 +43,15 @@ object OperatorInterface : Sendable {
 		({ !operator[1] }).whenTrue { Shooter.reset() }
 
 		//Intake
-		({ operator[3] && !operator[2] }).whenTrue {
+		({ operator[11] && !operator[2] }).whenTrue {
 			Intake.speed = 1.0
 			Intake.outer.speed = 0.6
 		}
-		({ operator[3] && operator[2] }).whenTrue {
+		({ operator[11] && operator[2] }).whenTrue {
 			Intake.speed = -0.5
 			Intake.outer.speed = -0.7
 		}
-		({ !operator[3] }).whenTrue { Intake.reset() }
+		({ !operator[11] }).whenTrue { Intake.reset() }
 
 		//Elevator
 		({ operator[9] && !operator[2] }).whenTrue { Elevator.speed = 0.6 }
