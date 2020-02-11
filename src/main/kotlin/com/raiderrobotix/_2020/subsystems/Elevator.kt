@@ -1,5 +1,6 @@
 package com.raiderrobotix._2020.subsystems
 
+import com.raiderrobotix._2020.OperatorInterface
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel
 import org.team2471.frc.lib.framework.Subsystem
@@ -21,5 +22,9 @@ object Elevator : Subsystem("Elevator") {
 	
 	override fun reset() {
 		speed = 0.0
+	}
+
+	override suspend fun default() {
+		speed = OperatorInterface.operatorY
 	}
 }
