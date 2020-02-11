@@ -54,14 +54,15 @@ object OperatorInterface : Sendable {
 		({ !operator[11] }).whenTrue { Intake.reset() }
 
 		//Elevator
-		({ operator[9] && !operator[2] }).whenTrue { Elevator.speed = 0.6 }
+		({ operator[9] && !operator[2] }).whenTrue { Elevator.speed = 1.0 }
 		({ operator[9]  && operator[2] }).whenTrue { Elevator.speed = -0.6 }
 		({ !operator[9] }).whenTrue { Elevator.reset() }
-
+					
 		//Trolley
-		({ operator[7] && !operator[2] }).whenTrue { Trolley.speed = 0.6 }
-		({ operator[7] && operator[2] }).whenTrue { Trolley.speed = -0.6 }
+		({ operator[7] && !operator[2] }).whenTrue { Trolley.speed = 1.0 }
+		({ operator[7] && operator[2] }).whenTrue { Trolley.speed = -1.0 }
 		({ !operator[7] }).whenTrue { Trolley.reset() }
+
 	}
 	
 	/**
