@@ -6,11 +6,11 @@ import com.revrobotics.CANSparkMaxLowLevel
 import org.team2471.frc.lib.framework.Subsystem
 
 object Elevator : Subsystem("Elevator") {
-	val leftid = 6
-	val rightid = 5
+	private const val left_id = 6
+	private const val right_id = 5
 	
-	val left = CANSparkMax(leftid, CANSparkMaxLowLevel.MotorType.kBrushless)	
-	val right = CANSparkMax(rightid, CANSparkMaxLowLevel.MotorType.kBrushless)
+	private val left = CANSparkMax(left_id, CANSparkMaxLowLevel.MotorType.kBrushless)
+	private val right = CANSparkMax(right_id, CANSparkMaxLowLevel.MotorType.kBrushless)
 	
 	init {
 		left.follow(right, true)
