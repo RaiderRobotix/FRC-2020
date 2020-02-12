@@ -83,8 +83,8 @@ object OperatorInterface : Sendable {
 	val operatorTrigger: Boolean
 		get() = operator.trigger
 	
-	operator fun Joystick.get(button: Int) = this.getRawButton(button)
+	operator fun Joystick.get(button: Int) = getRawButton(button)
 
-	operator fun <T : GenericHID> FalconHID<T>.get(button: Int) = this.getRawButton(button)
+	operator fun <T : GenericHID> FalconHID<T>.get(button: Int) = getRawButton(button)
 	
 }
