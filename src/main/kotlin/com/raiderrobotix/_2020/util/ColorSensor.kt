@@ -27,9 +27,15 @@ enum class WheelColor(val color: Color) {
 		val color: WheelColor
 			get() {
 				val color = sensor.color
-				return values().minBy {
+				val preempt = setOf(Red, Green).minBy {
 					hypot(hypot((color.green - it.color.green), (color.red - it.color.red)), (color.blue - it.color.blue))
 				}!!
+
+				return when {
+					preempt == Red && color.green >= 0.4 -> Yellow
+					preempt == Green && color.blue >= 0.4 -> Cyan
+					else -> preempt
+				}
 			}
 	}
 }
