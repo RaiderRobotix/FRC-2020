@@ -42,16 +42,23 @@ object OperatorInterface : Sendable {
 		({ operator[1] }).whenTrue { Shooter.speed = 1.0 }
 		({ !operator[1] }).whenTrue { Shooter.reset() }
 
-		//Intake
+		//Conveyers
 		({ operator[11] && !operator[2] }).whenTrue {
 			Intake.speed = 1.0
-			Intake.outer.speed = 0.6
 		}
 		({ operator[11] && operator[2] }).whenTrue {
 			Intake.speed = -0.5
-			Intake.outer.speed = -0.7
 		}
 		({ !operator[11] }).whenTrue { Intake.reset() }
+
+		//Roller
+		({ operator[12] && !operator[2] }).whenTrue {
+			Intake.outer.speed = 0.6
+		}
+		({ operator[12] && operator[2] }).whenTrue {
+			Intake.outer.speed = -0.7
+		}
+		({ !operator[12] }).whenTrue { Intake.reset() }
 
 		//Elevator
 		({ operator[9] && !operator[2] }).whenTrue { Elevator.speed = 1.0 }
