@@ -26,13 +26,8 @@ object OperatorInterface : Sendable {
 	}
 	
 	private const val LEFT_JOYSTICK_PORT = 0
-<<<<<<< HEAD
 	private const val RIGHT_JOYSTICK_PORT = 2
 	private const val OPERATOR_JOYSTICK_PORT = 1
-=======
-	private const val RIGHT_JOYSTICK_PORT = 1
-	private const val OPERATOR_JOYSTICK_PORT = 3
->>>>>>> 3698b0059430f49d049418e8e80966739555c593
 	private const val JOYSTICK_DEADBAND = 0.15
 	
 	// Joysticks
@@ -43,7 +38,6 @@ object OperatorInterface : Sendable {
 
 
 	init {
-<<<<<<< HEAD
 		//Shooter
 		({ operator[1] }).whenTrue { Shooter.speed = 1.0 }
 		({ !operator[1] }).whenTrue { Shooter.reset() }
@@ -76,28 +70,6 @@ object OperatorInterface : Sendable {
 		({ operator[7] && operator[2] }).whenTrue { Trolley.speed = -1.0 }
 		({ !operator[7] }).whenTrue { Trolley.reset() }
 
-=======
-		operatorStick.mapControls {
-			button(1) {
-				changeOn {
-					Shooter.speed = 0.2
-				}
-				changeOff {
-					Shooter.speed = 0.0
-				}
-			}
-			button(2) {
-				changeOn {
-					Intake.speed = 0.2
-				}
-				changeOff {
-					Intake.speed = 0.0
-				}
-			}
-			
-		}
-		
->>>>>>> 3698b0059430f49d049418e8e80966739555c593
 	}
 	
 	/**
