@@ -26,8 +26,13 @@ object OperatorInterface : Sendable {
 	}
 	
 	private const val LEFT_JOYSTICK_PORT = 0
+<<<<<<< HEAD
+	private const val RIGHT_JOYSTICK_PORT = 2
+	private const val OPERATOR_JOYSTICK_PORT = 1
+=======
 	private const val RIGHT_JOYSTICK_PORT = 1
 	private const val OPERATOR_JOYSTICK_PORT = 3
+>>>>>>> 3698b0059430f49d049418e8e80966739555c593
 	private const val JOYSTICK_DEADBAND = 0.15
 	
 	// Joysticks
@@ -38,6 +43,40 @@ object OperatorInterface : Sendable {
 
 
 	init {
+<<<<<<< HEAD
+		//Shooter
+		({ operator[1] }).whenTrue { Shooter.speed = 1.0 }
+		({ !operator[1] }).whenTrue { Shooter.reset() }
+
+		//Conveyers
+		({ operator[11] && !operator[2] }).whenTrue {
+			Intake.speed = 1.0
+		}
+		({ operator[11] && operator[2] }).whenTrue {
+			Intake.speed = -0.5
+		}
+		({ !operator[11] }).whenTrue { Intake.reset() }
+
+		//Roller
+		({ operator[12] && !operator[2] }).whenTrue {
+			Intake.outer.speed = 0.6
+		}
+		({ operator[12] && operator[2] }).whenTrue {
+			Intake.outer.speed = -0.7
+		}
+		({ !operator[12] }).whenTrue { Intake.reset() }
+
+		//Elevator
+		({ operator[9] && !operator[2] }).whenTrue { Elevator.speed = 1.0 }
+		({ operator[9]  && operator[2] }).whenTrue { Elevator.speed = -0.6 }
+		({ !operator[9] }).whenTrue { Elevator.reset() }
+					
+		//Trolley
+		({ operator[7] && !operator[2] }).whenTrue { Trolley.speed = 1.0 }
+		({ operator[7] && operator[2] }).whenTrue { Trolley.speed = -1.0 }
+		({ !operator[7] }).whenTrue { Trolley.reset() }
+
+=======
 		operatorStick.mapControls {
 			button(1) {
 				changeOn {
@@ -58,6 +97,7 @@ object OperatorInterface : Sendable {
 			
 		}
 		
+>>>>>>> 3698b0059430f49d049418e8e80966739555c593
 	}
 	
 	/**

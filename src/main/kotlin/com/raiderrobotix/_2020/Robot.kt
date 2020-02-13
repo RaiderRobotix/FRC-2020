@@ -32,6 +32,12 @@ object Robot : RobotProgram {
 	}
 	
 	override suspend fun teleop() {
+<<<<<<< HEAD
+		DriveBase.enable()
+		Elevator.enable()
+	}
+	
+=======
 		println("teleop")
 		operatorControl()
 		GlobalScope.meanlibLaunch {
@@ -50,6 +56,7 @@ object Robot : RobotProgram {
 			}	
 		}
 	}	
+>>>>>>> 3698b0059430f49d049418e8e80966739555c593
 	override suspend fun disable() {
 		DriveBase.disable()
 		println("disabled")
