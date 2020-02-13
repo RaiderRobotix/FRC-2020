@@ -7,16 +7,6 @@ import org.team2471.frc.lib.coroutines.meanlibLaunch
 import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.use
 
-<<<<<<< HEAD
-suspend fun operatorControl() = GlobalScope.meanlibLaunch {
-	use(DriveBase) {
-		periodic {
-			DriveBase.tankDrive(
-				leftSpeed = -OperatorInterface.leftY,
-				rightSpeed = -OperatorInterface.rightY
-			)
-		}
-=======
 suspend fun operatorControl() = use(DriveBase) {
 	println("operator Control")
 	periodic {
@@ -25,6 +15,5 @@ suspend fun operatorControl() = use(DriveBase) {
 			leftSpeed = -OperatorInterface.leftY,
 			rightSpeed = -OperatorInterface.rightY
 		)
->>>>>>> 3698b0059430f49d049418e8e80966739555c593
 	}
 }
