@@ -4,6 +4,8 @@ import com.raiderrobotix._2020.OperatorInterface
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel
 import org.team2471.frc.lib.framework.Subsystem
+import org.team2471.frc.lib.coroutines.periodic
+
 
 object Elevator : Subsystem("Elevator") {
 	private const val left_id = 6
@@ -26,11 +28,12 @@ object Elevator : Subsystem("Elevator") {
 
 	var speed: Double
 		set(new_speed) {
-			right.set(when {
-				max_height > height -> new_speed
-				new_speed < 0.0 -> new_speed
-				else -> 0.0
-			})
+			right.set(new_speed)
+			// right.set(when {
+			// 	max_height > height -> new_speed
+			// 	new_speed < 0.0 -> new_speed
+			// 	else -> 0.0
+			// })
 		}
 		get() = right.get()
 
@@ -39,6 +42,8 @@ object Elevator : Subsystem("Elevator") {
 	}
 
 	override suspend fun default() {
-		speed = OperatorInterface.operatorY
+		periodic {
+			speed = -OperatorInterface.operatorY
+		}
 	}
 }
