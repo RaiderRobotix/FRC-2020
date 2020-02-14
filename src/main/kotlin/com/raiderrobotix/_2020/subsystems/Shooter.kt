@@ -1,5 +1,6 @@
 package com.raiderrobotix._2020.subsystems
 
+import edu.wpi.first.wpilibj.Counter
 import edu.wpi.first.wpilibj.DigitalInput
 import edu.wpi.first.wpilibj.Spark
 import edu.wpi.first.wpilibj.SpeedControllerGroup
@@ -14,16 +15,14 @@ object Shooter : Subsystem("Shooter") {
 	private val cowl = Spark(cowlChannel)
 	private val group = SpeedControllerGroup(Spark(topChannel), Spark(bottomChannel))
 
-	private val limit = DigitalInput(limitDIO)
+	private val counter = Counter(DigitalInput(limitDIO))
+	private var count = 0
 	private const val limitEnabled = false
 
+	operator fun Counter.invoke() = get()
 
 	var speed: Double
-		set(it) {
-			if (limitEnabled && !limit.get()) {
-				group.set(it)
-			}
-		}
+		set(it) { group.set(it) }
 		get() = group.get()
 
 	var cowlSpeed: Double
