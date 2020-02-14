@@ -26,8 +26,8 @@ object OperatorInterface : Sendable {
 	}
 	
 	private const val LEFT_JOYSTICK_PORT = 0
-	private const val RIGHT_JOYSTICK_PORT = 2
-	private const val OPERATOR_JOYSTICK_PORT = 1
+	private const val RIGHT_JOYSTICK_PORT = 1
+	private const val OPERATOR_JOYSTICK_PORT = 2
 	private const val JOYSTICK_DEADBAND = 0.15
 	
 	// Joysticks
