@@ -15,7 +15,7 @@ object Shooter : Subsystem("Shooter") {
 	private val group = SpeedControllerGroup(Spark(topChannel), Spark(bottomChannel))
 
 	private val limit = DigitalInput(limitDIO)
-	private const val limitEnabled = true
+	private const val limitEnabled = false
 
 
 	var speed: Double
