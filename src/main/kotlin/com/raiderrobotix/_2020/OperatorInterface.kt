@@ -70,6 +70,11 @@ object OperatorInterface : Sendable {
 		({ operator[7] && operator[2] }).whenTrue { Trolley.speed = -1.0 }
 		({ !operator[7] }).whenTrue { Trolley.reset() }
 
+		//Cowl
+		({ operator[8] && !operator[2] }).whenTrue { Shooter.cowlSpeed = 0.5 }
+		({ operator[8] && operator[2] }).whenTrue { Shooter.cowlSpeed = -0.5 }
+		({ !operator[8] }).whenTrue { Shooter.cowlSpeed = 0.0 }
+
 	}
 	
 	/**
