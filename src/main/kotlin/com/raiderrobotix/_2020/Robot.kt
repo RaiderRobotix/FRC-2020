@@ -24,6 +24,7 @@ object Robot : RobotProgram {
 		DriveBase.enable()
 		Elevator.enable()
 		printDistance()
+		updateDistance()
 	}
 	
 	override suspend fun disable() {
