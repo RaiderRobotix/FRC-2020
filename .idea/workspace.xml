@@ -2,17 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5129ce9e-d926-4003-aa03-5491c79a15e9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/commands/shooter/TurnToAngle.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/Robot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/Robot.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/commands/Teleop.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/commands/Teleop.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/subsystems/DriveBase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/subsystems/DriveBase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/subsystems/Shooter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/subsystems/Shooter.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -30,42 +31,18 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="FRC2020" type="f1a62948:ProjectNode" />
+                <item name="FRC-2020" type="f1a62948:ProjectNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="FRC2020" type="f1a62948:ProjectNode" />
-                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="FRC2020" type="f1a62948:ProjectNode" />
-                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
-                <item name="main" type="396b929e:GradleViewContributor$SourceSetNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="FRC2020" type="f1a62948:ProjectNode" />
-                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
-                <item name="main" type="396b929e:GradleViewContributor$SourceSetNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="FRC2020" type="f1a62948:ProjectNode" />
+                <item name="FRC-2020" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="FRC2020" type="f1a62948:ProjectNode" />
+                <item name="FRC-2020" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="application" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="FRC2020" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="other" type="c8890929:TasksNode$1" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -91,6 +68,9 @@
   <component name="MacroExpansionManager">
     <option name="directoryName" value="zBXfNUAn" />
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
   <component name="ProjectId" id="1WLt1WTxDu0ltUh9Iz2xgGU8ycd" />
   <component name="ProjectViewState">
     <option name="flattenPackages" value="true" />
@@ -100,6 +80,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="kotlin" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
@@ -110,7 +91,26 @@
       <command value="gradle simulateExternalJava" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.FRC2020 [simulateExternalJava]">
+  <component name="RunManager" selected="Gradle.FRC-2020 [build]">
+    <configuration name="FRC-2020 [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="FRC2020 [externalSimulate]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -168,25 +168,6 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="FRC2020 [startScripts]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="startScripts" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="com.raiderrobotix._2020.Robot" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="FRC2020.main" />
       <option name="VM_PARAMETERS" />
@@ -202,11 +183,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.FRC-2020 [build]" />
         <item itemvalue="Gradle.FRC2020 [simulateExternalJava]" />
         <item itemvalue="Gradle.FRC2020 [run]" />
         <item itemvalue="Kotlin.com.raiderrobotix._2020.Robot" />
         <item itemvalue="Gradle.FRC2020 [externalSimulate]" />
-        <item itemvalue="Gradle.FRC2020 [startScripts]" />
       </list>
     </recent_temporary>
   </component>
@@ -272,7 +253,21 @@
       <option name="project" value="LOCAL" />
       <updated>1580420712379</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add check for limit switch">
+      <created>1581778284076</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1581778284076</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Project code style settings">
+      <created>1581778308929</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1581778308929</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -282,12 +277,18 @@
     <MESSAGE value="Refactor commands from classes to functions" />
     <MESSAGE value="IDE Files" />
     <MESSAGE value="Remove Action.kt interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove Action.kt interface" />
+    <MESSAGE value="Add check for limit switch" />
+    <MESSAGE value="Project code style settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project code style settings" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="432" y="163" key="#Kotlin" timestamp="1581710405353">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="432" y="163" key="#Kotlin/0.0.1680.1010@0.0.1680.1010" timestamp="1581710405353" />
     <state x="220" y="46" key="#Updates" timestamp="1578940553625">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -304,42 +305,55 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="395" y="157" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1579889725152" />
-    <state x="214" y="23" key="CommitChangelistDialog2" timestamp="1580424263212">
+    <state x="214" y="23" key="CommitChangelistDialog2" timestamp="1581795890612">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="214" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1580424263212" />
-    <state width="1384" height="216" key="GridCell.Tab.0.bottom" timestamp="1580424163348">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="214" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1581795890612" />
+    <state width="1637" height="272" key="GridCell.Tab.0.bottom" timestamp="1581626731114">
+      <screen x="0" y="0" width="1680" height="1010" />
     </state>
+    <state width="1637" height="272" key="GridCell.Tab.0.bottom/0.0.1680.1010@0.0.1680.1010" timestamp="1581626731114" />
     <state width="1384" height="216" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1580424163348" />
-    <state width="1384" height="216" key="GridCell.Tab.0.center" timestamp="1580424163346">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1637" height="272" key="GridCell.Tab.0.center" timestamp="1581626731114">
+      <screen x="0" y="0" width="1680" height="1010" />
     </state>
+    <state width="1637" height="272" key="GridCell.Tab.0.center/0.0.1680.1010@0.0.1680.1010" timestamp="1581626731114" />
     <state width="1384" height="216" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1580424163346" />
-    <state width="1384" height="216" key="GridCell.Tab.0.left" timestamp="1580424163345">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1637" height="272" key="GridCell.Tab.0.left" timestamp="1581626731114">
+      <screen x="0" y="0" width="1680" height="1010" />
     </state>
+    <state width="1637" height="272" key="GridCell.Tab.0.left/0.0.1680.1010@0.0.1680.1010" timestamp="1581626731114" />
     <state width="1384" height="216" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1580424163345" />
-    <state width="1384" height="216" key="GridCell.Tab.0.right" timestamp="1580424163347">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1637" height="272" key="GridCell.Tab.0.right" timestamp="1581626731114">
+      <screen x="0" y="0" width="1680" height="1010" />
     </state>
+    <state width="1637" height="272" key="GridCell.Tab.0.right/0.0.1680.1010@0.0.1680.1010" timestamp="1581626731114" />
     <state width="1384" height="216" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1580424163347" />
-    <state x="288" y="100" key="MergeDialog" timestamp="1579889608110">
+    <state x="0" y="23" width="1440" height="877" key="MergeDialog" timestamp="1581795982780">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="288" y="100" key="MergeDialog/0.23.1440.877@0.23.1440.877" timestamp="1579889608110" />
-    <state x="349" y="115" width="1081" height="692" key="MultipleFileMergeDialog" timestamp="1579889609483">
+    <state x="0" y="23" width="1440" height="877" key="MergeDialog/0.23.1440.877@0.23.1440.877" timestamp="1581795982780" />
+    <state x="349" y="115" width="1081" height="692" key="MultipleFileMergeDialog" timestamp="1581795982846">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="349" y="115" width="1081" height="692" key="MultipleFileMergeDialog/0.23.1440.877@0.23.1440.877" timestamp="1579889609483" />
-    <state x="220" y="138" key="Vcs.Push.Dialog.v2" timestamp="1580424314610">
+    <state x="349" y="115" width="1081" height="692" key="MultipleFileMergeDialog/0.23.1440.877@0.23.1440.877" timestamp="1581795982846" />
+    <state x="220" y="138" key="Vcs.Push.Dialog.v2" timestamp="1581796008261">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="220" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1580424314610" />
-    <state x="265" y="255" key="com.intellij.ide.util.TipDialog" timestamp="1578940517978">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="220" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1581796008261" />
+    <state x="92" y="92" width="1496" height="826" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581263907445">
+      <screen x="0" y="0" width="1680" height="1010" />
     </state>
+    <state x="92" y="92" width="1496" height="826" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1680.1010@0.0.1680.1010" timestamp="1581263907445" />
+    <state x="309" y="267" key="com.intellij.ide.util.TipDialog" timestamp="1581710123907">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="309" y="267" key="com.intellij.ide.util.TipDialog/0.0.1680.1010@0.0.1680.1010" timestamp="1581710123907" />
     <state x="265" y="255" key="com.intellij.ide.util.TipDialog/0.23.1440.877@0.23.1440.877" timestamp="1578940517978" />
+    <state x="287" y="215" key="git4idea.merge.GitPullDialog" timestamp="1581796002249">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="287" y="215" key="git4idea.merge.GitPullDialog/0.23.1440.877@0.23.1440.877" timestamp="1581796002249" />
     <state x="301" y="207" width="838" height="1032" key="run.anything.popup" timestamp="1580422384365">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

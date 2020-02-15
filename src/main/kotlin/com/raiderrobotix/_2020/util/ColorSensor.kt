@@ -4,13 +4,17 @@ import com.revrobotics.ColorSensorV3
 import edu.wpi.first.wpilibj.I2C
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import edu.wpi.first.wpilibj.util.Color
+import kotlinx.coroutines.GlobalScope
+import org.team2471.frc.lib.coroutines.meanlibLaunch
 import org.team2471.frc.lib.coroutines.periodic
 import kotlin.math.hypot
 
 val sensor = ColorSensorV3(I2C.Port.kOnboard)
 
-suspend fun printColor() = periodic {
-	SmartDashboard.putString("Color", sensor.color.toString())
+suspend fun printColor() = GlobalScope.meanlibLaunch {
+	periodic {
+		SmartDashboard.putString("Color", WheelColor.color.name)
+	}
 }
 
 enum class WheelColor(val color: Color) {
@@ -23,9 +27,15 @@ enum class WheelColor(val color: Color) {
 		val color: WheelColor
 			get() {
 				val color = sensor.color
-				return values().toList().minBy {
+				val preempt = setOf(Red, Green).minBy {
 					hypot(hypot((color.green - it.color.green), (color.red - it.color.red)), (color.blue - it.color.blue))
 				}!!
+
+				return when {
+					preempt == Red && color.green >= 0.4 -> Yellow
+					preempt == Green && color.blue >= 0.4 -> Cyan
+					else -> preempt
+				}
 			}
 	}
 }
