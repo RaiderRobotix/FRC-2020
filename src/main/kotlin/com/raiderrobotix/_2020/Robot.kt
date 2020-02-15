@@ -2,6 +2,7 @@ package com.raiderrobotix._2020
 
 import com.raiderrobotix._2020.subsystems.DriveBase
 import com.raiderrobotix._2020.subsystems.Elevator
+import com.raiderrobotix._2020.subsystems.printDistance
 import com.raiderrobotix._2020.util.updateDistance
 import org.team2471.frc.lib.framework.RobotProgram
 import org.team2471.frc.lib.framework.initializeWpilib
@@ -22,6 +23,7 @@ object Robot : RobotProgram {
 	override suspend fun teleop() {
 		DriveBase.enable()
 		Elevator.enable()
+		printDistance()
 	}
 	
 	override suspend fun disable() {
