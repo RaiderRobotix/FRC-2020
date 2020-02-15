@@ -59,11 +59,6 @@ object OperatorInterface : Sendable {
 			Intake.outer.speed = -0.7
 		}
 		({ !operator[12] }).whenTrue { Intake.reset() }
-
-		//Elevator
-		({ operator[9] && !operator[2] }).whenTrue { Elevator.speed = 1.0 }
-		({ operator[9]  && operator[2] }).whenTrue { Elevator.speed = -0.6 }
-		({ !operator[9] }).whenTrue { Elevator.reset() }
 					
 		//Trolley
 		({ operator[7] && !operator[2] }).whenTrue { Trolley.speed = 1.0 }
@@ -71,9 +66,9 @@ object OperatorInterface : Sendable {
 		({ !operator[7] }).whenTrue { Trolley.reset() }
 
 		//Cowl
-		({ operator[8] && !operator[2] }).whenTrue { Shooter.cowlSpeed = 0.5 }
-		({ operator[8] && operator[2] }).whenTrue { Shooter.cowlSpeed = -0.5 }
-		({ !operator[8] }).whenTrue { Shooter.cowlSpeed = 0.0 }
+		({ operator[5] }).whenTrue { Shooter.cowlSpeed = 0.5 }
+		({ operator[3] }).whenTrue { Shooter.cowlSpeed = -0.5 }
+		({ !operator[5] && !operator[3] }).whenTrue { Shooter.cowlSpeed = 0.0 }
 
 	}
 	
