@@ -22,8 +22,8 @@ object DriveBase : Subsystem(name="Drives") {
 	private const val TIRE_CIRCUMFERENCE = 28.375 // TODO
 	private const val GEAR_RATIO = 0.047619 // 0.0714286; // TODO
 	private const val INCHES_PER_REVOLUTION = GEAR_RATIO * TIRE_CIRCUMFERENCE
-	private const val RIGHT_DRIVE_MOTORS_INVERTED = true // TODO
-	private const val LEFT_DRIVE_MOTORS_INVERTED = false // TODO
+	private const val RIGHT_DRIVE_MOTORS_INVERTED = true
+	private const val LEFT_DRIVE_MOTORS_INVERTED = false
 	
 	private val leftEncoder = leftFrontSpark.encoder
 	private val rightEncoder = rightFrontSpark.encoder

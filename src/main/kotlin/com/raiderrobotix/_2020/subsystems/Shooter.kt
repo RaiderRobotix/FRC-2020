@@ -10,8 +10,8 @@ import kotlin.math.acos
 import kotlin.math.pow
 
 object Shooter : Subsystem("Shooter") {
-	private const val topChannel = 1 // TODO
-	private const val bottomChannel = 0 // TODO
+	private const val topChannel = 1
+	private const val bottomChannel = 0
 	private const val cowlChannel = 7
 	
 	private val cowl = Spark(cowlChannel)
