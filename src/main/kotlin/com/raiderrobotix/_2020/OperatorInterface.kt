@@ -1,8 +1,8 @@
 package com.raiderrobotix._2020
 
+import com.raiderrobotix._2020.subsystems.ColorWheel
 import com.raiderrobotix._2020.subsystems.Intake
 import com.raiderrobotix._2020.subsystems.Shooter
-import com.raiderrobotix._2020.subsystems.Elevator
 import com.raiderrobotix._2020.subsystems.Trolley
 import edu.wpi.first.wpilibj.GenericHID
 import edu.wpi.first.wpilibj.Joystick
@@ -59,17 +59,22 @@ object OperatorInterface : Sendable {
 			Intake.outer.speed = -0.7
 		}
 		({ !operator[12] }).whenTrue { Intake.reset() }
-					
+		
 		//Trolley
 		({ operator[7] && !operator[2] }).whenTrue { Trolley.speed = 1.0 }
 		({ operator[7] && operator[2] }).whenTrue { Trolley.speed = -1.0 }
 		({ !operator[7] }).whenTrue { Trolley.reset() }
-
+		
 		//Cowl
 		({ operator[5] }).whenTrue { Shooter.cowlSpeed = 0.5 }
 		({ operator[3] }).whenTrue { Shooter.cowlSpeed = -0.5 }
 		({ !operator[5] && !operator[3] }).whenTrue { Shooter.cowlSpeed = 0.0 }
-
+		
+		//Color Wheel
+		({ operator[9] && !operator[2] }).whenTrue { ColorWheel.motor.speed = 0.5 }
+		({ operator[9] && operator[2] }).whenTrue { ColorWheel.motor.speed = -0.5 }
+		({ !operator[9] }).whenTrue { ColorWheel.motor.speed = 0.0 }
+		
 	}
 	
 	/**
