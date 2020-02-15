@@ -68,12 +68,6 @@ object LimeLight : Sendable {
 		builder.addDoubleProperty("Area", ::targetArea, null)
 	}
 	
-	private const val name = "Camera"
-	override fun setName(name: String) {}
-	override fun getName(): String = name
-	override fun setSubsystem(subsystem: String) {}
-	override fun getSubsystem(): String = name
-	
 }
 
 @Suppress("unchecked")
