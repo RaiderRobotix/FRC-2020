@@ -67,7 +67,7 @@ object OperatorInterface : Sendable {
 
 		//Cowl
 		({ operator[5] }).whenTrue { Shooter.cowlSpeed = 0.5 }
-		({ operator[3]}).whenTrue { Shooter.cowlSpeed = -0.5 }
+		({ operator[3] }).whenTrue { Shooter.cowlSpeed = -0.5 }
 		({ !operator[5] && !operator[3] }).whenTrue { Shooter.cowlSpeed = 0.0 }
 
 	}

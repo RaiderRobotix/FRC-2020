@@ -3,6 +3,8 @@ package com.raiderrobotix._2020.subsystems
 import com.raiderrobotix._2020.OperatorInterface
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel
+import edu.wpi.first.wpilibj.Counter
+import edu.wpi.first.wpilibj.DigitalInput
 import org.team2471.frc.lib.framework.Subsystem
 import org.team2471.frc.lib.coroutines.periodic
 
@@ -16,6 +18,12 @@ object Elevator : Subsystem("Elevator") {
 
 	private val left_encoder = left.encoder
 	private val right_encoder = right.encoder
+
+	private const val limitDIO = 1 // TODO
+	private val counter = Counter(DigitalInput(limitDIO))
+	private var count = 0
+
+	operator fun Counter.invoke() = get()
 
 	init {
 		left.follow(right, true)
