@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5129ce9e-d926-4003-aa03-5491c79a15e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/commands/shooter/TurnToAngle.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/subsystems/ColorWheel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/Robot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/Robot.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/subsystems/Shooter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/subsystems/Shooter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/OperatorInterface.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/OperatorInterface.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/util/LimeLight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/util/LimeLight.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,23 +28,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="FRC-2020" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="FRC-2020" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="FRC-2020" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -58,6 +42,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin File" />
+        <option value="Kotlin Object" />
       </list>
     </option>
   </component>
@@ -86,12 +71,12 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="echo hi" />
       <command value="gradle simulateJava" />
       <command value="gradle simulateExternalJava" />
+      <command value="gradle deploy" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.FRC-2020 [build]">
+  <component name="RunManager" selected="Gradle.FRC2020 [deploy]">
     <configuration name="FRC-2020 [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -111,21 +96,21 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="FRC2020 [externalSimulate]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FRC2020 [deploy]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="externalSimulate" />
+            <option value="deploy" />
           </list>
         </option>
-        <option name="vmOptions" />
+        <option name="vmOptions" value="" />
       </ExternalSystemSettings>
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
@@ -183,11 +168,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.FRC2020 [deploy]" />
         <item itemvalue="Gradle.FRC-2020 [build]" />
         <item itemvalue="Gradle.FRC2020 [simulateExternalJava]" />
         <item itemvalue="Gradle.FRC2020 [run]" />
         <item itemvalue="Kotlin.com.raiderrobotix._2020.Robot" />
-        <item itemvalue="Gradle.FRC2020 [externalSimulate]" />
       </list>
     </recent_temporary>
   </component>
@@ -267,7 +252,28 @@
       <option name="project" value="LOCAL" />
       <updated>1581778308929</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Set cowl channel">
+      <created>1581797503819</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1581797503819</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Set cowl channel">
+      <created>1581797516609</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1581797516609</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Remove finished TODOs">
+      <created>1581797728237</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1581797728237</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -279,7 +285,9 @@
     <MESSAGE value="Remove Action.kt interface" />
     <MESSAGE value="Add check for limit switch" />
     <MESSAGE value="Project code style settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project code style settings" />
+    <MESSAGE value="Set cowl channel" />
+    <MESSAGE value="Remove finished TODOs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove finished TODOs" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -293,6 +301,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="220" y="46" key="#Updates/0.23.1440.877@0.23.1440.877" timestamp="1578940553625" />
+    <state x="184" y="118" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581798783914">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="184" y="118" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1581798783914" />
     <state x="440" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1580339736844">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -305,30 +317,30 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="395" y="157" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1579889725152" />
-    <state x="214" y="23" key="CommitChangelistDialog2" timestamp="1581795890612">
+    <state x="214" y="23" key="CommitChangelistDialog2" timestamp="1581799102389">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="214" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1581795890612" />
-    <state width="1637" height="272" key="GridCell.Tab.0.bottom" timestamp="1581626731114">
-      <screen x="0" y="0" width="1680" height="1010" />
+    <state x="214" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1581799102389" />
+    <state width="1384" height="216" key="GridCell.Tab.0.bottom" timestamp="1581798891482">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1637" height="272" key="GridCell.Tab.0.bottom/0.0.1680.1010@0.0.1680.1010" timestamp="1581626731114" />
-    <state width="1384" height="216" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1580424163348" />
-    <state width="1637" height="272" key="GridCell.Tab.0.center" timestamp="1581626731114">
-      <screen x="0" y="0" width="1680" height="1010" />
+    <state width="1384" height="216" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1581798891482" />
+    <state width="1384" height="216" key="GridCell.Tab.0.center" timestamp="1581798891481">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1637" height="272" key="GridCell.Tab.0.center/0.0.1680.1010@0.0.1680.1010" timestamp="1581626731114" />
-    <state width="1384" height="216" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1580424163346" />
-    <state width="1637" height="272" key="GridCell.Tab.0.left" timestamp="1581626731114">
-      <screen x="0" y="0" width="1680" height="1010" />
+    <state width="1384" height="216" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1581798891481" />
+    <state width="1384" height="216" key="GridCell.Tab.0.left" timestamp="1581798891480">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1637" height="272" key="GridCell.Tab.0.left/0.0.1680.1010@0.0.1680.1010" timestamp="1581626731114" />
-    <state width="1384" height="216" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1580424163345" />
-    <state width="1637" height="272" key="GridCell.Tab.0.right" timestamp="1581626731114">
-      <screen x="0" y="0" width="1680" height="1010" />
+    <state width="1384" height="216" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1581798891480" />
+    <state width="1384" height="216" key="GridCell.Tab.0.right" timestamp="1581798891481">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1637" height="272" key="GridCell.Tab.0.right/0.0.1680.1010@0.0.1680.1010" timestamp="1581626731114" />
-    <state width="1384" height="216" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1580424163347" />
+    <state width="1384" height="216" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1581798891481" />
     <state x="0" y="23" width="1440" height="877" key="MergeDialog" timestamp="1581795982780">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -337,10 +349,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="349" y="115" width="1081" height="692" key="MultipleFileMergeDialog/0.23.1440.877@0.23.1440.877" timestamp="1581795982846" />
-    <state x="220" y="138" key="Vcs.Push.Dialog.v2" timestamp="1581796008261">
+    <state x="220" y="138" key="Vcs.Push.Dialog.v2" timestamp="1581797246232">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="220" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1581796008261" />
+    <state x="220" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1581797246232" />
     <state x="92" y="92" width="1496" height="826" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581263907445">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
@@ -354,9 +366,9 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="287" y="215" key="git4idea.merge.GitPullDialog/0.23.1440.877@0.23.1440.877" timestamp="1581796002249" />
-    <state x="301" y="207" width="838" height="1032" key="run.anything.popup" timestamp="1580422384365">
+    <state x="301" y="207" width="838" height="1032" key="run.anything.popup" timestamp="1581797455255">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="301" y="207" width="838" height="1032" key="run.anything.popup/0.23.1440.877@0.23.1440.877" timestamp="1580422384365" />
+    <state x="301" y="207" width="838" height="1032" key="run.anything.popup/0.23.1440.877@0.23.1440.877" timestamp="1581797455255" />
   </component>
 </project>
