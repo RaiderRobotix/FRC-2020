@@ -1,12 +1,9 @@
 package com.raiderrobotix._2020.util
 
-import edu.wpi.first.networktables.NetworkTableEntry
 import edu.wpi.first.wpilibj.Sendable
 import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry
 import org.ghrobotics.lib.wrappers.networktables.FalconNetworkTable
-import org.ghrobotics.lib.wrappers.networktables.NetworkTableEntryDelegate
-import org.ghrobotics.lib.wrappers.networktables.delegate
 import org.ghrobotics.lib.wrappers.networktables.get
 
 object LimeLight : Sendable {
@@ -69,11 +66,3 @@ object LimeLight : Sendable {
 	}
 	
 }
-
-@Suppress("unchecked")
-inline operator fun <reified T> NetworkTableEntry.invoke(default: T): NetworkTableEntryDelegate<T> = when (T::class) {
-	String::class -> delegate(defaultValue = default as String)
-	Double::class -> delegate(defaultValue = default as Double)
-	Boolean::class -> delegate(defaultValue = default as Boolean)
-	else -> throw IllegalArgumentException("Illegal Generic")
-} as NetworkTableEntryDelegate<T>
