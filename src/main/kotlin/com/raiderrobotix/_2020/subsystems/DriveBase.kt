@@ -35,8 +35,6 @@ object DriveBase : Subsystem(name="Drives") {
 		rightBackSpark.follow(rightFrontSpark)
 		leftEncoder.positionConversionFactor = INCHES_PER_REVOLUTION
 		rightEncoder.positionConversionFactor = INCHES_PER_REVOLUTION
-//		navX.subsystem = "DriveBase"
-//		SmartDashboard.putData(this)
 	}
 	
 	val averageDistance: Double // Rename to distance
