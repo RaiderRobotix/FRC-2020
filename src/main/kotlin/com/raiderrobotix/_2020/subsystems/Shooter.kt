@@ -19,7 +19,7 @@ object Shooter : Subsystem("Shooter") {
 	private val group = SpeedControllerGroup(Spark(topChannel), Spark(bottomChannel))
 	
 	init {
-//		cowlEncoder.distancePerPulse = 0.0 // TODO, in inches
+//		cowlEncoder.distancePerPulse = 0.0 / 44.4 // TODO, in inches
 		cowlEncoder.reset()
 	}
 	
