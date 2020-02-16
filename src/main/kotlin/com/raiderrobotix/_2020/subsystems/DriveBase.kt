@@ -1,8 +1,10 @@
 package com.raiderrobotix._2020.subsystems
 
+import com.kauailabs.navx.frc.AHRS
 import com.raiderrobotix._2020.OperatorInterface
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel.MotorType
+import edu.wpi.first.wpilibj.SerialPort
 import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
 
@@ -28,6 +30,8 @@ object DriveBase : Subsystem(name="Drives") {
 	private val leftEncoder = leftFrontSpark.encoder
 	private val rightEncoder = rightFrontSpark.encoder
 	
+	val navX = AHRS(SerialPort.Port.kUSB1)
+	
 	init {
 		leftFrontSpark.inverted = LEFT_DRIVE_MOTORS_INVERTED
 		rightFrontSpark.inverted = RIGHT_DRIVE_MOTORS_INVERTED
@@ -46,18 +50,11 @@ object DriveBase : Subsystem(name="Drives") {
 	private val rightDistance: Double
 		get() = rightEncoder.position
 	
-	//	val ultrasonicDistance: Double
-//		get() = ultrasonic.voltage
-//
-	val gyroAngle: Double
-		get() = 0.0 //navX.angle
-	
 	var speed: Double
 		set(it) {
 			tankDrive(it, it)
 		}
 		get() = (leftFrontSpark.get() + rightFrontSpark.get())
-	
 	
 	fun tankDrive(leftSpeed: Double, rightSpeed: Double) {
 		leftFrontSpark.set(leftSpeed)
@@ -74,7 +71,7 @@ object DriveBase : Subsystem(name="Drives") {
 	}
 	
 	override fun reset() {
-//		navX.reset()
+		navX.zeroYaw()
 		speed = 0.0
 		leftEncoder.position = 0.0
 		rightEncoder.position = 0.0
