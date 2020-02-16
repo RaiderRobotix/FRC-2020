@@ -90,7 +90,8 @@ object OperatorInterface : Sendable {
 		get() = right.y.takeIf { abs(it)  > JOYSTICK_DEADBAND } ?: 0.0
 	
 	val operatorY: Double
-		get() = operator.y
+		get() = operator.y.takeIf { abs(it) > JOYSTICK_DEADBAND }
+			?: 0.0
 	
 	val operatorTrigger: Boolean
 		get() = operator.trigger
