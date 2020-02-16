@@ -2,6 +2,7 @@ package com.raiderrobotix._2020.util
 
 import com.revrobotics.ColorSensorV3
 import edu.wpi.first.wpilibj.I2C
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import edu.wpi.first.wpilibj.util.Color
 import kotlinx.coroutines.GlobalScope
@@ -24,13 +25,25 @@ enum class WheelColor(val color: Color) {
 	Yellow(Color(1.0, 1.0, 0.0));
 	
 	companion object {
+		
+		private val chooser = SendableChooser<WheelColor>()
+		
+		init {
+			for (color in values()) {
+				chooser.addOption(color.name, color)
+			}
+			SmartDashboard.putData("Selected Color", chooser)
+		}
+		
+		val selectedColor = chooser.selected
+		
 		val color: WheelColor
 			get() {
 				val color = sensor.color
 				val preempt = setOf(Red, Green).minBy {
 					hypot(hypot((color.green - it.color.green), (color.red - it.color.red)), (color.blue - it.color.blue))
 				}!!
-
+				
 				return when {
 					preempt == Red && color.green >= 0.4 -> Yellow
 					preempt == Green && color.blue >= 0.4 -> Cyan
