@@ -23,7 +23,7 @@ object Robot : RobotProgram {
 	override suspend fun teleop() {
 		DriveBase.enable()
 		Elevator.enable()
-//		printDistance() // cowl distanfe
+//		printCowlDistance()
 //		updateDistance() //ultra distance
 		printColor()
 	}

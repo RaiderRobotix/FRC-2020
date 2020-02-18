@@ -40,7 +40,7 @@ object Shooter : Subsystem("Shooter") {
 		cowlSpeed = 0.0
 	}
 	
-	suspend fun printDistance() {
+	suspend fun printCowlDistance() {
 		periodic {
 			SmartDashboard.putNumber("Cowl Distance", cowlDistance)
 		}
