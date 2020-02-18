@@ -6,8 +6,6 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
-import kotlin.math.acos
-import kotlin.math.pow
 
 object Shooter : Subsystem("Shooter") {
 	private const val topChannel = 1
@@ -42,15 +40,9 @@ object Shooter : Subsystem("Shooter") {
 		cowlSpeed = 0.0
 	}
 	
-	const val motor_to_pivot = 10.0
-	const val anchor_to_pivot = 8.25
-	val cowlAngle
-		get() = acos((cowlDistance.pow(2) - motor_to_pivot.pow(2) - anchor_to_pivot.pow(2)) / (2 * motor_to_pivot * anchor_to_pivot))
-	
-}
-
-suspend fun printDistance() {
-	periodic {
-		SmartDashboard.putNumber("Cowl Distance", Shooter.cowlDistance)
+	suspend fun printDistance() {
+		periodic {
+			SmartDashboard.putNumber("Cowl Distance", cowlDistance)
+		}
 	}
 }
