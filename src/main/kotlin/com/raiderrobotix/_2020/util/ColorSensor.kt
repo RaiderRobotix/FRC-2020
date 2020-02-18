@@ -7,15 +7,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import edu.wpi.first.wpilibj.util.Color
 import org.team2471.frc.lib.coroutines.delay
 import org.team2471.frc.lib.coroutines.periodic
-import kotlin.math.hypot
 
 val sensor = ColorSensorV3(I2C.Port.kOnboard)
 
 var offset = Color(.0, .0, .0)
 
-operator fun Color.minus(c: Color) = Color(red - offset.red, green - offset.green, blue - offset.blue)
+operator fun Color.minus(c: Color) = Color(red - c.red, green - c.green, blue - c.blue)
 
-fun Color.toPrettyString(): String = "(R: ${red}, G: ${green}, B: ${blue})"
+fun Color.toPrettyString(): String = "(R: %.5f, G: %.5f, B: %.5f)".format(red, green, blue)
 
 suspend fun zeroOutColor(iter: Int) {
 	val colors = mutableListOf<Color>()
@@ -52,15 +51,19 @@ enum class WheelColor(val color: Color) {
 		
 		val color: WheelColor
 			get() {
-				val color = sensor.color
-				val preempt = setOf(Red, Green).minBy {
-					hypot(hypot((color.green - it.color.green), (color.red - it.color.red)), (color.blue - it.color.blue))
-				}!!
+				val color = sensor.color - offset
+				
+				val threshold = 0.001
 				
 				return when {
-					preempt == Red && color.green >= 0.4 -> Yellow
-					preempt == Green && color.blue >= 0.4 -> Cyan
-					else -> preempt
+					color.green >= threshold ->
+						when {
+							color.red >= threshold -> Yellow
+							color.blue >= threshold -> Cyan
+							else -> Green
+						}
+					color.red >= threshold -> Red
+					else -> TODO("How'd tf u get this color!!")
 				}
 			}
 	}
