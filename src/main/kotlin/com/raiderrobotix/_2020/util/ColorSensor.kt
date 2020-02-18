@@ -5,17 +5,17 @@ import edu.wpi.first.wpilibj.I2C
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import edu.wpi.first.wpilibj.util.Color
-import kotlinx.coroutines.GlobalScope
-import org.team2471.frc.lib.coroutines.meanlibLaunch
 import org.team2471.frc.lib.coroutines.periodic
 import kotlin.math.hypot
 
 val sensor = ColorSensorV3(I2C.Port.kOnboard)
 
-suspend fun printColor() = GlobalScope.meanlibLaunch {
-	periodic {
-		SmartDashboard.putString("Color", WheelColor.color.name)
-	}
+suspend fun printColor() = periodic(0.02) {
+	SmartDashboard.putString("Color", WheelColor.color.name)
+	SmartDashboard.putString("Color", WheelColor.color.name)
+	val color = sensor.color
+	println("color loops")
+	SmartDashboard.putString("Raw Color", "(${color.red}, ${color.green}, ${color.blue})")
 }
 
 enum class WheelColor(val color: Color) {
@@ -35,7 +35,7 @@ enum class WheelColor(val color: Color) {
 			SmartDashboard.putData("Selected Color", chooser)
 		}
 		
-		val selectedColor = chooser.selected
+		val selectedColor: WheelColor? = chooser.selected
 		
 		val color: WheelColor
 			get() {
