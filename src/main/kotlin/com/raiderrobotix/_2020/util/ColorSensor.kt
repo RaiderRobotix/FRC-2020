@@ -5,17 +5,37 @@ import edu.wpi.first.wpilibj.I2C
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import edu.wpi.first.wpilibj.util.Color
+import org.team2471.frc.lib.coroutines.delay
 import org.team2471.frc.lib.coroutines.periodic
 import kotlin.math.hypot
 
 val sensor = ColorSensorV3(I2C.Port.kOnboard)
 
-suspend fun printColor() = periodic(0.02) {
-	SmartDashboard.putString("Color", WheelColor.color.name)
-	SmartDashboard.putString("Color", WheelColor.color.name)
-	val color = sensor.color
-	println("color loops")
-	SmartDashboard.putString("Raw Color", "(${color.red}, ${color.green}, ${color.blue})")
+var offset = Color(.0, .0, .0)
+
+operator fun Color.minus(c: Color) = Color(red - offset.red, green - offset.green, blue - offset.blue)
+
+fun Color.toPrettyString(): String = "(R: ${red}, G: ${green}, B: ${blue})"
+
+suspend fun zeroOutColor(iter: Int) {
+	val colors = mutableListOf<Color>()
+	repeat(iter) {
+		colors += sensor.color
+		delay(0.02)
+	}
+	val avgRed = colors.sumByDouble { it.red } / colors.size
+	val avgGreen = colors.sumByDouble { it.green } / colors.size
+	val avgBlue = colors.sumByDouble { it.blue } / colors.size
+	
+	offset = Color(avgRed, avgGreen, avgBlue)
+}
+
+suspend fun printColor() {
+	zeroOutColor(iter = 20)
+	periodic(0.05) {
+		SmartDashboard.putString("Color", WheelColor.color.name)
+		SmartDashboard.putString("Raw Color", (sensor.color - offset).toPrettyString())
+	}
 }
 
 enum class WheelColor(val color: Color) {
@@ -27,13 +47,6 @@ enum class WheelColor(val color: Color) {
 	companion object {
 		
 		private val chooser = SendableChooser<WheelColor>()
-		
-		init {
-			for (color in values()) {
-				chooser.addOption(color.name, color)
-			}
-			SmartDashboard.putData("Selected Color", chooser)
-		}
 		
 		val selectedColor: WheelColor? = chooser.selected
 		
