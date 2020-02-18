@@ -14,8 +14,8 @@ suspend fun drive(distance: Double, speed: Double) = use(DriveBase) {
 		var leftSpeed = speed
 		var rightSpeed = speed
 		
-		if (abs(DriveBase.gyroAngle) > ANGLE_TOLERANCE) { // Adjust speeds for in case of veering
-			if (DriveBase.gyroAngle > 0) { // Too far clockwise
+		if (abs(DriveBase.navX.yaw) > ANGLE_TOLERANCE) { // Adjust speeds for in case of veering
+			if (DriveBase.navX.yaw > 0) { // Too far clockwise
 				if (distance > 0)
 					leftSpeed -= SPEED_CORRECTION
 				else
