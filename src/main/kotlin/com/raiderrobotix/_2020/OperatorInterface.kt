@@ -4,6 +4,9 @@ import com.raiderrobotix._2020.subsystems.ColorWheel
 import com.raiderrobotix._2020.subsystems.Intake
 import com.raiderrobotix._2020.subsystems.Shooter
 import com.raiderrobotix._2020.subsystems.Trolley
+import com.raiderrobotix._2020.subsystems.ColorWheel
+import com.raiderrobotix._2020.commands.turnPanelToColor()
+import com.raiderrobotix._2020.util.WheelColor
 import edu.wpi.first.wpilibj.GenericHID
 import edu.wpi.first.wpilibj.Joystick
 import edu.wpi.first.wpilibj.Sendable
