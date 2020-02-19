@@ -22,11 +22,12 @@ suspend fun zeroOutColor(iter: Int) {
 		colors += sensor.color
 		delay(0.02)
 	}
-	val avgRed = colors.sumByDouble { it.red } / colors.size
-	val avgGreen = colors.sumByDouble { it.green } / colors.size
-	val avgBlue = colors.sumByDouble { it.blue } / colors.size
 	
-	offset = Color(avgRed, avgGreen, avgBlue)
+	offset = Color(
+		colors.map { it.red }.average(),
+		colors.map { it.green }.average(),
+		colors.map { it.blue }.average()
+	)
 }
 
 suspend fun printColor() {
