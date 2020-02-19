@@ -73,10 +73,13 @@ object OperatorInterface : Sendable {
 		({ operator[3] }).whenTrue { Shooter.cowlSpeed = -0.5 }
 		({ !operator[5] && !operator[3] }).whenTrue { Shooter.cowlSpeed = 0.0 }
 		
-		//Color Wheel
-		({ operator[9] && !operator[2] }).whenTrue { ColorWheel.motor.speed = 0.5 }
-		({ operator[9] && operator[2] }).whenTrue { ColorWheel.motor.speed = -0.5 }
-		({ !operator[9] }).whenTrue { ColorWheel.motor.speed = 0.0 }
+		//Color Sensor
+		({ right[11] }).whenTrue { ColorWheel.speed = 0.3 }
+		({ !right[11] }).whenTrue { ColorWheel.reset() }
+		//Turn to Color
+		({ right[10] }).whenTrue { turnPanelToColor(color = WheelColor.Red) }
+		({ !right[10] }).whenTrue { ColorWheel.speed = 0.0}
+
 		
 	}
 	
