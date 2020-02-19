@@ -81,6 +81,8 @@ object OperatorInterface : Sendable {
 		({ right[10] }).whileTrue { 
 			if(WheelColor.color != WheelColor.Red)
 				ColorWheel.wheel.set(0.5)
+			} else {
+				ColorWheel.wheel.set(0.0)	
 			}
 		({ !right[10] }).whenTrue { ColorWheel.wheel.set(0.0)}
 
