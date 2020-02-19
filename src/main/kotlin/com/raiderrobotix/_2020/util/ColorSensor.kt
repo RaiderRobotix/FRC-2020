@@ -18,9 +18,11 @@ fun Color.toPrettyString(): String = "(R: %.5f, G: %.5f, B: %.5f)".format(red, g
 
 suspend fun zeroOutColor(iter: Int) {
 	val colors = mutableListOf<Color>()
-	repeat(iter) {
+	var i = 0
+	periodic {
 		colors += sensor.color
-		delay(0.02)
+		if (i==iter) stop()
+		else i++
 	}
 	
 	offset = Color(
@@ -33,7 +35,7 @@ suspend fun zeroOutColor(iter: Int) {
 suspend fun printColor() {
 	zeroOutColor(iter = 20)
 	periodic(0.05) {
-		SmartDashboard.putString("Color", WheelColor.color.name)
+		SmartDashboard.putString("Color", WheelColor.color?.name ?: "Nothing")
 		SmartDashboard.putString("Raw Color", (sensor.color - offset).toPrettyString())
 	}
 }
@@ -50,7 +52,7 @@ enum class WheelColor(val color: Color) {
 		
 		val selectedColor: WheelColor? = chooser.selected
 		
-		val color: WheelColor
+		val color: WheelColor?
 			get() {
 				val color = sensor.color - offset
 				
@@ -64,7 +66,7 @@ enum class WheelColor(val color: Color) {
 							else -> Green
 						}
 					color.red >= threshold -> Red
-					else -> TODO("How'd tf u get this color!!")
+					else -> null
 				}
 			}
 	}
