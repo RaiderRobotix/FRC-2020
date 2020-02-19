@@ -4,7 +4,6 @@ import com.raiderrobotix._2020.subsystems.ColorWheel
 import com.raiderrobotix._2020.subsystems.Intake
 import com.raiderrobotix._2020.subsystems.Shooter
 import com.raiderrobotix._2020.subsystems.Trolley
-import com.raiderrobotix._2020.commands.turnPanelToColor
 import com.raiderrobotix._2020.util.WheelColor
 import edu.wpi.first.wpilibj.GenericHID
 import edu.wpi.first.wpilibj.Joystick
@@ -14,7 +13,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import org.ghrobotics.lib.wrappers.hid.FalconHID
 import org.team2471.frc.lib.input.whenTrue
 import org.team2471.frc.lib.input.whileTrue
-
 import kotlin.math.abs
 
 object OperatorInterface : Sendable {
@@ -74,18 +72,19 @@ object OperatorInterface : Sendable {
 		({ operator[3] }).whenTrue { Shooter.cowlSpeed = -0.5 }
 		({ !operator[5] && !operator[3] }).whenTrue { Shooter.cowlSpeed = 0.0 }
 		
-		//Color Sensor
-		({ right[11] }).whenTrue { ColorWheel.wheel.set(0.5) }
-		({ !right[11] }).whenTrue { ColorWheel.reset() }
+		//Manual control Color wheel
+		({ right[4] && !operator[2] }).whenTrue { ColorWheel.wheel.speed = 0.5 }
+		({ right[4] && operator[2] }).whenTrue { ColorWheel.wheel.speed = -0.5 }
+		({ !right[4] }).whenTrue { ColorWheel.reset() }
 		//Turn to Color
-		({ right[10] }).whileTrue { 
-			if(WheelColor.color != WheelColor.Red)
-				ColorWheel.wheel.set(0.5)
-			} else {
-				ColorWheel.wheel.set(0.0)	
-			}
-		({ !right[10] }).whenTrue { ColorWheel.wheel.set(0.0)}
-
+		({ right[6] }).whileTrue {
+			if (WheelColor.color != WheelColor.Red)
+				ColorWheel.wheel.speed = 0.5
+			else
+				ColorWheel.reset()
+		}
+		({ !right[6] }).whenTrue { ColorWheel.reset() }
+		
 		
 	}
 	

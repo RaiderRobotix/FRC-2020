@@ -8,7 +8,7 @@ object ColorWheel : Subsystem("ColorWheel") {
 	internal val wheel = Spark(6)
 	
 	override fun reset() {
-		wheel.set(0.0)
+		wheel.speed = 0.0
 	}
 	
 }
