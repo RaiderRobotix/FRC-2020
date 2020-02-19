@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.I2C
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import edu.wpi.first.wpilibj.util.Color
-import org.team2471.frc.lib.coroutines.delay
 import org.team2471.frc.lib.coroutines.periodic
 
 val sensor = ColorSensorV3(I2C.Port.kOnboard)
