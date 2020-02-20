@@ -13,7 +13,7 @@ object Shooter : Subsystem("Shooter") {
 	private const val cowlChannel = 7
 	
 	private val cowl = Spark(cowlChannel)
-	private val cowlEncoder = Encoder(0, 1) // TODO
+	private val cowlEncoder = Encoder(9, 8) // TODO
 	private val group = SpeedControllerGroup(Spark(topChannel), Spark(bottomChannel))
 	
 	init {
