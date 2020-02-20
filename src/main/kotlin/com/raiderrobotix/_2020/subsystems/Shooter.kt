@@ -1,6 +1,7 @@
 package com.raiderrobotix._2020.subsystems
 
 import edu.wpi.first.wpilibj.Encoder
+import edu.wpi.first.wpilibj.AnalogPotentiometer
 import edu.wpi.first.wpilibj.Spark
 import edu.wpi.first.wpilibj.SpeedControllerGroup
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
@@ -14,6 +15,7 @@ object Shooter : Subsystem("Shooter") {
 	
 	private val cowl = Spark(cowlChannel)
 	private val cowlEncoder = Encoder(9, 8) // TODO
+	private val potentiometer = AnalogPotentiometer(1)
 	private val group = SpeedControllerGroup(Spark(topChannel), Spark(bottomChannel))
 	
 	init {
@@ -33,7 +35,7 @@ object Shooter : Subsystem("Shooter") {
 		}
 		get() = cowl.speed
 	
-	val cowlDistance get() = cowlEncoder.distance
+	val cowlDistance get() = potentiometer.get()
 	
 	override fun reset() {
 		speed = 0.0
