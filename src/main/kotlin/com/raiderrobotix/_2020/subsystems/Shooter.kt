@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
+import com.raiderrobotix._2020.OperatorInterface.operator
+import com.raiderrobotix._2020.OperatorInterface.get
 
 object Shooter : Subsystem("Shooter") {
 	private const val topChannel = 1
@@ -20,8 +22,8 @@ object Shooter : Subsystem("Shooter") {
 	public operator fun AnalogPotentiometer.invoke() = this.get()
 	private val group = SpeedControllerGroup(Spark(topChannel), Spark(bottomChannel))
 
-	private val safeRange = 0.032..0.85
-	
+	private val safeRange = 0.04..0.8
+
 	init {
 //		cowlEncoder.distancePerPulse = 0.0 / 44.4 // TODO, in inches
 		cowlEncoder.reset()
@@ -35,14 +37,17 @@ object Shooter : Subsystem("Shooter") {
 	
 	var cowlSpeed: Double
 		set(value) {
-			if (potentiometer() in safeRange) {
+			if ( operator[4] ) {
+				cowl.speed = value
+			} else if (potentiometer() in safeRange) {
 				cowl.speed = value
 			} else if (potentiometer() > safeRange.endInclusive && value < 0) {
 				cowl.speed = value
 			} else if (potentiometer() < safeRange.start && value > 0) {
 				cowl.speed = value
+			} else {
+				cowl.speed = 0.0
 			}
-			cowl.speed = 0.0
 		}
 		get() = cowl.speed
 	

@@ -23,9 +23,9 @@ object OperatorInterface {
 	
 	// Joysticks
 	
-	private val left = Joystick(LEFT_JOYSTICK_PORT)
-	private val right = Joystick(RIGHT_JOYSTICK_PORT)
-	private val operator = Joystick(OPERATOR_JOYSTICK_PORT)
+	internal val left = Joystick(LEFT_JOYSTICK_PORT)
+	internal val right = Joystick(RIGHT_JOYSTICK_PORT)
+	internal val operator = Joystick(OPERATOR_JOYSTICK_PORT)
 	
 	
 	init {
@@ -61,10 +61,6 @@ object OperatorInterface {
 		({ operator[3] }).whenTrue { Shooter.cowlSpeed = -0.5 }
 		({ !operator[5] && !operator[3] }).whenTrue { Shooter.cowlSpeed = 0.0 }
 		
-		//Manual control Color wheel
-		({ right[4] && !operator[2] }).whenTrue { ColorWheel.wheel.speed = 0.5 }
-		({ right[4] && operator[2] }).whenTrue { ColorWheel.wheel.speed = -0.5 }
-		({ !right[4] }).whenTrue { ColorWheel.reset() }
 		//Turn to Color
 		({ right[10] }).whileTrue {
 			periodic(period = 0.01) {

@@ -1,8 +1,7 @@
 package com.raiderrobotix._2020
 
 import com.raiderrobotix._2020.subsystems.ColorWheel
-import com.raiderrobotix._2020.subsystems.ColorWheel.minus
-import com.raiderrobotix._2020.subsystems.ColorWheel.toPrettyString
+import com.raiderrobotix._2020.subsystems.ColorWheel.zeroOutColor
 import com.raiderrobotix._2020.subsystems.DriveBase
 import com.raiderrobotix._2020.subsystems.Elevator
 import com.raiderrobotix._2020.subsystems.Shooter
