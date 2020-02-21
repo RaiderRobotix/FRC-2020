@@ -15,7 +15,7 @@ object Shooter : Subsystem("Shooter") {
 	
 	private val cowl = Spark(cowlChannel)
 	private val cowlEncoder = Encoder(9, 8) // TODO
-	private val potentiometer = AnalogPotentiometer(1)
+	val potentiometer = AnalogPotentiometer(1)
 	private val group = SpeedControllerGroup(Spark(topChannel), Spark(bottomChannel))
 	
 	init {
@@ -37,8 +37,6 @@ object Shooter : Subsystem("Shooter") {
 	
 	val cowlDistance get() = cowlEncoder.distance
 
-	val potentiometerDistance get() = cowlEncoder.distance
-	
 	override fun reset() {
 		speed = 0.0
 		cowlSpeed = 0.0
