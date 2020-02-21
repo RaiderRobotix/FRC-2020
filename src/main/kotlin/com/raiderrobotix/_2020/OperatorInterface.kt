@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import org.ghrobotics.lib.wrappers.hid.FalconHID
 import org.team2471.frc.lib.input.whenTrue
 import org.team2471.frc.lib.input.whileTrue
+import org.team2471.frc.lib.coroutines.periodic
 import kotlin.math.abs
 
 object OperatorInterface : Sendable {
@@ -77,11 +78,16 @@ object OperatorInterface : Sendable {
 		({ right[4] && operator[2] }).whenTrue { ColorWheel.wheel.speed = -0.5 }
 		({ !right[4] }).whenTrue { ColorWheel.reset() }
 		//Turn to Color
-		({ right[10] }).whileTrue { 
-			ColorWheel.wheel.speed = if (WheelColor.color != WheelColor.Red)
-				0.5
-			else
-				0.0
+		({ right[10] }).whileTrue {
+			periodic(period = 0.01) {
+				if (WheelColor.color == WheelColor.Red) {
+					ColorWheel.wheel.speed = 0.0
+				} else {
+					ColorWheel.wheel.speed = 0.5
+					println("Still looking")
+
+				}
+			}
 		}
 		({ !right[10] }).whenTrue { ColorWheel.reset() }
 
