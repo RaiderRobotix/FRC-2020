@@ -1,4 +1,4 @@
-package com.raiderrobotix._2020.commands
+package com.raiderrobotix._2020.commands.colorwheel
 
 import com.raiderrobotix._2020.subsystems.ColorWheel
 import com.raiderrobotix._2020.subsystems.ColorWheel.WheelColor
