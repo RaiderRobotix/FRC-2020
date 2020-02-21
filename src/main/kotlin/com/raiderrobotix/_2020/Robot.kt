@@ -37,6 +37,7 @@ object Robot : RobotProgram {
 		Elevator.enable()
 		periodic {
 			SmartDashboard.putNumber("Cowl Distance", Shooter.cowlDistance)
+			SmartDashboard.putNumber("Potent Distance", Shooter.potentiometerDistance)
 			SmartDashboard.putNumber("Ultrasound", ultraDistance)
 			SmartDashboard.putString("Color", WheelColor.color?.name ?: "Nothing")
 			SmartDashboard.putString("Raw Color", (sensor.color.minus (offset)).toPrettyString())
