@@ -1,7 +1,6 @@
 package com.raiderrobotix._2020
 
 import com.raiderrobotix._2020.subsystems.ColorWheel
-import com.raiderrobotix._2020.subsystems.ColorWheel.zeroOutColor
 import com.raiderrobotix._2020.subsystems.DriveBase
 import com.raiderrobotix._2020.subsystems.Elevator
 import com.raiderrobotix._2020.subsystems.Shooter
@@ -33,7 +32,6 @@ object Robot : RobotProgram {
 			Shooter,
 			ColorWheel
 		).forEach(Subsystem::enable)
-		zeroOutColor(iter = 20)
 		periodic {
 			SmartDashboard.putNumber("Ultrasound", ultraDistance)
 		}
