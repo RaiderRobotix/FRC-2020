@@ -1,7 +1,6 @@
 package com.raiderrobotix._2020.subsystems
 
 import com.revrobotics.ColorSensorV3
-import edu.wpi.first.wpilibj.DriverStation
 import edu.wpi.first.wpilibj.I2C
 import edu.wpi.first.wpilibj.Spark
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
@@ -10,18 +9,16 @@ import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
 
 object ColorWheel : Subsystem("ColorWheel") {
-	private const val channel = 6
 	internal val wheel = Spark(6)
-	val sensor = ColorSensorV3(I2C.Port.kOnboard)
-	var offset = Color(.0, .0, .0)
-		private set
-
+	private val sensor = ColorSensorV3(I2C.Port.kOnboard)
+	private var offset = Color(.0, .0, .0)
+	
 	val color: WheelColor?
 		get() {
 			val color = sensor.color - offset
-
+			
 			val threshold = 0.001
-
+			
 			return when {
 				color.green >= threshold ->
 					when {
@@ -33,17 +30,17 @@ object ColorWheel : Subsystem("ColorWheel") {
 				else -> null
 			}
 		}
-
+	
 	operator fun Color.minus(c: Color) = Color(red - c.red, green - c.green, blue - c.blue)
-
-	fun Color.toPrettyString(): String = "(R: %.5f, G: %.5f, B: %.5f)".format(red, green, blue)
-
+	
+	private fun Color.toPrettyString(): String = "(R: %.5f, G: %.5f, B: %.5f)".format(red, green, blue)
+	
 	suspend fun zeroOutColor(iter: Int) {
 		val colors = mutableListOf<Color>()
 		var i = 0
 		periodic {
 			colors += sensor.color
-			if (i==iter) stop()
+			if (i == iter) stop()
 			else i++
 		}
 
