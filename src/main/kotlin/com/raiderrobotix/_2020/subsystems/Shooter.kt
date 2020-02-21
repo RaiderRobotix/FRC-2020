@@ -37,7 +37,7 @@ object Shooter : Subsystem("Shooter") {
 	
 	val cowlDistance get() = cowlEncoder.distance
 
-	val potentiometerDistance get() = cowlEncoder.distance
+	val potentiometerDistance get() = potentiometer.get()
 	
 	override fun reset() {
 		speed = 0.0
