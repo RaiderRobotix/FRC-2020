@@ -10,8 +10,6 @@ import org.ghrobotics.lib.wrappers.hid.FalconHID
 import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.input.whenTrue
 import org.team2471.frc.lib.input.whileTrue
-import org.team2471.frc.lib.coroutines.periodic
-
 import kotlin.math.abs
 
 object OperatorInterface {
@@ -29,40 +27,40 @@ object OperatorInterface {
 	
 	
 	init {
-		//Shooter
-		({ operator[1] }).whenTrue { Shooter.speed = 1.0 }
-		({ !operator[1] }).whenTrue { Shooter.reset() }
-
-		//Conveyers
-		({ operator[11] && !operator[2] }).whenTrue {
-			Intake.speed = 1.0
-		}
-		({ operator[11] && operator[2] }).whenTrue {
-			Intake.speed = -0.5
-		}
-		({ !operator[11] }).whenTrue { Intake.reset() }
-
-		//Roller
-		({ operator[12] && !operator[2] }).whenTrue {
+		val flip = 2
+		
+		val shooter = 1
+		({ operator[shooter] }).whenTrue { Shooter.speed = 1.0 }
+		({ !operator[shooter] }).whenTrue { Shooter.reset() }
+		
+		val conveyer = 11
+		({ operator[conveyer] && !operator[flip] }).whenTrue { Intake.speed = 1.0 }
+		({ operator[conveyer] && operator[flip] }).whenTrue { Intake.speed = -0.5 }
+		({ !operator[conveyer] }).whenTrue { Intake.reset() }
+		
+		val roller = 12
+		({ operator[roller] && !operator[flip] }).whenTrue {
 			Intake.outer.speed = 0.6
 		}
-		({ operator[12] && operator[2] }).whenTrue {
+		({ operator[roller] && operator[flip] }).whenTrue {
 			Intake.outer.speed = -0.7
 		}
-		({ !operator[12] }).whenTrue { Intake.reset() }
+		({ !operator[roller] }).whenTrue { Intake.reset() }
 		
-		//Trolley
-		({ operator[7] && !operator[2] }).whenTrue { Trolley.speed = 1.0 }
-		({ operator[7] && operator[2] }).whenTrue { Trolley.speed = -1.0 }
-		({ !operator[7] }).whenTrue { Trolley.reset() }
+		val trolley = 7
+		({ operator[trolley] && !operator[flip] }).whenTrue { Trolley.speed = 1.0 }
+		({ operator[trolley] && operator[flip] }).whenTrue { Trolley.speed = -1.0 }
+		({ !operator[trolley] }).whenTrue { Trolley.reset() }
 		
 		//Cowl
-		({ operator[5] }).whenTrue { Shooter.cowlSpeed = 0.5 }
-		({ operator[3] }).whenTrue { Shooter.cowlSpeed = -0.5 }
-		({ !operator[5] && !operator[3] }).whenTrue { Shooter.cowlSpeed = 0.0 }
+		val cowl = 5
+		({ operator[cowl] }).whenTrue { Shooter.cowlSpeed = 0.5 }
+		({ operator[cowl] }).whenTrue { Shooter.cowlSpeed = -0.5 }
+		({ !operator[cowl] && !operator[3] }).whenTrue { Shooter.cowlSpeed = 0.0 }
 		
 		//Turn to Color
-		({ right[10] }).whileTrue {
+		val colorWheel = 10
+		({ right[colorWheel] }).whileTrue {
 			periodic(period = 0.01) {
 				ColorWheel.wheel.speed = if (ColorWheel.color != ColorWheel.WheelColor.Red)
 					0.5
@@ -70,8 +68,8 @@ object OperatorInterface {
 					0.0
 			}
 		}
-		({ !right[10] }).whenTrue { ColorWheel.reset() }
-
+		({ !right[colorWheel] }).whenTrue { ColorWheel.reset() }
+		
 		
 	}
 	
