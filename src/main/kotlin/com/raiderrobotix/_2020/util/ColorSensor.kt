@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.I2C
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import edu.wpi.first.wpilibj.util.Color
-import org.team2471.frc.lib.coroutines.delay
 import org.team2471.frc.lib.coroutines.periodic
 
 val sensor = ColorSensorV3(I2C.Port.kOnboard)
@@ -24,11 +23,12 @@ suspend fun zeroOutColor(iter: Int) {
 		if (i==iter) stop()
 		else i++
 	}
-	val avgRed = colors.sumByDouble { it.red } / colors.size
-	val avgGreen = colors.sumByDouble { it.green } / colors.size
-	val avgBlue = colors.sumByDouble { it.blue } / colors.size
 	
-	offset = Color(avgRed, avgGreen, avgBlue)
+	offset = Color(
+		colors.map { it.red }.average(),
+		colors.map { it.green }.average(),
+		colors.map { it.blue }.average()
+	)
 }
 
 suspend fun printColor() {
