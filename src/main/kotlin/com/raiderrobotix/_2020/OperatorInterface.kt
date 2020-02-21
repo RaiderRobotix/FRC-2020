@@ -78,13 +78,12 @@ object OperatorInterface : Sendable {
 		({ !right[4] }).whenTrue { ColorWheel.reset() }
 		//Turn to Color
 		({ right[10] }).whileTrue { 
-			if(WheelColor.color != WheelColor.Red) {
-				ColorWheel.wheel.set(0.5)
-			} else {
-				ColorWheel.wheel.set(0.0)	
-			}
+			ColorWheel.wheel.speed = if (WheelColor.color != WheelColor.Red)
+				0.5
+			else
+				0.0
 		}
-		({ !right[10] }).whenTrue { ColorWheel.wheel.set(0.0)}
+		({ !right[10] }).whenTrue { ColorWheel.reset() }
 
 		
 	}
