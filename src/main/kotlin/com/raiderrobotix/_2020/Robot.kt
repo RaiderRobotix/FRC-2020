@@ -1,12 +1,18 @@
 package com.raiderrobotix._2020
 
+import com.raiderrobotix._2020.subsystems.ColorWheel
+import com.raiderrobotix._2020.subsystems.ColorWheel.zeroOutColor
 import com.raiderrobotix._2020.subsystems.DriveBase
 import com.raiderrobotix._2020.subsystems.Elevator
-import com.raiderrobotix._2020.util.printColor
-import com.raiderrobotix._2020.util.updateDistance
+import com.raiderrobotix._2020.subsystems.Shooter
+import com.raiderrobotix._2020.util.ultraDistance
 import org.team2471.frc.lib.framework.RobotProgram
 import org.team2471.frc.lib.framework.initializeWpilib
 import org.team2471.frc.lib.framework.runRobotProgram
+
+import org.team2471.frc.lib.coroutines.periodic
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
+
 
 object Robot : RobotProgram {
 	
@@ -23,15 +29,16 @@ object Robot : RobotProgram {
 	override suspend fun teleop() {
 		DriveBase.enable()
 		Elevator.enable()
-//		printCowlDistance()
-//		updateDistance() //ultra distance
-		printColor()
+		Shooter.enable()
+		ColorWheel.enable()
+		zeroOutColor(iter = 20)
+		periodic {
+			SmartDashboard.putNumber("Ultrasound", ultraDistance)
+		}
 	}
 	
 	override suspend fun disable() {
 		DriveBase.disable()
-		println("disabled")
-		updateDistance()
 	}
 	
 }

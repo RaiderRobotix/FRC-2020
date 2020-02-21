@@ -6,7 +6,7 @@ import org.team2471.frc.lib.coroutines.periodic
 
 val ultrasound = AnalogInput(0)
 
-val ultraDistance get() = ultrasound.voltage * (24 / 0.21) // The conversion factor from voltage to inches
+val ultraDistance get() = ultrasound.voltage / 0.01
 
 suspend fun updateDistance() = periodic(0.05) {
 	SmartDashboard.putNumber("Ultrasound", ultraDistance)
