@@ -8,6 +8,7 @@ import com.raiderrobotix._2020.util.ultraDistance
 import com.raiderrobotix._2020.util.WheelColor
 import com.raiderrobotix._2020.util.toPrettyString
 import com.raiderrobotix._2020.util.minus
+import com.raiderrobotix._2020.util.zeroOutColor
 import com.raiderrobotix._2020.util.sensor
 import com.raiderrobotix._2020.util.offset
 import com.raiderrobotix._2020.util.updateDistance
@@ -35,6 +36,7 @@ object Robot : RobotProgram {
 	override suspend fun teleop() {
 		DriveBase.enable()
 		Elevator.enable()
+	zeroOutColor(iter = 20)
 		periodic {
 			SmartDashboard.putNumber("Cowl Distance", Shooter.cowlDistance)
 			SmartDashboard.putNumber("Potent Distance", Shooter.potentiometerDistance)
