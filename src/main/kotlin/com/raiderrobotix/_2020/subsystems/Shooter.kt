@@ -19,7 +19,7 @@ object Shooter : Subsystem("Shooter") {
 	private val cowlEncoder = Encoder(9, 8) // TODO
 	val potentiometer = AnalogPotentiometer(1)
 
-	public operator fun AnalogPotentiometer.invoke() = this.get()
+	operator fun AnalogPotentiometer.invoke() = this.get()
 	private val group = SpeedControllerGroup(Spark(topChannel), Spark(bottomChannel))
 
 	private val safeRange = 0.04..0.8

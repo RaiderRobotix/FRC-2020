@@ -11,8 +11,8 @@ suspend fun positionControl() {
 	val endColor = when (
 		try {
 			DriverStation.getInstance().gameSpecificMessage[0] // Get first character
-		} catch (e: Exception) {
-			'\u0000' // If string is null of empty, default to this
+		} catch (e: Throwable) {
+			'\u0000' // If string is null or empty, default to this
 		}.toLowerCase()) {
 		'r' -> WheelColor.Red
 		'b' -> WheelColor.Cyan
@@ -26,7 +26,7 @@ suspend fun positionControl() {
 	use(ColorWheel) {
 		periodic {
 			if (color != endColor) {
-				ColorWheel.wheel.speed = 0.4
+				ColorWheel.wheel.speed = 0.5
 			} else stop()
 		}
 	}
