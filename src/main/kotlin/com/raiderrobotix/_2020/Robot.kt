@@ -1,12 +1,6 @@
 package com.raiderrobotix._2020
 
-import com.raiderrobotix._2020.subsystems.ColorWheel
-import com.raiderrobotix._2020.subsystems.DriveBase
-import com.raiderrobotix._2020.subsystems.Elevator
-import com.raiderrobotix._2020.subsystems.Shooter
-import com.raiderrobotix._2020.util.ultraDistance
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
-import org.team2471.frc.lib.coroutines.periodic
+import com.raiderrobotix._2020.subsystems.*
 import org.team2471.frc.lib.framework.RobotProgram
 import org.team2471.frc.lib.framework.Subsystem
 import org.team2471.frc.lib.framework.initializeWpilib
@@ -30,11 +24,9 @@ object Robot : RobotProgram {
 			DriveBase,
 			Elevator,
 			Shooter,
-			ColorWheel
+			ColorWheel,
+			Intake
 		).forEach(Subsystem::enable)
-		periodic {
-			SmartDashboard.putNumber("Ultrasound", ultraDistance)
-		}
 	}
 	
 	override suspend fun disable() {
