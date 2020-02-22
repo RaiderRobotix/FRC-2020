@@ -14,11 +14,11 @@ suspend fun positionControl() {
 			DriverStation.getInstance().gameSpecificMessage[0] // Get first character
 		} catch (e: Throwable) {
 			'\u0000' // If string is null or empty, default to this
-		}.toLowerCase()) {
-		'r' -> WheelColor.Red
-		'b' -> WheelColor.Cyan
-		'g' -> WheelColor.Green
-		'y' -> WheelColor.Yellow
+		}) {
+		'R' -> WheelColor.Red
+		'B' -> WheelColor.Cyan
+		'G' -> WheelColor.Green
+		'Y' -> WheelColor.Yellow
 		else -> {
 			println("Color not received from Driver Station")
 			return
