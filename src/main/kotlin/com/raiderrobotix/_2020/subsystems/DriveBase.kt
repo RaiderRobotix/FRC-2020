@@ -62,12 +62,12 @@ object DriveBase : Subsystem(name="Drives") {
 	}
 
 	override suspend fun default() {
-			periodic {
-				tankDrive(
-					leftSpeed = -OperatorInterface.leftY,
-					rightSpeed = -OperatorInterface.rightY
-				)
-			}
+		periodic {
+			tankDrive(
+				leftSpeed = -OperatorInterface.leftY,
+				rightSpeed = -OperatorInterface.rightY
+			)
+		}
 	}
 	
 	override fun reset() {
