@@ -37,16 +37,13 @@ object Shooter : Subsystem("Shooter") {
 	
 	var cowlSpeed: Double
 		set(value) {
-			if ( operator[4] ) {
-				cowl.speed = value
-			} else if (potentiometer() in safeRange) {
-				cowl.speed = value
-			} else if (potentiometer() > safeRange.endInclusive && value < 0) {
-				cowl.speed = value
-			} else if (potentiometer() < safeRange.start && value > 0) {
-				cowl.speed = value
-			} else {
-				cowl.speed = 0.0
+			cowl.speed = when {
+				operator[4] ||
+						potentiometer() in safeRange ||
+						potentiometer() > safeRange.endInclusive && value < 0 ||
+						potentiometer() < safeRange.start && value > 0
+				-> value
+				else -> 0.0
 			}
 		}
 		get() = cowl.speed
