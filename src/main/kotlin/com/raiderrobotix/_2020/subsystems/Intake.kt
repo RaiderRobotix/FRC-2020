@@ -1,10 +1,10 @@
 package com.raiderrobotix._2020.subsystems
 
-import edu.wpi.first.wpilibj.AnalogInput
+import edu.wpi.first.wpilibj.Counter
+import edu.wpi.first.wpilibj.DigitalInput
 import edu.wpi.first.wpilibj.Spark
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
-import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
+import org.team2471.frc.lib.input.whenTrue
 
 
 object Intake : Subsystem("Shooter") {
@@ -15,9 +15,19 @@ object Intake : Subsystem("Shooter") {
 	private val upper = Spark(topChannel)
 	private val lower = Spark(bottomChannel)
 	internal val outer = Spark(outerChannel)
+
+	object LineBreaker {
+		private val counter = Counter(1)
+		var count = 0
+		operator fun invoke() = counter.get()
+	}
 	
 	init {
 		lower.inverted = true
+		({ LineBreaker.count != LineBreaker() }).whenTrue {
+			LineBreaker.count = LineBreaker()
+			// action
+		}
 	}
 	
 	var speed: Double
@@ -31,5 +41,5 @@ object Intake : Subsystem("Shooter") {
 		speed = 0.0
 		outer.speed = 0.0
 	}
-	
+
 }
