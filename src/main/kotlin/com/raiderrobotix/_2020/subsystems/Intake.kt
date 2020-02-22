@@ -3,6 +3,8 @@ package com.raiderrobotix._2020.subsystems
 import edu.wpi.first.wpilibj.Counter
 import edu.wpi.first.wpilibj.DigitalInput
 import edu.wpi.first.wpilibj.Spark
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
+import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
 import org.team2471.frc.lib.input.whenTrue
 
@@ -40,6 +42,12 @@ object Intake : Subsystem("Shooter") {
 	override fun reset() {
 		speed = 0.0
 		outer.speed = 0.0
+	}
+
+	override suspend fun default() {
+		periodic {
+			SmartDashboard.putNumber("LineBreaker", LineBreaker().toDouble())
+		}
 	}
 
 }
