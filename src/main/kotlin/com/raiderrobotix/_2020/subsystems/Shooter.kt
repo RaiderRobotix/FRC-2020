@@ -13,9 +13,8 @@ import org.team2471.frc.lib.framework.Subsystem
 object Shooter : Subsystem("Shooter") {
 	private const val topChannel = 1
 	private const val bottomChannel = 0
-	private const val cowlChannel = 7
 
-	private val cowl = Spark(cowlChannel)
+	private val cowl = Spark(7)
 
 	object Potentiometer : AnalogPotentiometer(1) {
 		operator fun invoke() = this.get()
