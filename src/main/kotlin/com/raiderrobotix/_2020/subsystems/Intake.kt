@@ -32,15 +32,4 @@ object Intake : Subsystem("Shooter") {
 		outer.speed = 0.0
 	}
 	
-	object ultrasound : AnalogInput(0) {
-		private var scaling: Double = 100.0
-		operator fun invoke() = voltage * scaling
-	}
-	
-	override suspend fun default() {
-		periodic(0.05) {
-			SmartDashboard.putNumber("Ultrasound", ultrasound())
-		}
-	}
-	
 }
