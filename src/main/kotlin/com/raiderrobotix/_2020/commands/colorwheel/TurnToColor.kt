@@ -5,6 +5,7 @@ import com.raiderrobotix._2020.subsystems.ColorWheel.WheelColor
 import com.raiderrobotix._2020.subsystems.ColorWheel.color
 import edu.wpi.first.wpilibj.DriverStation
 import org.team2471.frc.lib.coroutines.periodic
+import org.team2471.frc.lib.coroutines.suspendUntil
 import org.team2471.frc.lib.framework.use
 
 suspend fun positionControl() {
@@ -31,4 +32,12 @@ suspend fun positionControl() {
 		}
 	}
 	
+}
+
+suspend fun testPositionControl(endColor: WheelColor) {
+	use(ColorWheel) {
+		ColorWheel.wheel.speed = 0.5
+		suspendUntil { color == endColor }
+		ColorWheel.wheel.speed = 0.0
+	}
 }
