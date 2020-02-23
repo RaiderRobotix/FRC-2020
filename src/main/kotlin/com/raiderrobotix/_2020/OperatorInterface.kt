@@ -1,13 +1,14 @@
 package com.raiderrobotix._2020
 
+import com.raiderrobotix._2020.commands.colorwheel.positionControl
 import com.raiderrobotix._2020.subsystems.ColorWheel
+import com.raiderrobotix._2020.subsystems.ColorWheel.zeroOutColor
 import com.raiderrobotix._2020.subsystems.Intake
 import com.raiderrobotix._2020.subsystems.Shooter
 import com.raiderrobotix._2020.subsystems.Trolley
 import edu.wpi.first.wpilibj.GenericHID
 import edu.wpi.first.wpilibj.Joystick
 import org.ghrobotics.lib.wrappers.hid.FalconHID
-import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.input.whenTrue
 import org.team2471.frc.lib.input.whileTrue
 import kotlin.math.abs
@@ -61,14 +62,11 @@ object OperatorInterface {
 		//Turn to Color
 		val colorWheel = 10
 		({ right[colorWheel] }).whileTrue {
-			periodic(period = 0.01) {
-				ColorWheel.wheel.speed = if (ColorWheel.color != ColorWheel.WheelColor.Red)
-					0.5
-				else
-					0.0
-			}
+			positionControl()
 		}
 		({ !right[colorWheel] }).whenTrue { ColorWheel.reset() }
+		
+		({ right[11] }).whenTrue { zeroOutColor(iter = 20) }
 		
 		
 	}
