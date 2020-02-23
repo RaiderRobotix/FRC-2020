@@ -19,22 +19,22 @@ object Shooter : Subsystem("Shooter") {
 	object Potentiometer : AnalogPotentiometer(1) {
 		operator fun invoke() = this.get()
 	}
-
+	
 	object Ultrasound : AnalogInput(0) {
 		private var scaling: Double = 100.0
 		operator fun invoke() = voltage * scaling
 	}
-
+	
 	private val group = SpeedControllerGroup(Spark(topChannel), Spark(bottomChannel))
-
-	private val safeRange = 0.04..0.8
-
+	
+	private val safeRange = 0.033..0.9
+	
 	var speed: Double
 		set(it) {
 			group.set(it)
 		}
 		get() = group.get()
-
+	
 	var cowlSpeed: Double
 		set(value) {
 			cowl.speed = when {
