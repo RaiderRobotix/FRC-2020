@@ -5,19 +5,20 @@ import com.raiderrobotix._2020.subsystems.ColorWheel.WheelColor
 import com.raiderrobotix._2020.subsystems.ColorWheel.color
 import edu.wpi.first.wpilibj.DriverStation
 import org.team2471.frc.lib.coroutines.periodic
+import org.team2471.frc.lib.coroutines.suspendUntil
 import org.team2471.frc.lib.framework.use
 
 suspend fun positionControl() {
 	val endColor = when (
 		try {
 			DriverStation.getInstance().gameSpecificMessage[0] // Get first character
-		} catch (e: Exception) {
-			'\u0000' // If string is null of empty, default to this
-		}.toLowerCase()) {
-		'r' -> WheelColor.Red
-		'b' -> WheelColor.Cyan
-		'g' -> WheelColor.Green
-		'y' -> WheelColor.Yellow
+		} catch (e: Throwable) {
+			'\u0000' // If string is null or empty, default to this
+		}) {
+		'R' -> WheelColor.Red
+		'B' -> WheelColor.Cyan
+		'G' -> WheelColor.Green
+		'Y' -> WheelColor.Yellow
 		else -> {
 			println("Color not received from Driver Station")
 			return
@@ -26,9 +27,17 @@ suspend fun positionControl() {
 	use(ColorWheel) {
 		periodic {
 			if (color != endColor) {
-				ColorWheel.wheel.speed = 0.4
+				ColorWheel.wheel.speed = 0.5
 			} else stop()
 		}
 	}
 	
+}
+
+suspend fun testPositionControl(endColor: WheelColor) {
+	use(ColorWheel) {
+		ColorWheel.wheel.speed = 0.5
+		suspendUntil { color == endColor }
+		ColorWheel.wheel.speed = 0.0
+	}
 }

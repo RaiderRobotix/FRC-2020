@@ -2,8 +2,8 @@ package com.raiderrobotix._2020.subsystems
 
 import com.raiderrobotix._2020.OperatorInterface.get
 import com.raiderrobotix._2020.OperatorInterface.operator
+import edu.wpi.first.wpilibj.AnalogInput
 import edu.wpi.first.wpilibj.AnalogPotentiometer
-import edu.wpi.first.wpilibj.Encoder
 import edu.wpi.first.wpilibj.Spark
 import edu.wpi.first.wpilibj.SpeedControllerGroup
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
@@ -13,55 +13,50 @@ import org.team2471.frc.lib.framework.Subsystem
 object Shooter : Subsystem("Shooter") {
 	private const val topChannel = 1
 	private const val bottomChannel = 0
-	private const val cowlChannel = 7
-	
-	private val cowl = Spark(cowlChannel)
-	private val cowlEncoder = Encoder(9, 8) // TODO
-	val potentiometer = AnalogPotentiometer(1)
-	
-	operator fun AnalogPotentiometer.invoke() = this.get()
-	private val group = SpeedControllerGroup(Spark(topChannel), Spark(bottomChannel))
-	
-	private val safeRange = 0.033..0.9
-	
-	init {
-//		cowlEncoder.distancePerPulse = 0.0 / 44.4 // TODO, in inches
-		cowlEncoder.reset()
+
+	private val cowl = Spark(7)
+
+	object Potentiometer : AnalogPotentiometer(1) {
+		operator fun invoke() = this.get()
 	}
-	
+
+	object Ultrasound : AnalogInput(0) {
+		private var scaling: Double = 100.0
+		operator fun invoke() = voltage * scaling
+	}
+
+	private val group = SpeedControllerGroup(Spark(topChannel), Spark(bottomChannel))
+
+	private val safeRange = 0.04..0.8
+
 	var speed: Double
 		set(it) {
 			group.set(it)
 		}
 		get() = group.get()
-	
+
 	var cowlSpeed: Double
 		set(value) {
-			if ( operator[4] ) {
-				cowl.speed = value
-			} else if (potentiometer() in safeRange) {
-				cowl.speed = value
-			} else if (potentiometer() > safeRange.endInclusive && value < 0) {
-				cowl.speed = value
-			} else if (potentiometer() < safeRange.start && value > 0) {
-				cowl.speed = value
-			} else {
-				cowl.speed = 0.0
+			cowl.speed = when {
+				operator[4] ||
+						Potentiometer() in safeRange ||
+						Potentiometer() > safeRange.endInclusive && value < 0 ||
+						Potentiometer() < safeRange.start && value > 0
+				-> value
+				else -> 0.0
 			}
 		}
 		get() = cowl.speed
-	
-	val cowlDistance get() = cowlEncoder.distance
 
 	override fun reset() {
 		speed = 0.0
 		cowlSpeed = 0.0
 	}
-	
+
 	override suspend fun default() {
 		periodic {
-			SmartDashboard.putNumber("Cowl Distance", cowlDistance)
-			SmartDashboard.putNumber("Potent Distance", potentiometer.get())
+			SmartDashboard.putNumber("Potent Distance", Potentiometer())
+			SmartDashboard.putNumber("Ultrasound", Ultrasound())
 		}
 	}
 }
