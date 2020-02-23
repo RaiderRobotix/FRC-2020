@@ -1,7 +1,6 @@
 package com.raiderrobotix._2020.subsystems
 
 import edu.wpi.first.wpilibj.Counter
-import edu.wpi.first.wpilibj.DigitalInput
 import edu.wpi.first.wpilibj.Spark
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import org.team2471.frc.lib.coroutines.periodic
@@ -17,7 +16,7 @@ object Intake : Subsystem("Shooter") {
 	private val upper = Spark(topChannel)
 	private val lower = Spark(bottomChannel)
 	internal val outer = Spark(outerChannel)
-
+	
 	object LineBreaker {
 		private val counter = Counter(1)
 		var count = 0
@@ -43,11 +42,11 @@ object Intake : Subsystem("Shooter") {
 		speed = 0.0
 		outer.speed = 0.0
 	}
-
+	
 	override suspend fun default() {
 		periodic {
 			SmartDashboard.putNumber("LineBreaker", LineBreaker().toDouble())
 		}
 	}
-
+	
 }

@@ -25,7 +25,8 @@ object Robot : RobotProgram {
 			Elevator,
 			Shooter,
 			ColorWheel,
-			Intake
+			Intake,
+			Trolley
 		).forEach(Subsystem::enable)
 	}
 	

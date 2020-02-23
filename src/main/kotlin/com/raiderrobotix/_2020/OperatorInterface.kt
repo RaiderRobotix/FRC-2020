@@ -83,7 +83,7 @@ object OperatorInterface {
 		}
 	
 	val rightY: Double
-		get() = right.y.takeIf { abs(it)  > JOYSTICK_DEADBAND } ?: 0.0
+		get() = right.y.takeIf { abs(it) > JOYSTICK_DEADBAND } ?: 0.0
 	
 	val operatorY: Double
 		get() = operator.y.takeIf { abs(it) > JOYSTICK_DEADBAND }
@@ -93,7 +93,7 @@ object OperatorInterface {
 		get() = operator.trigger
 	
 	operator fun Joystick.get(button: Int) = getRawButton(button)
-
+	
 	operator fun <T : GenericHID> FalconHID<T>.get(button: Int) = getRawButton(button)
 	
 }
