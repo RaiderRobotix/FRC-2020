@@ -1,14 +1,14 @@
 package com.raiderrobotix._2020.subsystems
 
-import edu.wpi.first.wpilibj.Encoder
+import com.raiderrobotix._2020.OperatorInterface.get
+import com.raiderrobotix._2020.OperatorInterface.operator
 import edu.wpi.first.wpilibj.AnalogPotentiometer
+import edu.wpi.first.wpilibj.Encoder
 import edu.wpi.first.wpilibj.Spark
 import edu.wpi.first.wpilibj.SpeedControllerGroup
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
-import com.raiderrobotix._2020.OperatorInterface.operator
-import com.raiderrobotix._2020.OperatorInterface.get
 
 object Shooter : Subsystem("Shooter") {
 	private const val topChannel = 1
@@ -18,12 +18,12 @@ object Shooter : Subsystem("Shooter") {
 	private val cowl = Spark(cowlChannel)
 	private val cowlEncoder = Encoder(9, 8) // TODO
 	val potentiometer = AnalogPotentiometer(1)
-
-	public operator fun AnalogPotentiometer.invoke() = this.get()
+	
+	operator fun AnalogPotentiometer.invoke() = this.get()
 	private val group = SpeedControllerGroup(Spark(topChannel), Spark(bottomChannel))
-
-	private val safeRange = 0.04..0.8
-
+	
+	private val safeRange = 0.033..0.9
+	
 	init {
 //		cowlEncoder.distancePerPulse = 0.0 / 44.4 // TODO, in inches
 		cowlEncoder.reset()
