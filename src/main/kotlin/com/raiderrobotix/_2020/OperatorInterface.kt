@@ -56,7 +56,7 @@ object OperatorInterface {
 		//Cowl
 		val cowl = 5
 		({ operator[cowl] }).whenTrue { Shooter.cowlSpeed = 0.5 }
-		({ operator[4] }).whenTrue { Shooter.cowlSpeed = -0.5 }
+		({ operator[3] }).whenTrue { Shooter.cowlSpeed = -0.5 }
 		({ !operator[cowl] && !operator[3] }).whenTrue { Shooter.cowlSpeed = 0.0 }
 		
 		//Turn to Color
