@@ -9,7 +9,7 @@ import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
 
 
-object DriveBase : Subsystem(name="Drives") {
+object DriveBase : Subsystem(name = "Drives") {
 	
 	private const val LEFT_FRONT_DRIVE_CAN_ID = 1
 	private const val LEFT_BACK_DRIVE_CAN_ID = 2
@@ -60,7 +60,7 @@ object DriveBase : Subsystem(name="Drives") {
 		leftFrontSpark.set(leftSpeed)
 		rightFrontSpark.set(rightSpeed)
 	}
-
+	
 	override suspend fun default() {
 		periodic {
 			tankDrive(
@@ -76,7 +76,7 @@ object DriveBase : Subsystem(name="Drives") {
 		leftEncoder.position = 0.0
 		rightEncoder.position = 0.0
 	}
-	
+
 //	override fun initSendable(builder: SendableBuilder) {
 //		builder.setSmartDashboardType("Drives")
 //		builder.setActuator(true)
@@ -87,5 +87,5 @@ object DriveBase : Subsystem(name="Drives") {
 //		builder.addStringArrayProperty("firmware", firmwareSupplier, null)
 //		builder.addDoubleProperty("Gyro", ::gyroAngle, null)
 //	}
-	
+
 }

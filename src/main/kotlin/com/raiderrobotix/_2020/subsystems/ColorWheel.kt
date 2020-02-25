@@ -50,18 +50,18 @@ object ColorWheel : Subsystem("ColorWheel") {
 			if (i == iter) stop()
 			else i++
 		}
-
+		
 		offset = Color(
-				colors.map { it.red }.average(),
-				colors.map { it.green }.average(),
-				colors.map { it.blue }.average()
+			colors.map { it.red }.average(),
+			colors.map { it.green }.average(),
+			colors.map { it.blue }.average()
 		)
 	}
-
+	
 	override fun reset() {
 		wheel.speed = 0.0
 	}
-
+	
 	override suspend fun default() {
 		zeroOutColor(iter = 20)
 		periodic(0.05) {
@@ -69,7 +69,7 @@ object ColorWheel : Subsystem("ColorWheel") {
 			SmartDashboard.putString("Raw Color", (sensor.color - offset).toPrettyString())
 		}
 	}
-
+	
 	enum class WheelColor {
 		Red,
 		Green,

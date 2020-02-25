@@ -6,11 +6,11 @@ import org.team2471.frc.lib.coroutines.meanlibLaunch
 import org.team2471.frc.lib.coroutines.periodic
 
 fun eatBalls() = GlobalScope.meanlibLaunch {
-    try {
-        periodic {
-            Intake.speed = 0.6
-        }
-    } finally {
-        Intake.reset()
-    }
+	try {
+		periodic {
+			Intake.speed = 0.6
+		}
+	} finally {
+		Intake.reset()
+	}
 }
