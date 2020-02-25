@@ -32,9 +32,9 @@ object Intake : Subsystem("Shooter") {
 		operator fun invoke() = counter.get()
 	}
 
-//	val IntakeBreaker = Digi(1)
-//
-//	val StageBreaker = Digi(2)
+//	val IntakeBreaker = Digi(2)
+	
+	val StageBreaker = Digi(3)
 	
 	val ShooterBreaker = Digi(0)
 	
@@ -56,7 +56,9 @@ object Intake : Subsystem("Shooter") {
 
 	override suspend fun default() {
 		periodic {
-			SmartDashboard.putBoolean("shooterBreaker", ShooterBreaker.get())
+			SmartDashboard.putBoolean("ShooterBreaker", ShooterBreaker.get())
+			SmartDashboard.putBoolean("StageBreaker", StageBreaker.get())
+			
 		}
 	}
 
