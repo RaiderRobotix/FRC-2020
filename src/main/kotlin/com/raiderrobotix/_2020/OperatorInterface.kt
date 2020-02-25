@@ -1,15 +1,17 @@
 package com.raiderrobotix._2020
 
+import com.raiderrobotix._2020.commands.colorwheel.positionControl
 import com.raiderrobotix._2020.subsystems.ColorWheel
+import com.raiderrobotix._2020.subsystems.ColorWheel.zeroOutColor
 import com.raiderrobotix._2020.subsystems.Intake
 import com.raiderrobotix._2020.subsystems.Shooter
 import com.raiderrobotix._2020.subsystems.Trolley
 import edu.wpi.first.wpilibj.GenericHID
 import edu.wpi.first.wpilibj.Joystick
 import org.ghrobotics.lib.wrappers.hid.FalconHID
-import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.input.whenTrue
 import org.team2471.frc.lib.input.whileTrue
+import java.io.File
 import kotlin.math.abs
 
 object OperatorInterface {
@@ -31,7 +33,13 @@ object OperatorInterface {
 		
 		val shooter = 1
 		({ operator[shooter] }).whenTrue { Shooter.speed = 1.0 }
-		({ !operator[shooter] }).whenTrue { Shooter.reset() }
+		({ !operator[shooter] }).whenTrue {
+			Shooter.reset()
+			val log = File("/home/lvuser/shooterLog.log")
+			log.appendText(
+				"Ultrasound: %d, Potentiometer: %d".format(Shooter.Ultrasound(), Shooter.Potentiometer())
+			)
+		}
 		
 		val conveyer = 11
 		({ operator[conveyer] && !operator[flip] }).whenTrue { Intake.speed = 1.0 }
@@ -61,14 +69,11 @@ object OperatorInterface {
 		//Turn to Color
 		val colorWheel = 10
 		({ right[colorWheel] }).whileTrue {
-			periodic(period = 0.01) {
-				ColorWheel.wheel.speed = if (ColorWheel.color != ColorWheel.WheelColor.Red)
-					0.5
-				else
-					0.0
-			}
+			positionControl()
 		}
 		({ !right[colorWheel] }).whenTrue { ColorWheel.reset() }
+		
+		({ right[11] }).whenTrue { zeroOutColor(iter = 20) }
 		
 		
 	}
@@ -83,7 +88,8 @@ object OperatorInterface {
 		}
 	
 	val rightY: Double
-		get() = right.y.takeIf { abs(it)  > JOYSTICK_DEADBAND } ?: 0.0
+		get() = right.y.takeIf { abs(it) > JOYSTICK_DEADBAND }
+			?: 0.0
 	
 	val operatorY: Double
 		get() = operator.y.takeIf { abs(it) > JOYSTICK_DEADBAND }
@@ -93,7 +99,7 @@ object OperatorInterface {
 		get() = operator.trigger
 	
 	operator fun Joystick.get(button: Int) = getRawButton(button)
-
+	
 	operator fun <T : GenericHID> FalconHID<T>.get(button: Int) = getRawButton(button)
 	
 }

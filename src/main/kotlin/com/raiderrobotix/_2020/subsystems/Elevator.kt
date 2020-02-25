@@ -35,7 +35,7 @@ object Elevator : Subsystem("Elevator") {
 	}
 	
 	private const val max_height = 10000 // Todo
-
+	
 	private val height get() = (left_encoder.position + right_encoder.position) / 2
 	
 	var speed: Double
@@ -48,11 +48,11 @@ object Elevator : Subsystem("Elevator") {
 				new_speed)
 		}
 		get() = group.get()
-
+	
 	override fun reset() {
 		speed = 0.0
 	}
-
+	
 	override suspend fun default() {
 		periodic {
 			SmartDashboard.putString("Voltage", "Left: ${left.busVoltage}, Right: ${right.busVoltage}")

@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.Spark
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
-import org.team2471.frc.lib.input.whenTrue
 
 
 object Intake : Subsystem("Shooter") {
@@ -17,19 +16,30 @@ object Intake : Subsystem("Shooter") {
 	private val upper = Spark(topChannel)
 	private val lower = Spark(bottomChannel)
 	internal val outer = Spark(outerChannel)
-
-	object LineBreaker {
-		private val counter = Counter(1)
-		var count = 0
+	
+	class Digi(val port: Int) {
+		private val input = DigitalInput(port)
+		private val counter = Counter(input)
+		private var count = 0
+		fun update(): Boolean {
+			return if (count != invoke()) {
+				count = invoke()
+				true
+			} else false
+		}
+		
+		fun get() = input.get()
 		operator fun invoke() = counter.get()
 	}
 	
+	val IntakeBreaker = Digi(5)
+	
+	val StageBreaker = Digi(3)
+	
+	val ShooterBreaker = Digi(0)
+	
 	init {
 		lower.inverted = true
-		({ LineBreaker.count != LineBreaker() }).whenTrue {
-			LineBreaker.count = LineBreaker()
-			// action
-		}
 	}
 	
 	var speed: Double
@@ -46,7 +56,9 @@ object Intake : Subsystem("Shooter") {
 
 	override suspend fun default() {
 		periodic {
-			SmartDashboard.putNumber("LineBreaker", LineBreaker().toDouble())
+			SmartDashboard.putBoolean("ShooterBreaker", ShooterBreaker.get())
+			SmartDashboard.putBoolean("StageBreaker", StageBreaker.get())
+			SmartDashboard.putBoolean("IntakeBreaker", IntakeBreaker.get())
 		}
 	}
 
