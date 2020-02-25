@@ -31,8 +31,8 @@ object Intake : Subsystem("Shooter") {
 		fun get() = input.get()
 		operator fun invoke() = counter.get()
 	}
-
-//	val IntakeBreaker = Digi(2)
+	
+	val IntakeBreaker = Digi(5)
 	
 	val StageBreaker = Digi(3)
 	
@@ -58,7 +58,7 @@ object Intake : Subsystem("Shooter") {
 		periodic {
 			SmartDashboard.putBoolean("ShooterBreaker", ShooterBreaker.get())
 			SmartDashboard.putBoolean("StageBreaker", StageBreaker.get())
-			
+			SmartDashboard.putBoolean("IntakeBreaker", IntakeBreaker.get())
 		}
 	}
 
