@@ -27,8 +27,7 @@ object Shooter : Subsystem("Shooter") {
 
 	private val group = SpeedControllerGroup(Spark(topChannel), Spark(bottomChannel))
 
-	private val safeRange = 0.04..0.8
-
+	private val safeRange = 0.33..0.9
 	var speed: Double
 		set(it) {
 			group.set(it)
