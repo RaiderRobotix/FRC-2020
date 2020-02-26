@@ -30,12 +30,10 @@ suspend fun threeBallsIntoGoal() = coroutineScope {
 				suspendUntil { Intake.IntakeBreaker.get() }
 			}
 		}
-		// suspendUntil { !Intake.ShooterBreaker.get() }
-		// suspendUntil { Intake.ShooterBreaker.get() }
 	}
 	delay(10 * 1000)
 	readyShooter.join()
-	queueBall.join()
+	queueBall.cancelAndJoin()
 	Shooter.reset()
 	Intake.reset()
 	// DriveBase.speed = 0.6
