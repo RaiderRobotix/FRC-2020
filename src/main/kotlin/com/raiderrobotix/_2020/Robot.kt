@@ -1,6 +1,6 @@
 package com.raiderrobotix._2020
 
-import com.raiderrobotix._2020.commands.drivebase.threeBallsIntoGoal
+import com.raiderrobotix._2020.commands.colorwheel.auton.threeBallsIntoGoal
 import com.raiderrobotix._2020.subsystems.*
 import com.raiderrobotix._2020.util.LimeLight
 import org.team2471.frc.lib.framework.RobotProgram
