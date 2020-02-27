@@ -1,6 +1,6 @@
 package com.raiderrobotix._2020
 
-import com.raiderrobotix._2020.commands.drivebase.threeBallsIntoGoal
+import com.raiderrobotix._2020.commands.colorwheel.auton.fireNBalls
 import com.raiderrobotix._2020.subsystems.*
 import com.raiderrobotix._2020.util.LimeLight
 import org.team2471.frc.lib.framework.RobotProgram
@@ -37,7 +37,7 @@ object Robot : RobotProgram {
 	}
 	
 	override suspend fun autonomous() {
-		threeBallsIntoGoal()
+		fireNBalls(10)
 	}
 	
 }
