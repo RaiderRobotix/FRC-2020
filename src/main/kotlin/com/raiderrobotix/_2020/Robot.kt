@@ -1,6 +1,6 @@
 package com.raiderrobotix._2020
 
-import com.raiderrobotix._2020.commands.colorwheel.auton.fireNBalls
+import com.raiderrobotix._2020.commands.drivebase.centerLimelight
 import com.raiderrobotix._2020.subsystems.*
 import com.raiderrobotix._2020.util.LimeLight
 import org.team2471.frc.lib.framework.RobotProgram
@@ -19,9 +19,10 @@ object Robot : RobotProgram {
 	
 	init {
 		OperatorInterface
+		LimeLight
 	}
 	
-	override suspend fun teleop() {
+	override suspend fun enable() {
 		setOf(
 			DriveBase,
 			Elevator,
@@ -32,12 +33,23 @@ object Robot : RobotProgram {
 		).forEach(Subsystem::enable)
 	}
 	
+	override suspend fun disable() {
+		LimeLight.ledMode = LimeLight.LedMode.off
+		setOf(
+			DriveBase,
+			Elevator,
+			Shooter,
+			ColorWheel,
+			Intake,
+			Trolley,
+			).forEach(Subsystem::disable)
+	}
+	
 	override fun comms() {
-		LimeLight
 	}
 	
 	override suspend fun autonomous() {
-		fireNBalls(10)
+		centerLimelight()
 	}
 	
 }
