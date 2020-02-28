@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5129ce9e-d926-4003-aa03-5491c79a15e9" name="Default Changelist" comment="Replace gyroangle with references to navx">
+    <list default="true" id="5129ce9e-d926-4003-aa03-5491c79a15e9" name="Default Changelist" comment="Add second linebreaker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/Robot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/Robot.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/commands/drivebase/Turn.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/commands/drivebase/Turn.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/util/LimeLight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/util/LimeLight.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +41,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Object" />
         <option value="Kotlin File" />
+        <option value="Kotlin Object" />
       </list>
     </option>
   </component>
@@ -65,7 +68,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="kotlin" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RunAnythingCache">
@@ -202,90 +205,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1578940488613</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Detect section of color wheel using distance">
-      <created>1580339603786</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1580339603787</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Add Turn Wheel to Color Action">
-      <created>1580340205755</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1580340205755</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Refactor commands from classes to functions">
-      <created>1580350629240</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1580350629240</updated>
-    </task>
-    <task id="LOCAL-00004" summary="IDE Files">
-      <created>1580350649285</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1580350649285</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Remove Action.kt interface">
-      <created>1580420712379</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1580420712379</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Add check for limit switch">
-      <created>1581778284076</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1581778284076</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Project code style settings">
-      <created>1581778308929</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1581778308929</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Set cowl channel">
-      <created>1581797503819</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1581797503819</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Set cowl channel">
-      <created>1581797516609</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1581797516609</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Remove finished TODOs">
-      <created>1581797728237</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1581797728237</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Add functional ColorWheel and bindings">
-      <created>1581799001736</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1581799001736</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Remove deprecated overloads">
-      <created>1581799032845</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1581799032845</updated>
     </task>
     <task id="LOCAL-00013" summary="IDE Files">
       <created>1581799117584</created>
@@ -476,37 +395,191 @@
       <option name="project" value="LOCAL" />
       <updated>1582151084276</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Change Shooter.kt safe range">
+      <created>1582476039853</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1582476039853</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Add zero-out color button">
+      <created>1582482107263</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1582482107264</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Simplify position control function">
+      <created>1582482127731</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1582482127731</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Fix cowl override button">
+      <created>1582496904954</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1582496904954</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Reduce lower safety limit">
+      <created>1582496944134</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1582496944134</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Use custom linebreaker class">
+      <created>1582496992534</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1582496992534</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Add slight reverse to positionControl">
+      <created>1582497225238</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1582497225238</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Remove Test Position Control Function">
+      <created>1582497270539</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1582497270539</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Remove Use guard">
+      <created>1582572616926</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1582572616926</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Log when shooter runs">
+      <created>1582574271813</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1582574271813</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Add a preliminary auton">
+      <created>1582574306478</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1582574306479</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Add a preliminary auton">
+      <created>1582574325847</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1582574325847</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Zero out color on initialization">
+      <created>1582596431916</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1582596431916</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Add second linebreaker">
+      <created>1582596462009</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1582596462009</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Run test auton in auton mode">
+      <created>1582596497581</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1582596497581</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Replace manual delay with stdlib option">
+      <created>1582596671525</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1582596671525</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Merge in master">
+      <created>1582660518272</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1582660518273</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Add 3rd linebreaker">
+      <created>1582660624503</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1582660624504</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Remove Sendable impl from LimeLight.kt">
+      <created>1582852034230</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1582852034232</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Add turn to limelight target function">
+      <created>1582852201292</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1582852201292</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Add enable/disable handlers">
+      <created>1582852240039</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1582852240040</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Remove trailing comma">
+      <created>1582852258805</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1582852258805</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Set Ultrasound distance scaling" />
-    <MESSAGE value="Ultrasound distance property" />
-    <MESSAGE value="Move NT deleegates to NetworkTableDelegates.kt" />
-    <MESSAGE value="Add deadband to operator joystick" />
-    <MESSAGE value="Groups Elevator sparks into a group" />
-    <MESSAGE value="Swap joystick ports" />
-    <MESSAGE value="Add property for user selected color" />
-    <MESSAGE value="Finish TurnToColor function" />
-    <MESSAGE value="Remove commented out code" />
-    <MESSAGE value="Include pulses per rotation in encoderscaling" />
-    <MESSAGE value="Include pulses per rotation in encoder scaling" />
-    <MESSAGE value="Add navx" />
-    <MESSAGE value="Rewrite turn function" />
-    <MESSAGE value="Print raw Color and categorized color" />
-    <MESSAGE value="Remove TurnShooterToAngle" />
-    <MESSAGE value="Assert nonnullabilitty of selected color" />
-    <MESSAGE value="Remove cowl math" />
-    <MESSAGE value="Swap out debugging prints" />
-    <MESSAGE value="Rename ColorSensor.kt print function" />
-    <MESSAGE value="Zero Out Colors on start" />
-    <MESSAGE value="Much Stuff&#10;&#10;Change Color categorization logic&#10;Format pretty print&#10;Fix minus operator for colors" />
-    <MESSAGE value="Replace gyroangle with references to navx" />
     <MESSAGE value="Use stdlib average functions" />
     <MESSAGE value="Remove import" />
     <MESSAGE value="Replace set calls with speed property" />
-    <option name="LAST_COMMIT_MESSAGE" value="Replace set calls with speed property" />
+    <MESSAGE value="Change Shooter.kt safe range" />
+    <MESSAGE value="Add zero-out color button" />
+    <MESSAGE value="Simplify position control function" />
+    <MESSAGE value="Fix cowl override button" />
+    <MESSAGE value="Reduce lower safety limit" />
+    <MESSAGE value="Use custom linebreaker class" />
+    <MESSAGE value="Add slight reverse to positionControl" />
+    <MESSAGE value="Remove Test Position Control Function" />
+    <MESSAGE value="Remove Use guard" />
+    <MESSAGE value="Log when shooter runs" />
+    <MESSAGE value="Replace gyroangle with references to navx" />
+    <MESSAGE value="Add a preliminary auton" />
+    <MESSAGE value="Zero out color on initialization" />
+    <MESSAGE value="Add second linebreaker" />
+    <MESSAGE value="Run test auton in auton mode" />
+    <MESSAGE value="Replace manual delay with stdlib option" />
+    <MESSAGE value="Merge in master" />
+    <MESSAGE value="Add 3rd linebreaker" />
+    <MESSAGE value="Remove Sendable impl from LimeLight.kt" />
+    <MESSAGE value="Add turn to limelight target function" />
+    <MESSAGE value="Add enable/disable handlers" />
+    <MESSAGE value="Remove trailing comma" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove trailing comma" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -524,66 +597,70 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="184" y="118" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1581798783914" />
-    <state x="440" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1581872861978">
+    <state x="440" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1582833735193">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="440" y="119" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877@0.23.1440.877" timestamp="1581872861978" />
-    <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1581883630267">
+    <state x="440" y="119" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877@0.23.1440.877" timestamp="1582833735193" />
+    <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1582674804556">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.877@0.23.1440.877" timestamp="1581883630267" />
+    <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.877@0.23.1440.877" timestamp="1582674804556" />
     <state x="395" y="157" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579889725152">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="395" y="157" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1579889725152" />
-    <state x="214" y="23" key="CommitChangelistDialog2" timestamp="1582151083552">
+    <state x="214" y="23" key="CommitChangelistDialog2" timestamp="1582853616045">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="214" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1582151083552" />
-    <state width="1384" height="215" key="GridCell.Tab.0.bottom" timestamp="1582068881200">
+    <state x="214" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1582853616045" />
+    <state x="144" y="100" key="DiffContextDialog" timestamp="1582832636798">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="144" y="100" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1582832636798" />
+    <state width="1384" height="215" key="GridCell.Tab.0.bottom" timestamp="1582851961019">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1637" height="272" key="GridCell.Tab.0.bottom/0.0.1680.1010@0.0.1680.1010" timestamp="1581626731114" />
-    <state width="1384" height="215" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1582068881200" />
-    <state width="1384" height="215" key="GridCell.Tab.0.center" timestamp="1582068881195">
+    <state width="1384" height="215" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1582851961019" />
+    <state width="1384" height="215" key="GridCell.Tab.0.center" timestamp="1582851961017">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1637" height="272" key="GridCell.Tab.0.center/0.0.1680.1010@0.0.1680.1010" timestamp="1581626731114" />
-    <state width="1384" height="215" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1582068881195" />
-    <state width="1384" height="215" key="GridCell.Tab.0.left" timestamp="1582068881194">
+    <state width="1384" height="215" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1582851961017" />
+    <state width="1384" height="215" key="GridCell.Tab.0.left" timestamp="1582851961016">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1637" height="272" key="GridCell.Tab.0.left/0.0.1680.1010@0.0.1680.1010" timestamp="1581626731114" />
-    <state width="1384" height="215" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1582068881194" />
-    <state width="1384" height="215" key="GridCell.Tab.0.right" timestamp="1582068881196">
+    <state width="1384" height="215" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1582851961016" />
+    <state width="1384" height="215" key="GridCell.Tab.0.right" timestamp="1582851961018">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1637" height="272" key="GridCell.Tab.0.right/0.0.1680.1010@0.0.1680.1010" timestamp="1581626731114" />
-    <state width="1384" height="215" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1582068881196" />
-    <state x="0" y="23" width="1440" height="877" key="MergeDialog" timestamp="1581795982780">
+    <state width="1384" height="215" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1582851961018" />
+    <state x="0" y="23" width="1440" height="877" key="MergeDialog" timestamp="1582660457616">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="0" y="23" width="1440" height="877" key="MergeDialog/0.23.1440.877@0.23.1440.877" timestamp="1581795982780" />
-    <state x="349" y="115" width="1081" height="692" key="MultipleFileMergeDialog" timestamp="1581795982846">
+    <state x="0" y="23" width="1440" height="877" key="MergeDialog/0.23.1440.877@0.23.1440.877" timestamp="1582660457616" />
+    <state x="234" y="107" width="1081" height="692" key="MultipleFileMergeDialog" timestamp="1582660457683">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="349" y="115" width="1081" height="692" key="MultipleFileMergeDialog/0.23.1440.877@0.23.1440.877" timestamp="1581795982846" />
-    <state x="401" y="113" key="RollbackChangesDialog" timestamp="1581873272425">
+    <state x="234" y="107" width="1081" height="692" key="MultipleFileMergeDialog/0.23.1440.877@0.23.1440.877" timestamp="1582660457683" />
+    <state x="401" y="113" key="RollbackChangesDialog" timestamp="1582834044908">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="401" y="113" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1581873272425" />
-    <state x="0" y="23" width="1169" height="877" key="SettingsEditor" timestamp="1582213630791">
+    <state x="401" y="113" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1582834044908" />
+    <state x="0" y="23" width="1169" height="877" key="SettingsEditor" timestamp="1582653906459">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="0" y="23" width="1169" height="877" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1582213630791" />
+    <state x="0" y="23" width="1169" height="877" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1582653906458" />
     <state width="635" height="500" key="SwitcherDM" timestamp="1582058175461">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="635" height="500" key="SwitcherDM/0.23.1440.877@0.23.1440.877" timestamp="1582058175461" />
-    <state x="220" y="138" key="Vcs.Push.Dialog.v2" timestamp="1581797246232">
+    <state x="220" y="138" key="Vcs.Push.Dialog.v2" timestamp="1582852482021">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="220" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1581797246232" />
+    <state x="220" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1582852482021" />
     <state x="92" y="92" width="1496" height="826" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581263907445">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
@@ -593,14 +670,14 @@
     </state>
     <state x="309" y="267" key="com.intellij.ide.util.TipDialog/0.0.1680.1010@0.0.1680.1010" timestamp="1581710123907" />
     <state x="265" y="255" key="com.intellij.ide.util.TipDialog/0.23.1440.877@0.23.1440.877" timestamp="1578940517978" />
-    <state x="266" y="141" width="907" height="640" key="find.popup" timestamp="1581868982548">
+    <state x="213" y="144" width="907" height="640" key="find.popup" timestamp="1582482839216">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="266" y="141" width="907" height="640" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1581868982548" />
-    <state x="287" y="215" key="git4idea.merge.GitPullDialog" timestamp="1581796002249">
+    <state x="213" y="144" width="907" height="640" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1582482839216" />
+    <state x="287" y="215" key="git4idea.merge.GitPullDialog" timestamp="1582832649515">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="287" y="215" key="git4idea.merge.GitPullDialog/0.23.1440.877@0.23.1440.877" timestamp="1581796002249" />
+    <state x="287" y="215" key="git4idea.merge.GitPullDialog/0.23.1440.877@0.23.1440.877" timestamp="1582832649515" />
     <state x="301" y="207" width="838" height="1032" key="run.anything.popup" timestamp="1582068130450">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

@@ -37,10 +37,14 @@ object LimeLight {
 			camMode = if (it) 0.0 else 1.0
 		}
 	
-	enum class LedMode(internal val value: Int) {
-		// ORDER MATTERS, SEE ledMode.set()
-		Default(0),
-		Off(1), Blink(2), On(3)
+	/**
+	 * ORDER MATTERS, ledMode.set
+	 */
+	enum class LedMode {
+		Default,
+		Off,
+		Blink,
+		On
 	}
 	
 	private var ledModeDouble by table["ledMode"](default = 0.0)
@@ -48,7 +52,7 @@ object LimeLight {
 	var ledMode
 		get() = LedMode.values()[ledModeDouble.toInt()]
 		set(mode) {
-			ledModeDouble = mode.value.toDouble()
+			ledModeDouble = mode.ordinal.toDouble()
 		}
 	
 	var pipeLine by table["pipeline"](default = 0.0)
