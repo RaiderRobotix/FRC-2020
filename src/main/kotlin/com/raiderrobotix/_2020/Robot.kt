@@ -41,8 +41,8 @@ object Robot : RobotProgram {
 			Shooter,
 			ColorWheel,
 			Intake,
-			Trolley,
-			).forEach(Subsystem::disable)
+			Trolley
+		).forEach(Subsystem::disable)
 	}
 	
 	override fun comms() {
