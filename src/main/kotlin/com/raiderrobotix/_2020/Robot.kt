@@ -17,32 +17,27 @@ object Robot : RobotProgram {
 		runRobotProgram(Robot)
 	}
 	
+	val subsystems = setOf(
+		DriveBase,
+		Elevator,
+		Shooter,
+		ColorWheel,
+		Intake,
+		Trolley
+	)
+	
 	init {
 		OperatorInterface
 		LimeLight
 	}
 	
 	override suspend fun enable() {
-		setOf(
-			DriveBase,
-			Elevator,
-			Shooter,
-			ColorWheel,
-			Intake,
-			Trolley
-		).forEach(Subsystem::enable)
+		subsystems.forEach(Subsystem::enable)
 	}
 	
 	override suspend fun disable() {
-		LimeLight.ledMode = LimeLight.LedMode.off
-		setOf(
-			DriveBase,
-			Elevator,
-			Shooter,
-			ColorWheel,
-			Intake,
-			Trolley
-		).forEach(Subsystem::disable)
+		LimeLight.ledMode = LimeLight.LedMode.Off
+		subsystems.forEach(Subsystem::disable)
 	}
 	
 	override fun comms() {

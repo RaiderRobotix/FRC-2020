@@ -26,7 +26,7 @@ suspend fun turn(angle: Double, speed: Double) = use(DriveBase) {
 }
 
 suspend fun centerLimelight() = use(DriveBase) {
-	LimeLight.ledMode = LimeLight.LedMode.on
+	LimeLight.ledMode = LimeLight.LedMode.On
 	val speed = 0.1
 	periodic {
 		if (abs(LimeLight.x) <= TURN_TOLERANCE) {

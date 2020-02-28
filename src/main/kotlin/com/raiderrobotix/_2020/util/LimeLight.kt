@@ -38,7 +38,9 @@ object LimeLight {
 		}
 	
 	enum class LedMode(internal val value: Int) {
-		default(0), off(1), blink(2), on(3)
+		// ORDER MATTERS, SEE ledMode.set()
+		Default(0),
+		Off(1), Blink(2), On(3)
 	}
 	
 	private var ledModeDouble by table["ledMode"](default = 0.0)
