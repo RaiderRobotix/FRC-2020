@@ -1,16 +1,9 @@
 package com.raiderrobotix._2020.util
 
-import edu.wpi.first.wpilibj.Sendable
-import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder
-import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry
 import org.ghrobotics.lib.wrappers.networktables.FalconNetworkTable
 import org.ghrobotics.lib.wrappers.networktables.get
 
-object LimeLight : Sendable {
-	
-	init {
-		SendableRegistry.add(this, "LimeLight")
-	}
+object LimeLight {
 	
 	private val table = FalconNetworkTable.getTable("limelight")
 	
@@ -57,12 +50,5 @@ object LimeLight : Sendable {
 		}
 	
 	var pipeLine by table["pipeline"](default = 0.0)
-	
-	override fun initSendable(builder: SendableBuilder) {
-		builder.addBooleanProperty("Targeting", ::targetFound, null)
-		builder.addDoubleProperty("x", ::x, null)
-		builder.addDoubleProperty("y", ::y, null)
-		builder.addDoubleProperty("Area", ::targetArea, null)
-	}
 	
 }
