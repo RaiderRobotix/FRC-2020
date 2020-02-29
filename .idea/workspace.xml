@@ -68,7 +68,10 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="kotlin" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="experimental" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RunAnythingCache">
@@ -649,9 +652,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="401" y="113" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1582834044908" />
-    <state x="0" y="23" width="1169" height="877" key="SettingsEditor" timestamp="1582653906459">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="0" y="0" width="1169" height="877" key="SettingsEditor" timestamp="1583009797903">
+      <screen x="0" y="0" width="1680" height="1010" />
     </state>
+    <state x="0" y="0" key="SettingsEditor/0.0.1680.1010@0.0.1680.1010" timestamp="1583009797903" />
     <state x="0" y="23" width="1169" height="877" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1582653906458" />
     <state width="635" height="500" key="SwitcherDM" timestamp="1582058175461">
       <screen x="0" y="23" width="1440" height="877" />

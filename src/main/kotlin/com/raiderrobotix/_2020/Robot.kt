@@ -35,7 +35,7 @@ object Robot : RobotProgram {
 	}
 	
 	override suspend fun disable() {
-		LimeLight.ledMode = LimeLight.LedMode.off
+		LimeLight.ledMode = LimeLight.LedMode.Off
 		subsystems.forEach(Subsystem::disable)
 	}
 	
