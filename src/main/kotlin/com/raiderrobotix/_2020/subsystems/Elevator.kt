@@ -29,8 +29,6 @@ object Elevator : Subsystem("Elevator") {
 		right_encoder.position = 0.0
 	}
 	
-	private const val max_height = 10000 // Todo
-	
 	private val height get() = (left_encoder.position + right_encoder.position) / 2
 	
 	var speed: Double
