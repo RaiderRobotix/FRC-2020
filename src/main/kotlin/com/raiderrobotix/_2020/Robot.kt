@@ -1,6 +1,5 @@
 package com.raiderrobotix._2020
 
-import com.raiderrobotix._2020.commands.drivebase.centerLimelight
 import com.raiderrobotix._2020.subsystems.*
 import com.raiderrobotix._2020.util.LimeLight
 import org.team2471.frc.lib.framework.RobotProgram
@@ -36,15 +35,11 @@ object Robot : RobotProgram {
 	}
 	
 	override suspend fun disable() {
-		LimeLight.ledMode = LimeLight.LedMode.Off
+		LimeLight.ledMode = LimeLight.LedMode.off
 		subsystems.forEach(Subsystem::disable)
 	}
 	
 	override fun comms() {
-	}
-	
-	override suspend fun autonomous() {
-		centerLimelight()
 	}
 	
 }
