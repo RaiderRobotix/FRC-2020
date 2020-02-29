@@ -20,11 +20,6 @@ object Elevator : Subsystem("Elevator") {
 	private val group = SpeedControllerGroup(left, right)
 	private val left_encoder = left.encoder
 	private val right_encoder = right.encoder
-
-//	private const val limitDIO = 1 // TODO
-//	private val counter = Counter(DigitalInput(limitDIO))
-//	private var count = 0
-//	private const val limitEnabled = false
 	
 	operator fun Counter.invoke() = get()
 	
@@ -40,12 +35,7 @@ object Elevator : Subsystem("Elevator") {
 	
 	var speed: Double
 		set(new_speed) {
-			group.set(
-//				if (limitEnabled && count < counter()) {
-//					count = counter()
-//					new_speed.coerceAtLeast(0.0)
-//				} else
-				new_speed)
+			group.set(new_speed)
 		}
 		get() = group.get()
 	
