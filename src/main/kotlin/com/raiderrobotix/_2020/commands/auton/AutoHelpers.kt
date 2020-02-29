@@ -1,4 +1,4 @@
-package com.raiderrobotix._2020.commands.colorwheel.auton
+package com.raiderrobotix._2020.commands.auton
 
 import com.raiderrobotix._2020.subsystems.Intake
 import kotlinx.coroutines.coroutineScope
