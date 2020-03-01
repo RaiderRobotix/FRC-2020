@@ -24,7 +24,7 @@ suspend fun positionControl() {
 	suspendUntil { color == endColor }
 	ColorWheel.wheel.speed = -0.35
 	suspendUntil { color == endColor }
-	delay(1000)
+	delay(500)
 	ColorWheel.wheel.speed = 0.0
 }
 
