@@ -1,6 +1,5 @@
 package com.raiderrobotix._2020
 
-import com.raiderrobotix._2020.commands.auton.queueBall
 import com.raiderrobotix._2020.commands.colorwheel.positionControl
 import com.raiderrobotix._2020.subsystems.ColorWheel
 import com.raiderrobotix._2020.subsystems.ColorWheel.zeroOutColor
@@ -48,8 +47,8 @@ object OperatorInterface {
 		({ !operator[conveyer] }).whenTrue { Intake.reset() }
 		
 		val roller = 12
-		({ operator[roller] && !operator[flip] }).whileTrue {
-			queueBall(5)
+		({ operator[roller] && !operator[flip] }).whenTrue {
+			Intake.outer.speed = 0.6
 		}
 		({ operator[roller] && operator[flip] }).whenTrue {
 			Intake.outer.speed = -0.7
