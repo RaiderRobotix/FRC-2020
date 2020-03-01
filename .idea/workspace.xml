@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5129ce9e-d926-4003-aa03-5491c79a15e9" name="Default Changelist" comment="Add second linebreaker">
+    <list default="true" id="5129ce9e-d926-4003-aa03-5491c79a15e9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/Robot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/Robot.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/commands/drivebase/Turn.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/commands/drivebase/Turn.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/util/LimeLight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/raiderrobotix/_2020/util/LimeLight.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,41 +205,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1578940488613</updated>
-    </task>
-    <task id="LOCAL-00013" summary="IDE Files">
-      <created>1581799117584</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1581799117584</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Set Ultrasound distance scaling">
-      <created>1581800076445</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1581800076445</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Ultrasound distance property">
-      <created>1581800991665</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1581800991665</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Move NT deleegates to NetworkTableDelegates.kt">
-      <created>1581815783322</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1581815783322</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Add deadband to operator joystick">
-      <created>1581871530132</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1581871530132</updated>
     </task>
     <task id="LOCAL-00018" summary="Groups Elevator sparks into a group">
       <created>1581871584487</created>
@@ -552,16 +514,46 @@
       <option name="project" value="LOCAL" />
       <updated>1582852258805</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Slave left Elevator spark to right&#10;&#10;Following is inverted">
+      <created>1583021443340</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1583021443341</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Remove speed controller group from Elevator&#10;&#10;As left is slaved to right, grouping them is unnecessary">
+      <created>1583021564187</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1583021564187</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Put Elevator motor current to dashboard">
+      <created>1583021630044</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1583021630044</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Remove CAN ID variables, put directly in constructor">
+      <created>1583021697030</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1583021697030</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Remove unused Counter function for limit switch">
+      <created>1583022005081</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1583022005081</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Use stdlib average functions" />
-    <MESSAGE value="Remove import" />
-    <MESSAGE value="Replace set calls with speed property" />
-    <MESSAGE value="Change Shooter.kt safe range" />
-    <MESSAGE value="Add zero-out color button" />
     <MESSAGE value="Simplify position control function" />
     <MESSAGE value="Fix cowl override button" />
     <MESSAGE value="Reduce lower safety limit" />
@@ -582,7 +574,12 @@
     <MESSAGE value="Add turn to limelight target function" />
     <MESSAGE value="Add enable/disable handlers" />
     <MESSAGE value="Remove trailing comma" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove trailing comma" />
+    <MESSAGE value="Slave left Elevator spark to right&#10;&#10;Following is inverted" />
+    <MESSAGE value="Remove speed controller group from Elevator&#10;&#10;As left is slaved to right, grouping them is unnecessary" />
+    <MESSAGE value="Put Elevator motor current to dashboard" />
+    <MESSAGE value="Remove CAN ID variables, put directly in constructor" />
+    <MESSAGE value="Remove unused Counter function for limit switch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove unused Counter function for limit switch" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -612,10 +609,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="395" y="157" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1579889725152" />
-    <state x="214" y="23" key="CommitChangelistDialog2" timestamp="1582853616045">
+    <state x="214" y="23" key="CommitChangelistDialog2" timestamp="1583022004395">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="214" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1582853616045" />
+    <state x="214" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1583022004395" />
     <state x="144" y="100" key="DiffContextDialog" timestamp="1582832636798">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
