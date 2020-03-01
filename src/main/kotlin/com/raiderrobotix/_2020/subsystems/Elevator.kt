@@ -41,7 +41,7 @@ object Elevator : Subsystem("Elevator") {
 	
 	override suspend fun default() {
 		periodic {
-			SmartDashboard.putString("Voltage", "Left: ${left.busVoltage}, Right: ${right.busVoltage}")
+			SmartDashboard.putString("Current", "Left: ${left.outputCurrent}, Right: ${right.outputCurrent}")
 			speed = -OperatorInterface.operatorY
 		}
 	}
