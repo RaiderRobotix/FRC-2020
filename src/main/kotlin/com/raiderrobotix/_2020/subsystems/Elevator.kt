@@ -10,11 +10,9 @@ import org.team2471.frc.lib.framework.Subsystem
 
 
 object Elevator : Subsystem("Elevator") {
-	private const val left_id = 6
-	private const val right_id = 5
 	
-	private val left = CANSparkMax(left_id, CANSparkMaxLowLevel.MotorType.kBrushless)
-	private val right = CANSparkMax(right_id, CANSparkMaxLowLevel.MotorType.kBrushless)
+	private val left = CANSparkMax(6, CANSparkMaxLowLevel.MotorType.kBrushless)
+	private val right = CANSparkMax(5, CANSparkMaxLowLevel.MotorType.kBrushless)
 	
 	private val left_encoder = left.encoder
 	private val right_encoder = right.encoder
