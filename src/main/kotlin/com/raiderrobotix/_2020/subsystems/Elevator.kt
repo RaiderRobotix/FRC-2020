@@ -4,7 +4,6 @@ import com.raiderrobotix._2020.OperatorInterface
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel
 import edu.wpi.first.wpilibj.Counter
-import edu.wpi.first.wpilibj.SpeedControllerGroup
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
@@ -17,7 +16,6 @@ object Elevator : Subsystem("Elevator") {
 	private val left = CANSparkMax(left_id, CANSparkMaxLowLevel.MotorType.kBrushless)
 	private val right = CANSparkMax(right_id, CANSparkMaxLowLevel.MotorType.kBrushless)
 	
-	private val group = SpeedControllerGroup(left, right)
 	private val left_encoder = left.encoder
 	private val right_encoder = right.encoder
 	
@@ -33,9 +31,9 @@ object Elevator : Subsystem("Elevator") {
 	
 	var speed: Double
 		set(new_speed) {
-			group.set(new_speed)
+			right.set(new_speed)
 		}
-		get() = group.get()
+		get() = right.get()
 	
 	override fun reset() {
 		speed = 0.0
