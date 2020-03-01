@@ -24,7 +24,7 @@ object Elevator : Subsystem("Elevator") {
 	operator fun Counter.invoke() = get()
 	
 	init {
-		left.inverted = true
+		left.follow(right, true)
 		left_encoder.position = 0.0
 		right_encoder.position = 0.0
 	}
