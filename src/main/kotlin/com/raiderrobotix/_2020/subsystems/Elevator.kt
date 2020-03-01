@@ -3,7 +3,6 @@ package com.raiderrobotix._2020.subsystems
 import com.raiderrobotix._2020.OperatorInterface
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel
-import edu.wpi.first.wpilibj.Counter
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
@@ -16,8 +15,6 @@ object Elevator : Subsystem("Elevator") {
 	
 	private val left_encoder = left.encoder
 	private val right_encoder = right.encoder
-	
-	operator fun Counter.invoke() = get()
 	
 	init {
 		left.follow(right, true)
