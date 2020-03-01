@@ -10,7 +10,7 @@ import org.team2471.frc.lib.coroutines.suspendUntil
 suspend fun positionControl() {
 	val endColor = when (
 		try {
-			DriverStation.getInstance().gameSpecificMessage[0] // Get first character
+			DriverStation.getInstance().gameSpecificMessage[0] // The first character denotes the Color, its uppercase
 		} catch (e: Throwable) {
 			error("Color not received from Driver Station")
 		}) {
