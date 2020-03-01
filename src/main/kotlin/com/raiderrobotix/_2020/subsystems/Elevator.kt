@@ -17,7 +17,7 @@ object Elevator : Subsystem("Elevator") {
 	private val right_encoder = right.encoder
 	
 	init {
-		left.follow(right, true)
+		right.follow(left, true)
 		left_encoder.position = 0.0
 		right_encoder.position = 0.0
 	}
@@ -26,9 +26,9 @@ object Elevator : Subsystem("Elevator") {
 	
 	var speed: Double
 		set(new_speed) {
-			right.set(new_speed)
+			left.set(new_speed)
 		}
-		get() = right.get()
+		get() = left.get()
 	
 	override fun reset() {
 		speed = 0.0
