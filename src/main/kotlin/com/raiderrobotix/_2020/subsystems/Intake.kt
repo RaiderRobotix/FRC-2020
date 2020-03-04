@@ -13,8 +13,8 @@ object Intake : Subsystem("Shooter") {
 	private const val bottomChannel = 3
 	private const val outerChannel = 4
 	
-	private val upper = Spark(topChannel)
-	private val lower = Spark(bottomChannel)
+	internal val upper = Spark(topChannel)
+	internal val lower = Spark(bottomChannel)
 	internal val outer = Spark(outerChannel)
 	
 	class Digi(val port: Int) {
