@@ -24,6 +24,7 @@ suspend fun queueBall(numBalls: Int) {
 			suspendUntil { Intake.StageBreaker.get() }
 		}
 	}
+	suspendUntil { !Intake.ShooterBreaker.get() }
 	outer.join()
 	lower.cancelAndJoin()
 }
