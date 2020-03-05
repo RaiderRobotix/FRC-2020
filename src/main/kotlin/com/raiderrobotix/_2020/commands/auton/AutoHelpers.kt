@@ -18,9 +18,9 @@ suspend fun queueBall(numBalls: Int) {
 	}
 	val lower = GlobalScope.launch {
 		repeat(numBalls) {
-			Intake.lower.speed = 1.0
+			Intake.lower.speed = -1.0
 			suspendUntil { !Intake.StageBreaker.get() }
-			Intake.lower.speed = 0.9
+			Intake.lower.speed = -0.9
 			suspendUntil { Intake.StageBreaker.get() }
 		}
 	}
