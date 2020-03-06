@@ -1,8 +1,10 @@
 package com.raiderrobotix._2020
 
+import com.raiderrobotix._2020.commands.auton.launchPrints
 import com.raiderrobotix._2020.commands.auton.primaryAuton
 import com.raiderrobotix._2020.subsystems.*
 import com.raiderrobotix._2020.util.LimeLight
+import kotlinx.coroutines.cancelAndJoin
 import org.team2471.frc.lib.framework.RobotProgram
 import org.team2471.frc.lib.framework.Subsystem
 import org.team2471.frc.lib.framework.initializeWpilib
@@ -39,7 +41,9 @@ object Robot : RobotProgram {
 	}
 	
 	override suspend fun autonomous() {
+		val prints = launchPrints()
 		primaryAuton()
+		prints.cancelAndJoin()
 	}
 	
 }
