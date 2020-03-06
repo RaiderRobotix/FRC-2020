@@ -1,9 +1,11 @@
 package com.raiderrobotix._2020.commands.auton
 
+import com.raiderrobotix._2020.Robot
 import com.raiderrobotix._2020.subsystems.Intake
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.launch
+import org.team2471.frc.lib.coroutines.meanlibLaunch
 import org.team2471.frc.lib.coroutines.suspendUntil
 
 suspend fun queueBall(numBalls: Int) {
@@ -27,4 +29,8 @@ suspend fun queueBall(numBalls: Int) {
 	suspendUntil { !Intake.ShooterBreaker.get() }
 	outer.cancelAndJoin()
 	lower.cancelAndJoin()
+}
+
+internal fun launchPrints() = GlobalScope.meanlibLaunch {
+	Robot.subsystems.forEach { it.enable() }
 }
