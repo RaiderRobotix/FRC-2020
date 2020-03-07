@@ -9,6 +9,7 @@ import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.RobotProgram
 import org.team2471.frc.lib.framework.initializeWpilib
 import org.team2471.frc.lib.framework.runRobotProgram
+import org.team2471.frc.lib.framework.use
 
 
 object Robot : RobotProgram {
@@ -44,12 +45,15 @@ object Robot : RobotProgram {
 	}
 	
 	override suspend fun teleop() {
-		periodic {
-			DriveBase.tankDrive(
-				leftSpeed = -OperatorInterface.leftY,
-				rightSpeed = -OperatorInterface.rightY
-			)
-			Elevator.speed = -OperatorInterface.operatorY
+		
+		use(*subsystems.toTypedArray()) {
+			periodic {
+				DriveBase.tankDrive(
+					leftSpeed = -OperatorInterface.leftY,
+					rightSpeed = -OperatorInterface.rightY
+				)
+				Elevator.speed = -OperatorInterface.operatorY
+			}
 		}
 	}
 	
