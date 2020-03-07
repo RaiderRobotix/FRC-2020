@@ -1,7 +1,7 @@
 package com.raiderrobotix._2020
 
 import com.raiderrobotix._2020.commands.auton.launchPrints
-import com.raiderrobotix._2020.commands.shooter.adjustCowl
+import com.raiderrobotix._2020.commands.auton.primaryAuton
 import com.raiderrobotix._2020.subsystems.*
 import com.raiderrobotix._2020.util.LimeLight
 import org.team2471.frc.lib.coroutines.periodic
@@ -38,7 +38,7 @@ object Robot : RobotProgram {
 	}
 	
 	override suspend fun autonomous() {
-		travelOtherSide()
+		primaryAuton()
 		// adjustCowl(0.33)
 	}
 	
