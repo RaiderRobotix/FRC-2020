@@ -65,7 +65,8 @@ object ColorWheel : Subsystem("ColorWheel") {
 	override suspend fun default() {
 		zeroOutColor(iter = 20)
 		periodic(0.05) {
-			SmartDashboard.putString("Color", color?.name ?: "Nothing")
+			SmartDashboard.putString("Color", color?.name
+				?: "Nothing")
 			SmartDashboard.putString("Raw Color", (sensor.color - offset).toPrettyString())
 		}
 	}

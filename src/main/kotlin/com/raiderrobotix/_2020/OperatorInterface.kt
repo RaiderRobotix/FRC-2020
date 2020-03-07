@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.Joystick
 import org.ghrobotics.lib.wrappers.hid.FalconHID
 import org.team2471.frc.lib.input.whenTrue
 import org.team2471.frc.lib.input.whileTrue
-import java.io.File
 import kotlin.math.abs
 
 object OperatorInterface {
@@ -35,10 +34,6 @@ object OperatorInterface {
 		({ operator[shooter] }).whenTrue { Shooter.speed = 1.0 }
 		({ !operator[shooter] }).whenTrue {
 			Shooter.reset()
-			val log = File("/home/lvuser/shooterLog.log")
-			log.appendText(
-				"Ultrasound: %d, Potentiometer: %d".format(Shooter.Ultrasound(), Shooter.Potentiometer())
-			)
 		}
 		
 		val conveyer = 11
