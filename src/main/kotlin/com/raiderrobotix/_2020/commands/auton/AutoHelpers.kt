@@ -2,6 +2,7 @@ package com.raiderrobotix._2020.commands.auton
 
 import com.raiderrobotix._2020.Robot
 import com.raiderrobotix._2020.subsystems.Intake
+import com.raiderrobotix._2020.subsystems.SensorOutput
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.launch
@@ -32,5 +33,5 @@ suspend fun queueBall(numBalls: Int) {
 }
 
 internal fun launchPrints() = GlobalScope.meanlibLaunch {
-	Robot.subsystems.forEach { it.enable() }
+	Robot.subsystems.forEach { (it as SensorOutput).update() }
 }

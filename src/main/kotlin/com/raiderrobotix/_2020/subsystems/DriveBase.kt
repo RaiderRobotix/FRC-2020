@@ -5,11 +5,12 @@ import com.raiderrobotix._2020.OperatorInterface
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel.MotorType
 import edu.wpi.first.wpilibj.SerialPort
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
 
 
-object DriveBase : Subsystem(name = "Drives") {
+object DriveBase : Subsystem(name = "Drives"), SensorOutput {
 	
 	private const val LEFT_FRONT_DRIVE_CAN_ID = 1
 	private const val LEFT_BACK_DRIVE_CAN_ID = 2
@@ -21,7 +22,7 @@ object DriveBase : Subsystem(name = "Drives") {
 	private val rightFrontSpark = CANSparkMax(RIGHT_FRONT_DRIVE_CAN_ID, MotorType.kBrushless)
 	private val rightBackSpark = CANSparkMax(RIGHT_BACK_DRIVE_CAN_ID, MotorType.kBrushless)
 	
-	private const val TIRE_CIRCUMFERENCE = 28.375 // TODO
+	private const val TIRE_CIRCUMFERENCE = 9 * Math.PI // TODO
 	private const val GEAR_RATIO = 0.047619 // 0.0714286; // TODO
 	private const val INCHES_PER_REVOLUTION = GEAR_RATIO * TIRE_CIRCUMFERENCE
 	private const val RIGHT_DRIVE_MOTORS_INVERTED = true
@@ -67,6 +68,13 @@ object DriveBase : Subsystem(name = "Drives") {
 				leftSpeed = -OperatorInterface.leftY,
 				rightSpeed = -OperatorInterface.rightY
 			)
+		}
+	}
+	
+	override suspend fun update() {
+		periodic {
+			SmartDashboard.putNumber("Left Encoder", leftEncoder.position)
+			SmartDashboard.putNumber("Right Encoder", rightEncoder.position)
 		}
 	}
 	

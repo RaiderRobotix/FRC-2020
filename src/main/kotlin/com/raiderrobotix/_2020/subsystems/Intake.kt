@@ -8,7 +8,7 @@ import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
 
 
-object Intake : Subsystem("Shooter") {
+object Intake : Subsystem("Shooter"), SensorOutput {
 	private const val topChannel = 2
 	private const val bottomChannel = 3
 	private const val outerChannel = 4
@@ -53,13 +53,13 @@ object Intake : Subsystem("Shooter") {
 		speed = 0.0
 		outer.speed = 0.0
 	}
-
-	override suspend fun default() {
+	
+	override suspend fun update() {
 		periodic {
 			SmartDashboard.putBoolean("ShooterBreaker", ShooterBreaker.get())
 			SmartDashboard.putBoolean("StageBreaker", StageBreaker.get())
 			SmartDashboard.putBoolean("IntakeBreaker", IntakeBreaker.get())
 		}
 	}
-
+	
 }

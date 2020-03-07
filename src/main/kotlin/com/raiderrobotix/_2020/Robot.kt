@@ -6,7 +6,6 @@ import com.raiderrobotix._2020.subsystems.*
 import com.raiderrobotix._2020.util.LimeLight
 import kotlinx.coroutines.cancelAndJoin
 import org.team2471.frc.lib.framework.RobotProgram
-import org.team2471.frc.lib.framework.Subsystem
 import org.team2471.frc.lib.framework.initializeWpilib
 import org.team2471.frc.lib.framework.runRobotProgram
 
@@ -33,7 +32,7 @@ object Robot : RobotProgram {
 	)
 	
 	override suspend fun enable() {
-		subsystems.forEach(Subsystem::enable)
+		subsystems.forEach { (it as SensorOutput).update() }
 	}
 	
 	override fun comms() {

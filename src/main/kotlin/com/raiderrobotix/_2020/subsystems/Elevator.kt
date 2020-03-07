@@ -8,7 +8,7 @@ import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
 
 
-object Elevator : Subsystem("Elevator") {
+object Elevator : Subsystem("Elevator"), SensorOutput {
 	
 	private val left = CANSparkMax(6, CANSparkMaxLowLevel.MotorType.kBrushless)
 	private val right = CANSparkMax(5, CANSparkMaxLowLevel.MotorType.kBrushless)
@@ -38,6 +38,12 @@ object Elevator : Subsystem("Elevator") {
 		periodic {
 			SmartDashboard.putString("Current", "Left: ${left.outputCurrent}, Right: ${right.outputCurrent}")
 			speed = -OperatorInterface.operatorY
+		}
+	}
+	
+	override suspend fun update() {
+		periodic {
+			SmartDashboard.putString("Current", "Left: ${left.outputCurrent}, Right: ${right.outputCurrent}")
 		}
 	}
 }
