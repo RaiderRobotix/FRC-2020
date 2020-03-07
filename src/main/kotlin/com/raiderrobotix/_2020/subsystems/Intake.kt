@@ -8,7 +8,7 @@ import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
 
 
-object Intake : Subsystem("Shooter"), SensorOutput {
+object Intake : Subsystem("Shooter") {
 	private const val topChannel = 2
 	private const val bottomChannel = 3
 	private const val outerChannel = 4
@@ -18,18 +18,8 @@ object Intake : Subsystem("Shooter"), SensorOutput {
 	internal val outer = Spark(outerChannel)
 	
 	class Digi(val port: Int) {
-		private val input = DigitalInput(port)
-		private val counter = Counter(input)
-		private var count = 0
-		fun update(): Boolean {
-			return if (count != invoke()) {
-				count = invoke()
-				true
-			} else false
-		}
-		
-		fun get() = input.get()
-		operator fun invoke() = counter.get()
+		val input = DigitalInput(port)
+		val counter = Counter(input)
 	}
 	
 	val IntakeBreaker = Digi(5)
@@ -54,12 +44,11 @@ object Intake : Subsystem("Shooter"), SensorOutput {
 		outer.speed = 0.0
 	}
 	
-	override suspend fun update() {
+	override suspend fun default() {
 		periodic {
-			SmartDashboard.putBoolean("ShooterBreaker", ShooterBreaker.get())
-			SmartDashboard.putBoolean("StageBreaker", StageBreaker.get())
-			SmartDashboard.putBoolean("IntakeBreaker", IntakeBreaker.get())
+			SmartDashboard.putBoolean("ShooterBreaker", ShooterBreaker.input.get())
+			SmartDashboard.putBoolean("StageBreaker", StageBreaker.input.get())
+			SmartDashboard.putBoolean("IntakeBreaker", IntakeBreaker.input.get())
 		}
 	}
-	
 }

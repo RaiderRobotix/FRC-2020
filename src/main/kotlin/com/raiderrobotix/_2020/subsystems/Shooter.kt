@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
 
-object Shooter : Subsystem("Shooter"), SensorOutput {
+object Shooter : Subsystem("Shooter") {
 	private const val topChannel = 1
 	private const val bottomChannel = 0
 	
@@ -53,7 +53,7 @@ object Shooter : Subsystem("Shooter"), SensorOutput {
 		cowlSpeed = 0.0
 	}
 	
-	override suspend fun update() {
+	override suspend fun default() {
 		periodic {
 			SmartDashboard.putNumber("Potent Distance", Potentiometer())
 			SmartDashboard.putNumber("Ultrasound", Ultrasound())

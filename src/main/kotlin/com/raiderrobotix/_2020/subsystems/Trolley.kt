@@ -3,7 +3,7 @@ package com.raiderrobotix._2020.subsystems
 import edu.wpi.first.wpilibj.Spark
 import org.team2471.frc.lib.framework.Subsystem
 
-object Trolley : Subsystem("Trolley"), SensorOutput {
+object Trolley : Subsystem("Trolley") {
 	private const val id = 5
 	
 	private val slide = Spark(id)
@@ -14,8 +14,5 @@ object Trolley : Subsystem("Trolley"), SensorOutput {
 	
 	override fun reset() {
 		speed = 0.0
-	}
-	
-	override suspend fun update() {
 	}
 }

@@ -1,7 +1,6 @@
 package com.raiderrobotix._2020.subsystems
 
 import com.kauailabs.navx.frc.AHRS
-import com.raiderrobotix._2020.OperatorInterface
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel.MotorType
 import edu.wpi.first.wpilibj.SerialPort
@@ -10,7 +9,7 @@ import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
 
 
-object DriveBase : Subsystem(name = "Drives"), SensorOutput {
+object DriveBase : Subsystem(name = "Drives") {
 	
 	private const val LEFT_FRONT_DRIVE_CAN_ID = 1
 	private const val LEFT_BACK_DRIVE_CAN_ID = 2
@@ -63,15 +62,6 @@ object DriveBase : Subsystem(name = "Drives"), SensorOutput {
 	}
 	
 	override suspend fun default() {
-		periodic {
-			tankDrive(
-				leftSpeed = -OperatorInterface.leftY,
-				rightSpeed = -OperatorInterface.rightY
-			)
-		}
-	}
-	
-	override suspend fun update() {
 		periodic {
 			SmartDashboard.putNumber("Left Encoder", leftEncoder.position)
 			SmartDashboard.putNumber("Right Encoder", rightEncoder.position)

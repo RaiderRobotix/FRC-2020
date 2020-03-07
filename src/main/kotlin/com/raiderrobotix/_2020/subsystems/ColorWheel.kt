@@ -9,7 +9,7 @@ import kotlinx.coroutines.runBlocking
 import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.Subsystem
 
-object ColorWheel : Subsystem("ColorWheel"), SensorOutput {
+object ColorWheel : Subsystem("ColorWheel") {
 	internal val wheel = Spark(6)
 	private val sensor = ColorSensorV3(I2C.Port.kOnboard)
 	private var offset = Color(.0, .0, .0)
@@ -64,9 +64,6 @@ object ColorWheel : Subsystem("ColorWheel"), SensorOutput {
 	
 	override suspend fun default() {
 		zeroOutColor(iter = 20)
-	}
-	
-	override suspend fun update() {
 		periodic(0.05) {
 			SmartDashboard.putString("Color", color?.name
 				?: "Nothing")
