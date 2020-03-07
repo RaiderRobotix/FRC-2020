@@ -13,7 +13,7 @@ suspend fun fireNBalls(numBalls: Int) = coroutineScope {
 	repeat(numBalls) {
 		suspendUntil { !Intake.ShooterBreaker.input.get() }
 		suspendUntil { Intake.ShooterBreaker.input.get() }
-//		suspendUntil { Shooter.speed >= 0.9 }
+		suspendUntil { Shooter.speed >= 0.9 }
 	}
 	Shooter.reset()
 	Intake.reset()
