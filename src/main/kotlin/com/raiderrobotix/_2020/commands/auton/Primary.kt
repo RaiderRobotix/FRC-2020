@@ -11,17 +11,19 @@ suspend fun primaryAuton() {
 	use(DriveBase) {
 		adjustCowl(0.33)
 		fireNBalls(3)
-		turn(-30.0, 0.3)
+		val angleToTrench = -30.0
+		turn(angleToTrench, 0.3)
+		val dispToTrench = -3.0 * 12
 		drive(displacement = -3.0 * 12, speed = 0.5)
-		turn(30.0, 0.3)
+		turn(-angleToTrench, 0.3)
 		use(Intake) {
 			queueBall(3)
 			drive(displacement = -2.0 * 12, speed = 0.3)
 		}
 		drive(displacement = 2.0 * 12, speed = 0.3)
-		turn(-30.0, 0.3)
+		turn(angleToTrench, 0.3)
 		drive(displacement = 3.0 * 12, speed = 0.5)
-		turn(30.0, 0.3)
+		turn(-angleToTrench, 0.3)
 		fireNBalls(3)
 	}
 }
