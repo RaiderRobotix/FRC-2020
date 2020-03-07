@@ -15,10 +15,8 @@ suspend fun primaryAuton() {
 	drive(displacement = -5.8 * 12, speed = 0.2)
 	turn(angularDisplacement = 5.0, speed = 0.2) 
 	DriveBase.speed = -0.2
-		repeat(1){
-		queueBall(1)
-		}
-		suspendUntil{ !Intake.ShooterBreaker.input.get() }
+	queueBall(3)
+	DriveBase.speed = 0.0
 		// repeat(3) {
 		// 	Intake.upper.speed = 1.0
 		// 	Intake.lower.speed = -1.0
