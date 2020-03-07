@@ -14,6 +14,7 @@ private const val TURN_TOLERANCE = 1.0 // TODO
  * @param speed must positive
  */
 suspend fun turn(angularDisplacement: Double, speed: Double) = use(DriveBase) {
+	val speed = speed * sign(angularDisplacement)
 	val navX = DriveBase.navX
 	navX.zeroYaw()
 	periodic {
