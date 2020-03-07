@@ -2,11 +2,10 @@ package com.raiderrobotix._2020.commands.auton
 
 import com.raiderrobotix._2020.subsystems.Intake
 import com.raiderrobotix._2020.subsystems.Shooter
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import org.team2471.frc.lib.coroutines.suspendUntil
 
-suspend fun fireNBalls(numBalls: Int) = coroutineScope {
+suspend fun fireNBalls(numBalls: Int) {
 	Shooter.speed = 1.0
 	delay(1500)
 	Intake.upper.speed = 1.0
