@@ -1,6 +1,5 @@
 package com.raiderrobotix._2020.subsystems
 
-import com.raiderrobotix._2020.OperatorInterface
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
@@ -37,7 +36,7 @@ object Elevator : Subsystem("Elevator") {
 	override suspend fun default() {
 		periodic {
 			SmartDashboard.putString("Current", "Left: ${left.outputCurrent}, Right: ${right.outputCurrent}")
-			speed = -OperatorInterface.operatorY
 		}
 	}
+	
 }

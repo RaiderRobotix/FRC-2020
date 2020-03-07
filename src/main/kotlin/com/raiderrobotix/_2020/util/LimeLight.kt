@@ -1,9 +1,12 @@
 package com.raiderrobotix._2020.util
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import org.ghrobotics.lib.wrappers.networktables.FalconNetworkTable
 import org.ghrobotics.lib.wrappers.networktables.get
+import org.team2471.frc.lib.framework.Subsystem
+import kotlin.math.abs
 
-object LimeLight {
+object LimeLight : Subsystem("LimeLight") {
 	
 	private val table = FalconNetworkTable.getTable("limelight")
 	
@@ -56,5 +59,9 @@ object LimeLight {
 		}
 	
 	var pipeLine by table["pipeline"](default = 0.0)
+	
+	override suspend fun default() {
+		SmartDashboard.putBoolean("Centered", abs(x) < 3)
+	}
 	
 }
