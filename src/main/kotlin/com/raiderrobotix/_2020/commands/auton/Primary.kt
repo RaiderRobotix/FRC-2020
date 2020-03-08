@@ -4,7 +4,6 @@ import com.raiderrobotix._2020.commands.drivebase.drive
 import com.raiderrobotix._2020.commands.drivebase.turn
 import com.raiderrobotix._2020.commands.shooter.adjustCowl
 import com.raiderrobotix._2020.subsystems.DriveBase
-import com.raiderrobotix._2020.subsystems.Intake
 import org.team2471.frc.lib.framework.use
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.GlobalScope
@@ -42,7 +41,7 @@ suspend fun primaryAuton() {
 		// 	Intake.lower.speed = 0.0
 		// 	Intake.outer.speed = 0.0
 		// }
-
+		
 		// drive(displacement = 2.0 * 12, speed = 0.3)
 		// turn(angleToTrench, 0.3)
 		// drive(displacement = 3.0 * 12, speed = 0.5)
