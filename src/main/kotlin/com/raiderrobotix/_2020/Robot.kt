@@ -42,13 +42,27 @@ object Robot : RobotProgram {
 		// adjustCowl(0.33)
 	}
 	
+	data class Recording(val left: Double, val right: Double)
+	
+	val recordings = mutableListOf<Recording>()
+	var recording = true
+	
 	override suspend fun teleop() {
 		periodic {
+			
+			val last = Recording(
+				left = OperatorInterface.leftY,
+				right = OperatorInterface.rightY
+			)
+			if (recording) {
+				recordings.add(last)
+			}
 			DriveBase.tankDrive(
-				leftSpeed = -OperatorInterface.leftY,
-				rightSpeed = -OperatorInterface.rightY
+				leftSpeed = -last.left,
+				rightSpeed = -last.right
 			)
 			Elevator.speed = -OperatorInterface.operatorY
+			
 		}
 	}
 	

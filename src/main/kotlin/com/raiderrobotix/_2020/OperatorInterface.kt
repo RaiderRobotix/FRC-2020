@@ -1,5 +1,6 @@
 package com.raiderrobotix._2020
 
+import com.raiderrobotix._2020.commands.auton.replayTeleop
 import com.raiderrobotix._2020.commands.colorwheel.positionControl
 import com.raiderrobotix._2020.subsystems.ColorWheel
 import com.raiderrobotix._2020.subsystems.ColorWheel.zeroOutColor
@@ -67,6 +68,10 @@ object OperatorInterface {
 		({ !right[colorWheel] }).whenTrue { ColorWheel.reset() }
 		
 		({ right[11] }).whenTrue { zeroOutColor(iter = 20) }
+		
+		({ right[6] }).whenTrue {
+			replayTeleop()
+		}
 		
 		
 	}
