@@ -4,6 +4,7 @@ import com.raiderrobotix._2020.commands.auton.*
 import com.raiderrobotix._2020.subsystems.*
 import com.raiderrobotix._2020.util.LimeLight
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.RobotProgram
 import org.team2471.frc.lib.framework.initializeWpilib
@@ -45,6 +46,7 @@ object Robot : RobotProgram {
 		chooser.addOption("rightPlayerStation", ::rightPlayerStation)
 		chooser.addOption("middletoShield", ::middletoShield)
 		chooser.addOption("travelOtherSide", ::travelOtherSide)
+		SmartDashboard.putData("Auton", chooser)
 		chooser.selected.invoke()
 	}
 	
