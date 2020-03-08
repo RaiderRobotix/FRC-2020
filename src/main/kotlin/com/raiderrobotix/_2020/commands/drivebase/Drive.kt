@@ -11,7 +11,7 @@ const val SPEED_CORRECTION = 0.10// TODO
 const val DISTANCE_TOLERANCE = 1.0// TODO
 
 suspend fun drive(displacement: Double, speed: Double) = use(DriveBase) {
-	val speed = speed * sign(displacement)
+	val speed = abs(speed) * sign(displacement)
 	while (abs(DriveBase.averageDistance - displacement) >= DISTANCE_TOLERANCE) {
 		var leftSpeed = speed
 		var rightSpeed = speed

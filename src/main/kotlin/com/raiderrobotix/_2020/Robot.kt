@@ -8,6 +8,7 @@ import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.RobotProgram
 import org.team2471.frc.lib.framework.initializeWpilib
 import org.team2471.frc.lib.framework.runRobotProgram
+import org.team2471.frc.lib.framework.use
 
 
 object Robot : RobotProgram {
@@ -48,21 +49,21 @@ object Robot : RobotProgram {
 	var recording = true
 	
 	override suspend fun teleop() {
-		periodic {
-			
-			val last = Recording(
-				left = OperatorInterface.leftY,
-				right = OperatorInterface.rightY
-			)
-			if (recording) {
-				recordings.add(last)
+		use(*subsystems.toTypedArray()) {
+			periodic {
+				val last = Recording(
+					left = OperatorInterface.leftY,
+					right = OperatorInterface.rightY
+				)
+				if (recording) {
+					recordings.add(last)
+				}
+				DriveBase.tankDrive(
+					leftSpeed = -last.left,
+					rightSpeed = -last.right
+				)
+				Elevator.speed = -OperatorInterface.operatorY
 			}
-			DriveBase.tankDrive(
-				leftSpeed = -last.left,
-				rightSpeed = -last.right
-			)
-			Elevator.speed = -OperatorInterface.operatorY
-			
 		}
 	}
 	
