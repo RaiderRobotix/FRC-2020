@@ -1,9 +1,9 @@
 package com.raiderrobotix._2020
 
-import com.raiderrobotix._2020.commands.auton.launchPrints
-import com.raiderrobotix._2020.commands.auton.primaryAuton
+import com.raiderrobotix._2020.commands.auton.*
 import com.raiderrobotix._2020.subsystems.*
 import com.raiderrobotix._2020.util.LimeLight
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser
 import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.RobotProgram
 import org.team2471.frc.lib.framework.initializeWpilib
@@ -39,8 +39,13 @@ object Robot : RobotProgram {
 	}
 	
 	override suspend fun autonomous() {
-		primaryAuton()
-		// adjustCowl(0.33)
+		val chooser = SendableChooser<suspend () -> Unit>()
+		chooser.setDefaultOption("Primary", ::primaryAuton)
+		chooser.addOption("onlyCrossLine", ::onlyCrossLine)
+		chooser.addOption("rightPlayerStation", ::rightPlayerStation)
+		chooser.addOption("middletoShield", ::middletoShield)
+		chooser.addOption("travelOtherSide", ::travelOtherSide)
+		chooser.selected.invoke()
 	}
 	
 	data class Recording(val left: Double, val right: Double)
