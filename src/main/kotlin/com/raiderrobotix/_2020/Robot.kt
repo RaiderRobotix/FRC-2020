@@ -36,11 +36,10 @@ object Robot : RobotProgram {
 	
 	override suspend fun enable() {
 		subsystems.forEach { it.enable() }
-		launchPrints() // might be possible to remove. if systems enables, default should run
 	}
 	
 	override suspend fun autonomous() {
-		primaryAuton()
+		onlyCrossLine()
 		// adjustCowl(0.33)
 	}
 	
@@ -56,5 +55,9 @@ object Robot : RobotProgram {
 			}
 		}
 	}
+
+	override fun comms()	{
 	
+		launchPrints() // might be possible to remove. if systems enables, default should run
+	}
 }

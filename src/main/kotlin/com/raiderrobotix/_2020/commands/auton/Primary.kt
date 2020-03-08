@@ -2,21 +2,34 @@ package com.raiderrobotix._2020.commands.auton
 
 import com.raiderrobotix._2020.commands.drivebase.drive
 import com.raiderrobotix._2020.commands.drivebase.turn
+import com.raiderrobotix._2020.commands.shooter.adjustCowl
 import com.raiderrobotix._2020.subsystems.DriveBase
 import com.raiderrobotix._2020.subsystems.Intake
 import org.team2471.frc.lib.framework.use
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.cancelAndJoin
+import org.team2471.frc.lib.coroutines.meanlibLaunch
 import org.team2471.frc.lib.coroutines.suspendUntil
 
 suspend fun primaryAuton() {
 	use(DriveBase) {
-//		adjustCowl(0.31)
+	// adjustCowl(0.31)
 	// fireNBalls(3)
-	drive(displacement = -5.8 * 12, speed = 0.2)
-	turn(angularDisplacement = 5.0, speed = 0.2) 
+	drive(displacement = -6.0 * 12, speed = 0.2)
+	turn(angularDisplacement = 3.0, speed = 0.2) 
+	DriveBase.reset()
 	DriveBase.speed = -0.2
-	queueBall(3)
+	val queue = GlobalScope.meanlibLaunch {
+		queueBall(3)
+	}
+	suspendUntil{DriveBase.averageDistance > 2.0*12}
 	DriveBase.speed = 0.0
+	queue.cancelAndJoin()
+	Intake.upper.speed = 1.0
+	Intake.lower.speed = -1.0
+	suspendUntil { !Intake.ShooterBreaker.input.get() }
+	Intake.reset()
 		// repeat(3) {
 		// 	Intake.upper.speed = 1.0
 		// 	Intake.lower.speed = -1.0
