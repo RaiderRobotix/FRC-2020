@@ -4,6 +4,9 @@ import com.raiderrobotix._2020.commands.auton.*
 import com.raiderrobotix._2020.subsystems.*
 import com.raiderrobotix._2020.util.LimeLight
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser
+import edu.wpi.first.networktables.NetworkTableEntry
+import edu.wpi.first.networktables.NetworkTableInstance
+import edu.wpi.first.networktables.NetworkTable
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import org.team2471.frc.lib.coroutines.periodic
 import org.team2471.frc.lib.framework.RobotProgram
@@ -18,10 +21,27 @@ object Robot : RobotProgram {
 	fun main(args: Array<String>) {
 		initializeWpilib()
 		runRobotProgram(Robot)
+
+		// NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight")
+		// NetworkTableEntry tx = table.getEntry("tx")
+		// NetworkTableEntry ty = table.getEntry("ty")
+		// NetworkTableEntry ta = table.getEntry("ta")
+		
+		// periodic {
+		// double x = tx.getDouble(0.0)
+		// double y = ty.getDouble(0.0)
+		// double area = ta.getDouble(0.0)
+
+		// SmartDashboard.putNumber("LimelightX", x)
+		// SmartDashboard.putNumber("LimelightY", y)
+		// SmartDashboard.putNumber("LimelightArea", area)
+		// }
 	}
-	
+
 	init {
 		OperatorInterface
+
+
 	}
 	
 	val subsystems = setOf(
@@ -39,14 +59,8 @@ object Robot : RobotProgram {
 	}
 	
 	override suspend fun autonomous() {
-		val chooser = SendableChooser<suspend () -> Unit>()
-		chooser.setDefaultOption("Primary", ::primaryAuton)
-		chooser.addOption("onlyCrossLine", ::onlyCrossLine)
-		chooser.addOption("rightPlayerStation", ::rightPlayerStation)
-		chooser.addOption("middletoShield", ::middletoShield)
-		chooser.addOption("travelOtherSide", ::travelOtherSide)
-		SmartDashboard.putData("Auton", chooser)
-		chooser.selected.invoke()
+		primaryAuton()
+		// onlyCrossLine()
 	}
 	
 	data class Recording(val left: Double, val right: Double)

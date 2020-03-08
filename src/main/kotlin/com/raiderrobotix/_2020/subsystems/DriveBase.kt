@@ -65,6 +65,8 @@ object DriveBase : Subsystem(name = "Drives") {
 		periodic {
 			SmartDashboard.putNumber("Left Encoder", leftEncoder.position)
 			SmartDashboard.putNumber("Right Encoder", rightEncoder.position)
+			SmartDashboard.putNumber("NAVX YAW", navX.angle)
+
 		}
 	}
 	

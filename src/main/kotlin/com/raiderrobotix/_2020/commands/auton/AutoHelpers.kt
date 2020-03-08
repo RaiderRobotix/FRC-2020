@@ -2,6 +2,7 @@ package com.raiderrobotix._2020.commands.auton
 
 import com.raiderrobotix._2020.Robot
 import com.raiderrobotix._2020.subsystems.Intake
+import com.raiderrobotix._2020.subsystems.DriveBase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import org.team2471.frc.lib.coroutines.meanlibLaunch
@@ -15,6 +16,7 @@ suspend fun queueBall(numBalls: Int) {
 		suspendUntil { !Intake.IntakeBreaker.input.get() }
 		Intake.outer.speed = 0.0
 		suspendUntil { Intake.IntakeBreaker.input.get() }
+		suspendUntil{DriveBase.averageDistance > 2.0*12}
 		delay(800)
 	}
 		Intake.outer.speed = 0.6

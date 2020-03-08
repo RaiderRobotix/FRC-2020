@@ -6,9 +6,9 @@ import com.raiderrobotix._2020.subsystems.DriveBase
 suspend fun onlyCrossLine() {
 	// Auton Test
 	// Start on Left Player Station
-	
+	// add cowl
 	fireNBalls(3)
-	drive(displacement = -1.5*12, speed = 0.2) // input correct distance
+	drive(displacement = -2.0*12, speed = 0.2) // input correct distance
 	
 	DriveBase.speed = 0.0
 }
