@@ -19,23 +19,31 @@ suspend fun primaryAuton() {
 	use(DriveBase) {
 	// adjustCowl(0.31)
     // fireNBalls(3)
-	drive(displacement = -2.0 * 12, speed = 0.4)
-	turn(angularDisplacement = 2.0, speed = 0.2) 
-	DriveBase.tankDrive(-0.3, -0.3)
-	queueBall(3)
-	suspendUntil{ abs(DriveBase.averageDistance) >= 2.0}
-	DriveBase.reset()
-	Intake.upper.speed = 1.0
-	Intake.lower.speed = -1.0
-	suspendUntil { !Intake.ShooterBreaker.input.get() }
-	Intake.reset()
-	// Shooter.reset()
+	// val drive = GlobalScope.meanlibLaunch {
+	val initial = DriveBase.distance
+	driveWithoutCorrection(displacement = -4.0 * 12, speed = 0.25, rightIncrement = 0.01)
+	val after = DriveBase.distance
+	val togo = -12.0 * 12 - (after-initial)
+	driveWithoutCorrection(displacement = togo, speed = 0.60, rightIncrement = 0.03)
+	// }
+	// delay(1000*5)
+	// drive.cancelAndJoin()
+	// turn(angularDisplacement = 2.0, speed = 0.2) 
+	// DriveBase.tankDrive(-0.3, -0.3)
+	// queueBall(3)
+	// suspendUntil{ abs(DriveBase.distance) >= 2.0}
+	// DriveBase.reset()
+	// Intake.upper.speed = 1.0
+	// Intake.lower.speed = -1.0
+	// suspendUntil { !Intake.ShooterBreaker.input.get() }
+	// Intake.reset()
+	// // Shooter.reset()
 
-	drive(displacement = 7.0 * 12, speed = 0.4)
-	delay(100)
-	turn(angularDisplacement = -3.0, speed = 0.4) 
+	// drive(displacement = 7.0 * 12, speed = 0.4)
+	// delay(100)
+	// turn(angularDisplacement = -3.0, speed = 0.4) 
 
-	DriveBase.reset()
+	// DriveBase.reset()
 
 		// repeat(3) {
 		// 	Intake.upper.speed = 1.0

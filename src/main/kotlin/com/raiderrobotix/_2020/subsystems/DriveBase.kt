@@ -41,13 +41,7 @@ object DriveBase : Subsystem(name = "Drives") {
 		rightEncoder.positionConversionFactor = INCHES_PER_REVOLUTION
 	}
 	
-	val averageDistance: Double // Rename to distance
-		get() = (leftDistance + rightDistance) / 2.0
-	
-	private val leftDistance: Double
-		get() = leftEncoder.position
-	
-	private val rightDistance: Double
+	val distance: Double
 		get() = rightEncoder.position
 	
 	var speed: Double
@@ -71,10 +65,7 @@ object DriveBase : Subsystem(name = "Drives") {
 	}
 	
 	override fun reset() {
-		navX.zeroYaw()
 		speed = 0.0
-		leftEncoder.position = 0.0
-		rightEncoder.position = 0.0
 	}
 
 //	override fun initSendable(builder: SendableBuilder) {

@@ -16,7 +16,7 @@ suspend fun queueBall(numBalls: Int) {
 		suspendUntil { !Intake.IntakeBreaker.input.get() }
 		Intake.outer.speed = 0.0
 		suspendUntil { Intake.IntakeBreaker.input.get() }
-		suspendUntil{DriveBase.averageDistance > 2.0*12}
+		suspendUntil{DriveBase.distance > 2.0*12}
 		delay(800)
 	}
 		Intake.outer.speed = 0.6
