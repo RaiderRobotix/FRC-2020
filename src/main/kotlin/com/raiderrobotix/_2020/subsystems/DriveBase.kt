@@ -40,7 +40,7 @@ object DriveBase : Subsystem(name = "Drives") {
         rightEncoder.positionConversionFactor = INCHES_PER_REVOLUTION
     }
 
-    val averageDistance: Double // Rename to distance
+    val distance: Double
         get() = (leftDistance + rightDistance) / 2.0
 
     private val leftDistance: Double
@@ -64,24 +64,11 @@ object DriveBase : Subsystem(name = "Drives") {
         periodic {
             SmartDashboard.putNumber("Left Encoder", leftEncoder.position)
             SmartDashboard.putNumber("Right Encoder", rightEncoder.position)
+            SmartDashboard.putNumber("NAVX YAW", navX.angle)
         }
     }
 
     override fun reset() {
-        navX.zeroYaw()
         speed = 0.0
-        leftEncoder.position = 0.0
-        rightEncoder.position = 0.0
     }
-
-// 	override fun initSendable(builder: SendableBuilder) {
-// 		builder.setSmartDashboardType("Drives")
-// 		builder.setActuator(true)
-// 		builder.setSafeState { speed = 0.0 }
-// 		builder.addDoubleProperty("leftDistance", ::leftDistance, null)
-// 		builder.addDoubleProperty("rightDistance", ::rightDistance, null)
-// 		val firmwareSupplier = { arrayOf<String>("Left Front " + leftFrontSpark.firmwareString, "Left Back " + leftBackSpark.firmwareString, "Right Front" + rightFrontSpark.firmwareString, "Right Back " + rightBackSpark.firmwareString) }
-// 		builder.addStringArrayProperty("firmware", firmwareSupplier, null)
-// 		builder.addDoubleProperty("Gyro", ::gyroAngle, null)
-// 	}
 }

@@ -16,9 +16,10 @@ private const val TURN_TOLERANCE = 1.0 // TODO
 suspend fun turn(angularDisplacement: Double, speed: Double) = use(DriveBase) {
     val speed = abs(speed) * sign(angularDisplacement)
     val navX = DriveBase.navX
-    navX.zeroYaw()
+    val startingAngle = navX.angle
+
     periodic {
-        if (abs(navX.angle - angularDisplacement) >= TURN_TOLERANCE) {
+        if (abs((navX.angle - startingAngle) - angularDisplacement) >= TURN_TOLERANCE) {
             DriveBase.tankDrive(speed, -speed)
         } else {
             stop()

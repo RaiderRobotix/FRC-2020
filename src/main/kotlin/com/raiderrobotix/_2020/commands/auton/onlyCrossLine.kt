@@ -8,7 +8,7 @@ suspend fun onlyCrossLine() {
     // Start on Left Player Station
 
     fireNBalls(3)
-    drive(displacement = 3.0, speed = 0.2) // input correct distance
+    drive(displacement = -2.0 * 12, speed = 0.2) // input correct distance
 
     DriveBase.speed = 0.0
 }
