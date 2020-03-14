@@ -1,0 +1,9 @@
+root = true
+
+[*.{kt,kts}]
+disabled_rules=no-wildcard-imports
+indent_size=4
+indent_style = tab
+insert_final_newline=true
+max_line_length=off
+indent_style = tab
